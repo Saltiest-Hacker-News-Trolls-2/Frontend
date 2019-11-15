@@ -17,6 +17,8 @@ import './styles/basics.css';
   APP
 ***************************************/
 ReactDOM.render (
-  <App />
+  <Router>
+    <App />
+  </Router>
 , document.getElementById ('root')
 );
