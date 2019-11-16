@@ -11,7 +11,7 @@ const Home = (props) => {
         <h2>Home</h2>
       </header>
       <main>
-        TODO
+        TODO?
       </main>
       <footer></footer>
     </section>

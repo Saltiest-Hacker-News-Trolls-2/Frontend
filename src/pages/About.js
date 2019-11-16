@@ -11,7 +11,7 @@ const About = (props) => {
         <h2>About</h2>
       </header>
       <main>
-        TODO
+        TODO?
       </main>
       <footer></footer>
     </section>
