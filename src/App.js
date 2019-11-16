@@ -23,7 +23,22 @@ function App () {
         </nav>
       </header>
       <main>
-        TODO
+        <Route
+          exact path={[ '/' , '/home' ]}
+          render={() => (<h2>Home</h2>)}
+        />
+        <Route
+          exact path={[ '/user/account' , '/user' , '/account' ]}
+          render={() => (<h2>Account</h2>)}
+        />
+        <Route
+          exact path={[ '/user/sign-in' , '/sign-in' ]}
+          render={() => (<h2>Sign In</h2>)}
+        />
+        <Route
+          exact path={[ '/user/sign-up' , '/sign-up' ]}
+          render={() => (<h2>Sign Up</h2>)}
+        />
       </main>
       <footer>
         TODO
