@@ -6,7 +6,15 @@ import React from 'react';
 ***************************************/
 const Home = (props) => {
   return (
-    <div></div>
+    <section id='home' className='page'>
+      <header>
+        <h2>Home</h2>
+      </header>
+      <main>
+        TODO
+      </main>
+      <footer></footer>
+    </section>
   );
 };
 

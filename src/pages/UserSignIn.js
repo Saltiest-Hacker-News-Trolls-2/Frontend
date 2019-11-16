@@ -6,7 +6,15 @@ import React from 'react';
 ***************************************/
 const UserSignIn = (props) => {
   return (
-    <div></div>
+    <section id='user-sign-in' className='page'>
+      <header>
+        <h2>Sign In</h2>
+      </header>
+      <main>
+        TODO
+      </main>
+      <footer></footer>
+    </section>
   );
 };
 
