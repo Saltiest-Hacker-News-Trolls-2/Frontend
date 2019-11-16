@@ -1,5 +1,24 @@
 # Frontend
 
+## Dependencies beyond `create-react-app`'s
+
+### Styling
+
+-   `reset-css`
+-   `normalize-css`
+-   `styled-components`
+
+### Interactivity
+
+-   `react-router-dom`
+-   `axios`
+-   `formik`
+-   `yup`
+
+### Utility
+
+-   `babel-plugin-styled-components`
+
 --------------------
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
