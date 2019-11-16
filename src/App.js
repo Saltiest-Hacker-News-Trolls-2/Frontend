@@ -2,6 +2,12 @@
 import React from 'react';
 import { Route , NavLink } from 'react-router-dom';
 
+/// internal modules ///
+import Home from './pages/Home';
+import UserAccount from './pages/UserAccount';
+import UserSignIn from './pages/UserSignIn';
+import UserSignUp from './pages/UserSignUp';
+
 /// styles ///
 import './styles/App.css';
 
@@ -25,19 +31,19 @@ function App () {
       <main>
         <Route
           exact path={[ '/' , '/home' ]}
-          render={() => (<h2>Home</h2>)}
+          render={() => (<Home />)}
         />
         <Route
           exact path={[ '/user/account' , '/user' , '/account' ]}
-          render={() => (<h2>Account</h2>)}
+          render={() => (<UserAccount />)}
         />
         <Route
           exact path={[ '/user/sign-in' , '/sign-in' ]}
-          render={() => (<h2>Sign In</h2>)}
+          render={() => (<UserSignIn />)}
         />
         <Route
           exact path={[ '/user/sign-up' , '/sign-up' ]}
-          render={() => (<h2>Sign Up</h2>)}
+          render={() => (<UserSignUp />)}
         />
       </main>
       <footer>
