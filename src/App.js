@@ -10,6 +10,15 @@ import './styles/App.css';
 function App () {
   return (
     <div className='App'>
+      <header>
+        <h1>TODO</h1>
+      </header>
+      <main>
+        TODO
+      </main>
+      <footer>
+        TODO
+      </footer>
     </div>
   );
 }
