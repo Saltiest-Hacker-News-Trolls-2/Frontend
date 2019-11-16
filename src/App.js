@@ -4,6 +4,7 @@ import { Route , NavLink } from 'react-router-dom';
 
 /// internal modules ///
 import Home from './pages/Home';
+import About from './pages/About';
 import UserAccount from './pages/UserAccount';
 import UserSignIn from './pages/UserSignIn';
 import UserSignUp from './pages/UserSignUp';
@@ -22,6 +23,7 @@ function App () {
         <nav>
           <ul>
             <NavLink to='/'>Home</NavLink>
+            <NavLink to='/about'>About</NavLink>
             <NavLink to='/user/account'>Account</NavLink>
             <NavLink to='/user/sign-in'>Sign In</NavLink>
             <NavLink to='/user/sign-up'>Sign Up</NavLink>
@@ -32,6 +34,10 @@ function App () {
         <Route
           exact path={[ '/' , '/home' ]}
           render={() => (<Home />)}
+        />
+        <Route
+          exact path={[ '/about' ]}
+          render={() => (<About />)}
         />
         <Route
           exact path={[ '/user/account' , '/user' , '/account' ]}
