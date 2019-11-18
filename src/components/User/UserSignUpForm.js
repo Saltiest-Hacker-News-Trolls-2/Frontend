@@ -61,9 +61,9 @@ const UserSignUpForm = (props) => {
 const FormikUserSignUpForm = withFormik ({
   mapPropsToValues : (values) => ({
     'username' : values.username || init.username.default,
-    'email' : values.email    || init.email.default,
+    'email' : values.email || init.email.default,
     'password' : values.password || init.password.default,
-    /* 'tos' : values.tos      || init.tos.default, */
+    /* 'tos' : values.tos || init.tos.default, */
   }),
   validationSchema : Yup.object ().shape ({
     'username' : Yup.string ()
