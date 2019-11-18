@@ -14,7 +14,7 @@ import FormItem from '../generics/forms/FormItem';
   STATES
 ***************************************/
 const init = {
-  'name' : {
+  'username' : {
     'default' : '',
   },
   'email' : {
