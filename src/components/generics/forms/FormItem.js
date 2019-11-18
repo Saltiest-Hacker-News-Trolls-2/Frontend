@@ -10,7 +10,7 @@ import FormError from './FormError';
 const FormItem = ({ children , ...props }) => {
   return (
     <div className={`form-item ${props.name}`}>
-      {React.cloneElement (children , props , [])}
+      {children}
       {FormError (props)}
     </div>
   );

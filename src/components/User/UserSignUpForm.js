@@ -38,20 +38,20 @@ const UserSignUpForm = (props) => {
     <Card>
       <Form className='user-sign-up'>
         <FormItem {...props} name='username'>
-          <Field type='text' placeholder='Username'/>
+          <Field type='text' name='username' placeholder='Username'/>
         </FormItem>
         <FormItem {...props} name='email'>
-          <Field type='email' placeholder='Email'/>
+          <Field type='email' name='email' placeholder='Email'/>
         </FormItem>
         <FormItem {...props} name='password'>
-          <Field type='password' placeholder='Password'/>
+          <Field type='password' name='password' placeholder='Password'/>
         </FormItem>
         {/* <FormItem {...props} name='tos'>
-          <Field type='checkbox' checked={props.values.tos}/>
+          <Field type='checkbox' name='tos' checked={props.values.tos}/>
           <label htmlFor="tos">I accept the <a href="#">Terms of Service</a>.</label>
         </FormItem> */}
         <FormItem {...props} name='submit'>
-          <button type='submit'>Submit</button>
+          <button type='submit' name='submit'>Submit</button>
         </FormItem>
       </Form>
     </Card>
