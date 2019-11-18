@@ -7,6 +7,7 @@ import Home from './pages/Home';
 import About from './pages/About';
 import UserAccount from './pages/UserAccount';
 import UserSignIn from './pages/UserSignIn';
+import UserSignOut from './pages/UserSignOut';
 import UserSignUp from './pages/UserSignUp';
 import PrivateRoute from './components/PrivateRoute';
 
@@ -66,6 +67,4 @@ function App () {
     </Router>
   );
 }
-
-/**************************************/
 export default App;
