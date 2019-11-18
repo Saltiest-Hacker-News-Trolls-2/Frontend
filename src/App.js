@@ -7,6 +7,7 @@ import Home from './pages/Home';
 import About from './pages/About';
 import UserAccount from './pages/UserAccount';
 import UserSignIn from './pages/UserSignIn';
+import UserSignOut from './pages/UserSignOut';
 import UserSignUp from './pages/UserSignUp';
 
 /// styles ///
@@ -26,6 +27,7 @@ function App () {
             <NavLink to='/about'>About</NavLink>
             <NavLink to='/user/account'>Account</NavLink>
             <NavLink to='/user/sign-in'>Sign In</NavLink>
+            <NavLink to='/user/sign-out'>Sign Out</NavLink>
             <NavLink to='/user/sign-up'>Sign Up</NavLink>
           </ul>
         </nav>
@@ -42,6 +44,10 @@ function App () {
         <Route
           exact path={[ '/user/account' , '/user' , '/account' ]}
           render={() => (<UserAccount />)}
+        />
+        <Route
+          exact path={[ '/user/sign-out' , '/sign-out' ]}
+          render={() => (<UserSignOut />)}
         />
         <Route
           exact path={[ '/user/sign-in' , '/sign-in' ]}
