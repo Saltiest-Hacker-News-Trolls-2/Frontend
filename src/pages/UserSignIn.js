@@ -1,6 +1,9 @@
 /// external modules ///
 import React from 'react';
 
+/// internal modules ///
+import UserSignInForm from '../components/User/UserSignInForm';
+
 /***************************************
   COMPONENT
 ***************************************/
@@ -11,7 +14,7 @@ const UserSignIn = (props) => {
         <h2>Sign In</h2>
       </header>
       <main>
-        TODO
+        <UserSignInForm submit={() => {}}/>
       </main>
       <footer></footer>
     </section>
