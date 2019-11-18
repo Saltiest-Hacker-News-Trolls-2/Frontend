@@ -2,6 +2,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
+/// internal modules ///
+import UserSignInForm from '../components/User/UserSignInForm';
+
 /***************************************
   COMPONENT
 ***************************************/
@@ -45,7 +48,7 @@ const UserSignIn = (props) => {
         <h2>Sign In</h2>
       </header>
       <main>
-        TODO
+        <UserSignInForm submit={() => {}}/>
       </main>
       <footer></footer>
     </section>
