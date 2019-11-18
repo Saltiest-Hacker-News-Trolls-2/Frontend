@@ -61,24 +61,26 @@ const UserSignUpForm = (props) => {
 const FormikUserSignUpForm = withFormik ({
   mapPropsToValues : (values) => ({
     'username' : values.username || init.username.default,
-    'email'    : values.email    || init.email.default,
+    'email' : values.email    || init.email.default,
     'password' : values.password || init.password.default,
-    // 'tos'      : values.tos      || init.tos.default,
+    /* 'tos' : values.tos      || init.tos.default, */
   }),
   validationSchema : Yup.object ().shape ({
-    'name'     : Yup.string ()
-      .required ('You must provide your name.')
+    'username' : Yup.string ()
+      .required ('You must provide your username.')
       .trim (),
-    'email'    : Yup.string ()
+    'email' : Yup.string ()
       .required ('You must provide your email.')
       .email ('That email address is not valid.'),
     'password' : Yup.string ()
       .required ('You must provide a password.')
       .min (init.password.min_length, `Your password must be no less than ${init.password.min_length} characters long.`)
       .max (init.password.max_length, `Your password must be no more than ${init.password.max_length} characters long.`),
-    // 'tos'      : Yup.boolean ()
-    //   .required ('You must choose whether to accept the Terms of Service.')
-    //   .oneOf ([true] , 'You must accept the Terms of Service.'),
+    /*
+    'tos' : Yup.boolean ()
+      .required ('You must choose whether to accept the Terms of Service.')
+      .oneOf ([true] , 'You must accept the Terms of Service.'),
+    */
   }),
   handleSubmit : (values, { props : { submit } , setSubmitting , resetForm }) => {
     try {
@@ -88,7 +90,7 @@ const FormikUserSignUpForm = withFormik ({
     }
     catch (error) {
       console.log ('--- failure! ---')
-        console.log (error);
+      console.log (error);
     }
     finally {
       setSubmitting (false);
