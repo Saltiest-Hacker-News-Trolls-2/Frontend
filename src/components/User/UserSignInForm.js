@@ -69,6 +69,8 @@ const FormikUserSignInForm = withFormik ({
   }),
   handleSubmit : (values, { props : { submit } , setSubmitting , resetForm }) => {
     try {
+      console.log ('--- submitting... ---');
+      console.log (values);
       console.log ('--- success! ---');
       submit (values);
       resetForm ();
