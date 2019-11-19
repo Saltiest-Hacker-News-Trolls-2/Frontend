@@ -19,6 +19,8 @@
 
 -   `babel-plugin-styled-components`
 -   `react-redux`
+-   `redux`
+-   `react-thunk`
 
 --------------------
 
