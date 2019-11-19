@@ -5,26 +5,12 @@ import { withFormik , Form , Field } from 'formik';
 import * as Yup from 'yup';
 
 /// internal modules ///
+import * as fi from './Form-helpers';
 import Card from '../generics/cards/Card';
 import CardHead from '../generics/cards/CardHead';
 import CardBody from '../generics/cards/CardBody';
 import CardFoot from '../generics/cards/CardFoot';
 import FormItem from '../generics/forms/FormItem';
-
-/***************************************
-  STATES
-***************************************/
-const init = {
-  'username' : {
-    'default' : '',
-  },
-  'email' : {
-    'default' : '',
-  },
-  'password' : {
-    'default' : '',
-  },
-};
 
 /***************************************
   COMPONENT
@@ -51,6 +37,15 @@ const UserSignInForm = (props) => {
 };
 
 const FormikUserSignInForm = withFormik ({
+  mapPropsToValues : fi.mapPropsToValues,
+  validationSchema : Yup.object ().shape (fi.partialSchemaShape ([
+    'username' ,
+    'password' ,
+  ])),
+  handleSubmit : fi.handlePartialSubmit ([
+    'username' ,
+    'password' ,
+  ]),
   mapPropsToValues : (values) => ({
     'username' : values.username || init.username.default,
     /* 'email' : values.email || init.email.default, */
