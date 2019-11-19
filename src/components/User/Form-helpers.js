@@ -119,7 +119,6 @@ export const handlePartialSubmit = (names) => (
   catch (error) {
     console.log ('--- error! ---');
     console.log (error);
-
   }
   finally {
     setSubmitting (false);
