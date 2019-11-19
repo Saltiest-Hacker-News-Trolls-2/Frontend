@@ -8,8 +8,8 @@ import About from './pages/About';
 import UserAccount from './pages/UserAccount';
 import UserSignOut from './pages/UserSignOut';
 import PrivateRoute from './components/PrivateRoute';
-import FormikUserSignInForm from './components/User/UserSignInForm';
-import FormikUserSignUpForm from './components/User/UserSignUpForm';
+import UserSignInForm from './components/User/UserSignInForm';
+import UserSignUpForm from './components/User/UserSignUpForm';
 import NavBar from './components/NavBar'
 
 /// styles ///
@@ -36,11 +36,11 @@ function App () {
         />
         <Route
           exact path='/user/sign-in'
-          render={props => <FormikUserSignInForm {...props} submit={() => ({'result' : 'nothing'})}/>}
+          render={props => <UserSignInForm {...props} submit={() => ({'result' : 'nothing'})}/>}
         />
         <Route
           exact path='/user/sign-up'
-          render={props => <FormikUserSignUpForm {...props} submit={() => ({'result' : 'nothing'})}/>}
+          render={props => <UserSignUpForm {...props} submit={() => ({'result' : 'nothing'})}/>}
         />
     </div>
   );
