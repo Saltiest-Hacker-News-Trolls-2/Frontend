@@ -34,7 +34,7 @@ export const fields = ({
   },
 });
 
-export const someFields = (names) => (
+export const partialFields = (names) => (
   Object.filter (fields , entriesByName (names))
 );
 
@@ -82,7 +82,7 @@ export const schema = ({
     .oneOf ([true] , 'You must accept the Terms of Service.'),
 });
 
-export const someSchema = (names) => (
+export const partialSchema = (names) => (
   Object.filter (schema , entriesByName (names))
 );
 
