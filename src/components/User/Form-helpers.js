@@ -81,7 +81,7 @@ export const partialSchemaShape = (names) => (filterObjectByKey (schemaShape , n
 ***************************************/
 export const handlePartialSubmit = (names) => (
   values ,
-  { props : { submit } , setSubmitting , resetForm }
+  { props : { submit } , setErrors , setSubmitting , resetForm }
 ) => {
   /// select values to submit ///
   let valuesToSubmit;
@@ -94,13 +94,32 @@ export const handlePartialSubmit = (names) => (
   try {
     console.log ('--- submitting... ---');
     console.log (valuesToSubmit);
-    submit (valuesToSubmit);
-    console.log ('--- success! ---');
-    resetForm ();
+    //
+    const response = submit (valuesToSubmit);
+    console.log ('--- server responded with... ---');
+    console.log (response);
+    //
+    if (response) {
+      if (response.errors === undefined) {
+        console.log ('--- success! ---');
+        console.log ('resetting form and redirecting...');
+        resetForm ();
+      } else {
+        console.log ('--- failure! ---');
+        console.log ('setting error messages...');
+        setErrors (response.errors);
+      }
+    } else {
+      setErrors ({
+        'submit' : 'The server did not respond.',
+      });
+      throw (new Error ('Submission did not return a response from the server.'));
+    }
   }
   catch (error) {
-    console.log ('--- failure! ---');
+    console.log ('--- error! ---');
     console.log (error);
+
   }
   finally {
     setSubmitting (false);
