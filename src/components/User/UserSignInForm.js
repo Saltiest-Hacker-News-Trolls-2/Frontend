@@ -37,10 +37,14 @@ const UserSignInForm = (props) => {
 
 const FormikUserSignInForm = withFormik ({
   mapPropsToValues : fi.mapPropsToValues,
-  validationSchema : Yup.object ().shape (
-    fi.partialSchemaShape ([ 'username' , 'password' ])
-  ),
-  handleSubmit : fi.handlePartialSubmit ([ 'username' , 'password' ]),
+  validationSchema : Yup.object ().shape (fi.partialSchemaShape ([
+    'username' ,
+    'password' ,
+  ])),
+  handleSubmit : fi.handlePartialSubmit ([
+    'username' ,
+    'password' ,
+  ]),
 }) (UserSignInForm);
 
 /**************************************/
