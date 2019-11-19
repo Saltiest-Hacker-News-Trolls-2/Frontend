@@ -9,6 +9,12 @@ import { isFunction } from './is-type';
 /***************************************
   FILTERS
 ***************************************/
+/*--------------------------------------
+  filterObject
+  Filter an Object's entries like an Array.
+----------------------------------------
+  Based on: <https://stackoverflow.com/a/37616104>
+--------------------------------------*/
 export const filterObject = (obj , fun) => {
   if (isFunction (fun)) {
     return (Object.fromEntries (Object.entries (obj).filter (fun)));
