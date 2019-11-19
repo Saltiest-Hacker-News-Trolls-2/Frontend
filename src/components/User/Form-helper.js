@@ -81,7 +81,7 @@ export const partialSchema = (names) => (filterObjectByKey (schema , names));
 ***************************************/
 export const handlePartialSubmit = (names) => (values, { props : { submit } , setSubmitting , resetForm }) => {
   /// select values to submit ///
-  const valuesToSubmit;
+  let valuesToSubmit;
   if (names === null) {
     valuesToSubmit = filterObjectByKey (values , names);
   }
