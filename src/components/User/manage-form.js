@@ -107,7 +107,7 @@ export const handlePartialSubmit = (names) => (values, { props : { submit } , se
     resetForm ();
   }
   catch (error) {
-    console.log ('--- failure! ---')
+    console.log ('--- failure! ---');
     console.log (error);
   }
   finally {
