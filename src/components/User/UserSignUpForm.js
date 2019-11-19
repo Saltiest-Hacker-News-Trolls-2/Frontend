@@ -71,6 +71,7 @@ const FormikUserSignUpForm = withFormik ({
       .trim (),
     'email' : Yup.string ()
       .required ('You must provide your email.')
+      .trim ()
       .email ('That email address is not valid.'),
     'password' : Yup.string ()
       .required ('You must provide a password.')
