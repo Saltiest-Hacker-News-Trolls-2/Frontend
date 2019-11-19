@@ -89,10 +89,17 @@ export const someSchema = (names) => (
 /***************************************
   HANDLE SUBMIT
 ***************************************/
-export const handleSubmit = (names) => (values, { props : { submit } , setSubmitting , resetForm }) => {
-
+export const handlePartialSubmit = (names) => (values, { props : { submit } , setSubmitting , resetForm }) => {
+  /// select values to submit ///
+  const valuesToSubmit;
+  if (names === null) {
+    valuesToSubmit = Object.filter (values , entriesByName (names));
+  }
+  else {
+    valuesToSubmit = values;
+  }
+  /// try submitting ///
   try {
-    const valuesToSubmit = Object.filter (values , entriesByName (names));
     console.log ('--- submitting... ---');
     console.log (valuesToSubmit);
     submit (valuesToSubmit);
@@ -107,3 +114,5 @@ export const handleSubmit = (names) => (values, { props : { submit } , setSubmit
     setSubmitting (false);
   }
 };
+
+export const handleSubmit = handlePartialSubmit (null);
