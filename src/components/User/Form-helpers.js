@@ -79,7 +79,10 @@ export const partialSchemaShape = (names) => (filterObjectByKey (schemaShape , n
 /***************************************
   HANDLE SUBMIT
 ***************************************/
-export const handlePartialSubmit = (names) => (values, { props : { submit } , setSubmitting , resetForm }) => {
+export const handlePartialSubmit = (names) => (
+  values ,
+  { props : { submit } , setSubmitting , resetForm }
+) => {
   /// select values to submit ///
   let valuesToSubmit;
   if (names !== null) {
