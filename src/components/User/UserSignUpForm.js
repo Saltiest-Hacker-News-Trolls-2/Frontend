@@ -12,26 +12,6 @@ import CardFoot from '../generics/cards/CardFoot';
 import FormItem from '../generics/forms/FormItem';
 
 /***************************************
-  STATES
-***************************************/
-const init = {
-  'username' : {
-    'default' : '',
-  },
-  'email' : {
-    'default' : '',
-  },
-  'password' : {
-    'default'    : '',
-    'min_length' : 6,
-    'max_length' : 60,
-  },
-  'agree_to_terms' : {
-    'default' : false,
-  },
-};
-
-/***************************************
   COMPONENT
 ***************************************/
 const UserSignUpForm = (props) => {
