@@ -18,6 +18,7 @@
 ### Utility
 
 -   `babel-plugin-styled-components`
+-   `react-redux`
 
 --------------------
 

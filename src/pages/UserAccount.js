@@ -5,6 +5,8 @@ import React from 'react';
   COMPONENT
 ***************************************/
 const UserAccount = (props) => {
+  console.log(sessionStorage)
+  console.log(window.history)
   return (
     <section id='user-account' className='page'>
       <header>

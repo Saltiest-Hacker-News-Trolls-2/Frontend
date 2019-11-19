@@ -1,5 +1,6 @@
 /// external modules ///
 import React from 'react';
+import axios from 'axios';
 import { withFormik , Form , Field } from 'formik';
 import * as Yup from 'yup';
 
@@ -67,34 +68,21 @@ const FormikUserSignInForm = withFormik ({
     'password' : Yup.string ()
       .required ('You must provide a password.'),
   }),
-  handleSubmit : (values, { props : { submit } , setSubmitting , resetForm }) => {
-    try {
-      console.log ('--- success! ---');
-      submit (values);
-      resetForm ();
-    }
-    catch (error) {
-      console.log ('--- failure! ---')
-      console.log (error);
-    }
-    finally {
-      setSubmitting (false);
-    }
-    // axios
-    //   .post ("https://reqres.in/api/users" , values)
-    //   .then ((response) => {
-    //     console.log ('--- success! ---')
-    //     console.log (response);
-    //     addUser (response.data);
-    //     resetForm ();
-    //   })
-    //   .catch ((error) => {
-    //     console.log ('--- failure! ---')
-    //     console.log (error);
-    //   })
-    //   .finally (() => {
-    //     setSubmitting (false);
-    //   });
+  handleSubmit : (values) => {
+    axios
+      .post ("https://only-salty-hackers.herokuapp.com/api/login/" , values)
+      .then (response => {
+        console.log ('--- success! ---')
+        console.log (response);
+        localStorage.setItem('token', response.data.token);
+        localStorage.setItem('user', JSON.stringify(response.data));
+        localStorage.setItem('isLoggedIn', true)
+        console.log(localStorage)
+      })
+      .catch (error => {
+        console.log ('--- failure! ---')
+        console.log (error);
+      })
   }
 }) (UserSignInForm);
 

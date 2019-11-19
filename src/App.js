@@ -6,10 +6,11 @@ import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import Home from './pages/Home';
 import About from './pages/About';
 import UserAccount from './pages/UserAccount';
-import UserSignIn from './pages/UserSignIn';
 import UserSignOut from './pages/UserSignOut';
-import UserSignUp from './pages/UserSignUp';
 import PrivateRoute from './components/PrivateRoute';
+import FormikUserSignInForm from './components/User/UserSignInForm';
+import FormikUserSignUpForm from './components/User/UserSignUpForm';
+import NavBar from './components/NavBar'
 
 /// styles ///
 import './styles/App.css';
@@ -19,52 +20,29 @@ import './styles/App.css';
 ***************************************/
 function App () {
   return (
-    <Router>
-      <div className='App'>
-        <ul>
-          <li>
-            <Link to='/'>Home</Link>
-          </li>
-          <li>
-            <Link to='/about'>About</Link>
-          </li>
-          <li>
-            <Link to='/user/account'>Account</Link>
-          </li>
-          <li>
-            <Link to='/user/sign-in'>Sign In</Link>
-          </li>
-          <li>
-            <Link to='/user/sign-up'>Sign Up</Link>
-          </li>
-        </ul>
-        <Switch>
-          <Route
-            exact path='/'
-            component={Home}
-          />
-          <Route
-            exact path='/about'
-            component={About}
-          />
-          <PrivateRoute path='/user/account'>
-            <Route
-              exact path='/user/account'
-              component={UserAccount}
-            />
-          </PrivateRoute>
-          <Route
-            exact path='/user/sign-in'
-            component={UserSignIn}
-          />
-          <Route
-            exact path='/user/sign-up'
-            component={UserSignUp}
-          />
-          <Route component={Home} />
-        </Switch>
-      </div>
-    </Router>
+    <div className='App'>
+      <NavBar />
+        <Route
+          exact path='/'
+          component={Home}
+        />
+        <Route
+          exact path='/about'
+          component={About}
+        />
+        <PrivateRoute
+            exact path='/user/account'
+            component={UserAccount}
+        />
+        <Route
+          exact path='/user/sign-in'
+          render={props => <FormikUserSignInForm {...props} />}
+        />
+        <Route
+          exact path='/user/sign-up'
+          render={props => <FormikUserSignUpForm {...props} />}
+        />
+    </div>
   );
 }
 export default App;
