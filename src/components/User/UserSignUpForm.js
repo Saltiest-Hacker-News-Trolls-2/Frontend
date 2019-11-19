@@ -25,7 +25,7 @@ const init = {
     'min_length' : 6,
     'max_length' : 60,
   },
-  'tos' : {
+  'agree_to_terms' : {
     'default' : false,
   },
 };
@@ -46,9 +46,9 @@ const UserSignUpForm = (props) => {
         <FormItem {...props} name='password'>
           <Field type='password' name='password' placeholder='Password'/>
         </FormItem>
-        {/* <FormItem {...props} name='tos'>
-          <Field type='checkbox' name='tos' checked={props.values.tos}/>
-          <label htmlFor="tos">I accept the <a href="#">Terms of Service</a>.</label>
+        {/* <FormItem {...props} name='agree_to_terms'>
+          <Field type='checkbox' name='agree_to_terms' checked={props.values.agree_to_terms}/>
+          <label htmlFor='agree_to_terms'>I accept the <a href='#'>Terms of Service</a>.</label>
         </FormItem> */}
         <FormItem {...props} name='submit'>
           <button type='submit' name='submit'>Submit</button>
@@ -60,10 +60,10 @@ const UserSignUpForm = (props) => {
 
 const FormikUserSignUpForm = withFormik ({
   mapPropsToValues : (values) => ({
-    'username' : values.username || init.username.default,
-    'email' : values.email || init.email.default,
-    'password' : values.password || init.password.default,
-    /* 'tos' : values.tos || init.tos.default, */
+    'username'         : values.username         || init.username.default,
+    'email'            : values.email            || init.email.default,
+    'password'         : values.password         || init.password.default,
+    /* 'agree_to_terms' : values.agree_to_terms || init.agree_to_terms.default, */
   }),
   validationSchema : Yup.object ().shape ({
     'username' : Yup.string ()
@@ -77,7 +77,7 @@ const FormikUserSignUpForm = withFormik ({
       .min (init.password.min_length, `Your password must be no less than ${init.password.min_length} characters long.`)
       .max (init.password.max_length, `Your password must be no more than ${init.password.max_length} characters long.`),
     /*
-    'tos' : Yup.boolean ()
+    'agree_to_terms' : Yup.boolean ()
       .required ('You must choose whether to accept the Terms of Service.')
       .oneOf ([true] , 'You must accept the Terms of Service.'),
     */
