@@ -82,21 +82,6 @@ const FormikUserSignInForm = withFormik ({
     finally {
       setSubmitting (false);
     }
-    // axios
-    //   .post ("https://reqres.in/api/users" , values)
-    //   .then ((response) => {
-    //     console.log ('--- success! ---')
-    //     console.log (response);
-    //     addUser (response.data);
-    //     resetForm ();
-    //   })
-    //   .catch ((error) => {
-    //     console.log ('--- failure! ---')
-    //     console.log (error);
-    //   })
-    //   .finally (() => {
-    //     setSubmitting (false);
-    //   });
   }
 }) (UserSignInForm);
 
