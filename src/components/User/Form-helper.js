@@ -46,7 +46,7 @@ export const mapPropsToValues = (values) => ({
 /***************************************
   VALIDATION SCHEMA
 ***************************************/
-export const schema = ({
+export const schemaShape = ({
   'username' : Yup.string ()
     .required ('You must provide your username.')
     .trim (),
@@ -74,7 +74,7 @@ export const schema = ({
     .oneOf ([true] , 'You must accept the Terms of Service.'),
 });
 
-export const partialSchema = (names) => (filterObjectByKey (schema , names));
+export const partialSchemaShape = (names) => (filterObjectByKey (schemaShape , names));
 
 /***************************************
   HANDLE SUBMIT
