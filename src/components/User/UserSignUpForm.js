@@ -1,5 +1,6 @@
 /// external modules ///
 import React from 'react';
+import axios from 'axios';
 import { withFormik , Form , Field } from 'formik';
 import * as Yup from 'yup';
 
@@ -82,36 +83,19 @@ const FormikUserSignUpForm = withFormik ({
       .oneOf ([true] , 'You must accept the Terms of Service.'),
     */
   }),
-  handleSubmit : (values, { props : { submit } , setSubmitting , resetForm }) => {
-    try {
-      console.log ('--- submitting... ---');
-      console.log (values);
-      submit (values);
-      console.log ('--- success! ---');
-      resetForm ();
-    }
-    catch (error) {
-      console.log ('--- failure! ---')
-      console.log (error);
-    }
-    finally {
-      setSubmitting (false);
-    }
-    // axios
-    //   .post ("https://reqres.in/api/users" , values)
-    //   .then ((response) => {
-    //     console.log ('--- success! ---')
-    //     console.log (response);
-    //     addUser (response.data);
-    //     resetForm ();
-    //   })
-    //   .catch ((error) => {
-    //     console.log ('--- failure! ---')
-    //     console.log (error);
-    //   })
-    //   .finally (() => {
-    //     setSubmitting (false);
-    //   });
+  handleSubmit : (values, setSubmitting) => {
+    axios
+      .post('https://only-salty-hackers.herokuapp.com/api/register/', values)
+      .then(res => {
+        console.log ('--- success! ---')
+        console.log('response', res)
+        sessionStorage.setItem(res.data.token, res.data);
+        console.log(sessionStorage)
+      })
+      .catch(er => {
+        console.log ('--- failure! ---')
+        console.log(er)
+      })
   }
 }) (UserSignUpForm);
 
