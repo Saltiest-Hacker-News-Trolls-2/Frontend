@@ -4,26 +4,12 @@ import { withFormik , Form , Field } from 'formik';
 import * as Yup from 'yup';
 
 /// internal modules ///
+import * as fi from './Form-helpers';
 import Card from '../generics/cards/Card';
 import CardHead from '../generics/cards/CardHead';
 import CardBody from '../generics/cards/CardBody';
 import CardFoot from '../generics/cards/CardFoot';
 import FormItem from '../generics/forms/FormItem';
-
-/***************************************
-  STATES
-***************************************/
-const init = {
-  'username' : {
-    'default' : '',
-  },
-  'email' : {
-    'default' : '',
-  },
-  'password' : {
-    'default' : '',
-  },
-};
 
 /***************************************
   COMPONENT
@@ -50,39 +36,11 @@ const UserSignInForm = (props) => {
 };
 
 const FormikUserSignInForm = withFormik ({
-  mapPropsToValues : (values) => ({
-    'username' : values.username || init.username.default,
-    /* 'email' : values.email || init.email.default, */
-    'password' : values.password || init.password.default,
-  }),
-  validationSchema : Yup.object ().shape ({
-    'username' : Yup.string ()
-      .required ('You must provide your username.')
-      .trim (),
-    /*
-    'email' : Yup.string ()
-      .required ('You must provide your email.')
-      .email ('That email address is not valid.'),
-    */
-    'password' : Yup.string ()
-      .required ('You must provide a password.'),
-  }),
-  handleSubmit : (values, { props : { submit } , setSubmitting , resetForm }) => {
-    try {
-      console.log ('--- submitting... ---');
-      console.log (values);
-      console.log ('--- success! ---');
-      submit (values);
-      resetForm ();
-    }
-    catch (error) {
-      console.log ('--- failure! ---')
-      console.log (error);
-    }
-    finally {
-      setSubmitting (false);
-    }
-  }
+  mapPropsToValues : fi.mapPropsToValues,
+  validationSchema : Yup.object ().shape (
+    fi.partialSchemaShape ([ 'username' , 'password' ])
+  ),
+  handleSubmit : fi.handlePartialSubmit ([ 'username' , 'password' ]),
 }) (UserSignInForm);
 
 /**************************************/
