@@ -5,6 +5,15 @@
 /// external modules ///
 import * as Yup from 'yup';
 
+/*//////////////////////////////////////
+  UTILS
+//////////////////////////////////////*/
+Object.filter = (obj , fun) => (
+  Object.fromEntries (Object.entries (obj).filter (fun))
+);
+
+const entriesByName = (name) => ([ key ]) => (name.includes (key));
+
 /***************************************
   RECOGNIZED FIELDS
 ***************************************/
