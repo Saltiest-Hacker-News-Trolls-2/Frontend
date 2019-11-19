@@ -33,7 +33,7 @@ export const partialFields = (names) => (filterObjectByKey (fields , names));
 /***************************************
   MAP PROPS TO VALUES
 ***************************************/
-export const map = (values) => ({
+export const mapPropsToValues = (values) => ({
   'username'         : values.username         || fields.username.default,
   'confirm_username' : values.confirm_username || fields.username.default,
   'email'            : values.email            || fields.email.default,
