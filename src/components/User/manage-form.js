@@ -5,14 +5,8 @@
 /// external modules ///
 import * as Yup from 'yup';
 
-/*//////////////////////////////////////
-  UTILS
-//////////////////////////////////////*/
-Object.filter = (obj , fun) => (
-  Object.fromEntries (Object.entries (obj).filter (fun))
-);
-
-const entriesByName = (name) => ([ key ]) => (name.includes (key));
+/// internal modules ///
+import { filterObjectByKey } from '../../utils/';
 
 /***************************************
   RECOGNIZED FIELDS
@@ -34,9 +28,7 @@ export const fields = ({
   },
 });
 
-export const partialFields = (names) => (
-  Object.filter (fields , entriesByName (names))
-);
+export const partialFields = (names) => (filterObjectByKey (fields , names));
 
 /***************************************
   MAP PROPS TO VALUES
@@ -82,9 +74,7 @@ export const schema = ({
     .oneOf ([true] , 'You must accept the Terms of Service.'),
 });
 
-export const partialSchema = (names) => (
-  Object.filter (schema , entriesByName (names))
-);
+export const partialSchema = (names) => (filterObjectByKey (schema , names));
 
 /***************************************
   HANDLE SUBMIT
@@ -93,7 +83,7 @@ export const handlePartialSubmit = (names) => (values, { props : { submit } , se
   /// select values to submit ///
   const valuesToSubmit;
   if (names === null) {
-    valuesToSubmit = Object.filter (values , entriesByName (names));
+    valuesToSubmit = filterObjectByKey (values , names);
   }
   else {
     valuesToSubmit = values;
