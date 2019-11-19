@@ -36,11 +36,11 @@ function App () {
         />
         <Route
           exact path='/user/sign-in'
-          render={props => <FormikUserSignInForm {...props} />}
+          render={props => <FormikUserSignInForm {...props} submit={() => ({'result' : 'nothing'})}/>}
         />
         <Route
           exact path='/user/sign-up'
-          render={props => <FormikUserSignUpForm {...props} />}
+          render={props => <FormikUserSignUpForm {...props} submit={() => ({'result' : 'nothing'})}/>}
         />
     </div>
   );
