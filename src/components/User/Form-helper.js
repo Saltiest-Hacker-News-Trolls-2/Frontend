@@ -6,7 +6,7 @@
 import * as Yup from 'yup';
 
 /// internal modules ///
-import { filterObjectByKey } from '../../utils/';
+import { filterObjectByKey } from '../../utils/Object-helpers';
 
 /***************************************
   RECOGNIZED FIELDS
