@@ -82,10 +82,9 @@ export const partialSchemaShape = (names) => (filterObjectByKey (schemaShape , n
 export const handlePartialSubmit = (names) => (values, { props : { submit } , setSubmitting , resetForm }) => {
   /// select values to submit ///
   let valuesToSubmit;
-  if (names === null) {
+  if (names !== null) {
     valuesToSubmit = filterObjectByKey (values , names);
-  }
-  else {
+  } else {
     valuesToSubmit = values;
   }
   /// try submitting ///
