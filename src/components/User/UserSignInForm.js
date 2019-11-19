@@ -1,5 +1,6 @@
 /// external modules ///
 import React from 'react';
+import axios from 'axios';
 import { withFormik , Form , Field } from 'formik';
 import * as Yup from 'yup';
 
@@ -45,6 +46,39 @@ const FormikUserSignInForm = withFormik ({
     'username' ,
     'password' ,
   ]),
+  mapPropsToValues : (values) => ({
+    'username' : values.username || init.username.default,
+    /* 'email' : values.email || init.email.default, */
+    'password' : values.password || init.password.default,
+  }),
+  validationSchema : Yup.object ().shape ({
+    'username' : Yup.string ()
+      .required ('You must provide your username.')
+      .trim (),
+    /*
+    'email' : Yup.string ()
+      .required ('You must provide your email.')
+      .email ('That email address is not valid.'),
+    */
+    'password' : Yup.string ()
+      .required ('You must provide a password.'),
+  }),
+  handleSubmit : (values) => {
+    axios
+      .post ("https://only-salty-hackers.herokuapp.com/api/login/" , values)
+      .then (response => {
+        console.log ('--- success! ---')
+        console.log (response);
+        localStorage.setItem('token', response.data.token);
+        localStorage.setItem('user', JSON.stringify(response.data));
+        localStorage.setItem('isLoggedIn', true)
+        console.log(localStorage)
+      })
+      .catch (error => {
+        console.log ('--- failure! ---')
+        console.log (error);
+      })
+  }
 }) (UserSignInForm);
 
 /**************************************/

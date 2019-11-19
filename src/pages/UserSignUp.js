@@ -29,10 +29,9 @@ const UserSignUp = (props) => {
     });
   }
 
-  const handleSubmit = e => {
-    e.preventDefault();
+  const handleSubmit = () => {
     axios
-      .post('https://only-salty-hackers.herokuapp.com/api/register', state.credentials)
+      .post('https://only-salty-hackers.herokuapp.com/api/register/', state.credentials)
       .then(res => {
         console.log('response', res)
         sessionStorage.setItem('token', res.payload);
@@ -48,7 +47,7 @@ const UserSignUp = (props) => {
         <h2>Sign Up</h2>
       </header>
       <main>
-        <UserSignUpForm submit={() => {}}/>
+        <UserSignUpForm submit={handleSubmit}/>
       </main>
       <footer></footer>
     </section>
