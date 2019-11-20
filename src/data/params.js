@@ -16,10 +16,10 @@ Array.prototype.last = function () {
 
 Array.prototype.rest = function () {
   return (this.slice (1 , this.length));
-}
+};
 
 /***************************************
-  main
+  PATTERN
 ***************************************/
 export const pattern = (type , name) => {
   const make = (s) => (new RegExp (s));
@@ -33,7 +33,9 @@ export const pattern = (type , name) => {
   }
 }
 
-/*h3
+/***************************************
+  PARAMS
+***************************************/
 export const params = {
   match : function (type , name , url) {
     /// get pattern ///
