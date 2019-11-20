@@ -5,15 +5,15 @@ import React from 'react';
   COMPONENT
 ***************************************/
 const UserAccount = (props) => {
-  console.log(sessionStorage)
-  console.log(window.history)
+  const user = JSON.parse(localStorage.getItem('user'))
+  console.log(user)
   return (
     <section id='user-account' className='page'>
       <header>
         <h2>Your Account</h2>
       </header>
       <main>
-        TODO
+        {user.favorites.map(comment => (<p>{comment}</p>))}
       </main>
       <footer></footer>
     </section>

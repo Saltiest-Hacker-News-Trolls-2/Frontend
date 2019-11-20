@@ -2,7 +2,7 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
 
-import { getUser, logout } from '../actions'
+import { logout } from '../actions'
 
 function NavBar(props) {
     if(localStorage.isLoggedIn === 'true'){
@@ -48,4 +48,4 @@ const mapStateToProps = state => {
     }
 }
   
-export default connect(mapStateToProps, { getUser, logout })(NavBar);
+export default connect(mapStateToProps, { logout })(NavBar);

@@ -52,13 +52,13 @@ const FormikUserSignUpForm = withFormik ({
   mapPropsToValues : fi.mapPropsToValues,
   validationSchema : Yup.object ().shape (fi.partialSchemaShape ([
     'username' , 'confirm_username' ,
-    'email'    , 'confirm_email'    ,
     'password' , 'confirm_password' ,
+    'email'    , 'confirm_email'    ,
   ])),
   handleSubmit : fi.handlePartialSubmit ([
     'username' ,
-    'email'    ,
     'password' ,
+    'email'    ,
   ]),
 }) (UserSignUpForm);
 
