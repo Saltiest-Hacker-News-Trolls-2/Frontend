@@ -69,13 +69,15 @@ export const params = (type) => ({
   fromInfo : function (info) {
     return ({
       getCurrPage : () => {
-        let page = null;
-        if (page === null && info.prev !== '') {
-          page = queryParams.matchLast ('page' , info.prev);
+        const prevPage = this.fromInfo (info).getPrevPage ();
+        const nextPage = this.fromInfo (info).getNextPage ();
+        if (prevPage) {
+          return (prevPage + 1);
         }
-        if (page === null && info.next !== '') {
-          page = queryParams.matchLast ('page' , info.next);
+        if (nextPage) {
+          return (nextPage - 1);
         }
+        return (null);
       },
       getPrevPage : () => (this.matchLast ('page' , info.prev)),
       getNextPage : () => (this.matchLast ('page' , info.next)),
