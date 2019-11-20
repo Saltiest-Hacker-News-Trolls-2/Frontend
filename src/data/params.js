@@ -52,7 +52,7 @@ export const params = (type) => ({
 
       /// get matches ///
       if (pat) { return (pat.exec (url).rest ()); }
-    
+    }
     /// default ///
     return (null);
   },
