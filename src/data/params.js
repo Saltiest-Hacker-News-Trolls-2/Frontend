@@ -2,6 +2,9 @@
   PARAMS
 *******************************************************************************/
 
+/// internal modules ///
+import check from '../utils/is-type';
+
 /*//////////////////////////////////////
   utils
 //////////////////////////////////////*/
@@ -40,6 +43,9 @@ export const pattern = (type , name) => {
 ***************************************/
 export const params = (type) => ({
   match : function (name , url) {
+    if (name === '' || !(url)) {
+      return (null);
+    }
     /// get pattern ///
     const pat = pattern (type , name);
     
@@ -54,6 +60,25 @@ export const params = (type) => ({
   },
   matchLast : function (name , url) {
     return (this.match (name , url).last ())
+  },
+  
+  /*******************
+    FROM INFO
+  *******************/
+  fromInfo : function (info) {
+    return ({
+      getCurrPage : () => {
+        let page = null;
+        if (page === null && info.prev !== '') {
+          page = queryParams.matchLast ('page' , info.prev);
+        }
+        if (page === null && info.next !== '') {
+          page = queryParams.matchLast ('page' , info.next);
+        }
+      },
+      getPrevPage : () => (this.matchLast ('page' , info.prev)),
+      getNextPage : () => (this.matchLast ('page' , info.next)),
+    })
   },
 });
 
