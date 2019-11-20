@@ -21,6 +21,8 @@ Array.prototype.rest = function () {
 /***************************************
   PATTERN
 ***************************************/
+export const paramTypes = [ '/' , '?' ];
+
 export const pattern = (type , name) => {
   const make = (s) => (new RegExp (s));
   switch (type) {
