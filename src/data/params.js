@@ -45,14 +45,13 @@ export const pattern = (type , name) => {
 ***************************************/
 export const params = (type) => ({
   match : function (name , url) {
-    if (name === '' || !(url)) {
-      return (null);
-    }
-    /// get pattern ///
-    const pat = pattern (type , name);
-    
-    /// get matches ///
-    if (pat) { return (pat.exec (url).rest ()); }
+    /// match //
+    if (isNonEmptyString (name) && isNonEmptyString (url)) {
+      /// get pattern ///
+      const pat = pattern (type , name);
+
+      /// get matches ///
+      if (pat) { return (pat.exec (url).rest ()); }
     
     /// default ///
     return (null);
