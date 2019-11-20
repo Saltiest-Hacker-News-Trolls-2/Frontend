@@ -68,6 +68,11 @@ export const params = (type) => ({
   *******************/
   fromInfo : function (info) {
     return ({
+      getPages : () => ({
+        'prev' : this.fromInfo (info).getPrevPage (),
+        'curr' : this.fromInfo (info).getCurrPage (),
+        'next' : this.fromInfo (info).getNextPage (),
+      }),
       getCurrPage : () => {
         const prevPage = this.fromInfo (info).getPrevPage ();
         const nextPage = this.fromInfo (info).getNextPage ();
