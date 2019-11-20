@@ -6,13 +6,13 @@
 import axios from "axios";
 
 /// internal modules ///
-import { isFunction } from '../utils/is-type';
+import check from '../utils/is-type';
 
 /*//////////////////////////////////////
   utils
 //////////////////////////////////////*/
 const ifFunction = (message , fun , args) => {
-  if (isFunction (fun)) {
+  if (check.isFunction (fun)) {
     console.log (message);
     console.log (...args);
     fun (...args);
