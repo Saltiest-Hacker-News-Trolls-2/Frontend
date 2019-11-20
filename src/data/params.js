@@ -62,7 +62,7 @@ export const params = (type) => ({
   matchLast : function (name , url) {
     return (this.match (name , url).last ())
   },
-  
+
   /*******************
     FROM INFO
   *******************/
