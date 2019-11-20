@@ -123,11 +123,11 @@ export const remote = {
   *******************/
   delete : ({
     handleResponse , handleError , handleData , initData
-  }) => (query , data , config) => {
+  }) => (query , config) => {
     console.log ("--- deleting remote data... ---");
     axios
       .delete (
-        query , data , config
+        query , config
       )
       .then (
         handleGoodResponse (handleResponse , handleData , initData)
