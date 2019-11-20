@@ -4,7 +4,7 @@
   Functions to work with Objects.
 *******************************************************************************/
 
-import { isFunction } from './is-type';
+import check from './is-type';
 
 /***************************************
   FILTERS
@@ -16,7 +16,7 @@ import { isFunction } from './is-type';
   Based on: <https://stackoverflow.com/a/37616104>
 --------------------------------------*/
 export const filterObject = (obj , fun) => {
-  if (isFunction (fun)) {
+  if (check.isFunction (fun)) {
     return (Object.fromEntries (Object.entries (obj).filter (fun)));
   } else {
     return (obj);
