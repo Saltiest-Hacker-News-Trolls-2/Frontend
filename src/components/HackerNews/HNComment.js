@@ -24,7 +24,7 @@ const HNComment = ({
   -- list of tags classifying item (from DS API) */
   tags = null,
   /* rest of props */
-  ...props
+  ...rest
 }) => {
   return (
     <div></div>

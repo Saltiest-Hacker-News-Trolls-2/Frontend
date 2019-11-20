@@ -4,7 +4,7 @@ import React from 'react';
 /***************************************
   COMPONENT
 ***************************************/
-const CardFoot = ({ children , ...props }) => {
+const CardFoot = ({ children , ...rest }) => {
   return (
     <footer className="card-foot">
       {children}

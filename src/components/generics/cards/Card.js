@@ -4,7 +4,7 @@ import React from 'react';
 /***************************************
   COMPONENT
 ***************************************/
-const Card = ({ children , ...props }) => {
+const Card = ({ children , ...rest }) => {
   return (
     <div className='card'>
       {children}

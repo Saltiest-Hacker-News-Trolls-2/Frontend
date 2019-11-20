@@ -4,7 +4,7 @@ import React from 'react';
 /***************************************
   COMPONENT
 ***************************************/
-const CardBody = ({ children , ...props }) => {
+const CardBody = ({ children , ...rest }) => {
   return (
     <main className='card-body'>
       {children}

@@ -7,7 +7,7 @@ import FormError from './FormError';
 /***************************************
   COMPONENT
 ***************************************/
-const FormItem = ({ children , ...props }) => {
+const FormItem = ({ children , ...rest }) => {
   return (
     <div className={`form-item ${props.name}`}>
       {children}
