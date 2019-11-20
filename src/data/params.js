@@ -38,8 +38,8 @@ export const pattern = (type , name) => {
 /***************************************
   PARAMS
 ***************************************/
-export const params = {
-  match : function (type , name , url) {
+export const params = (type) => ({
+  match : function (name , url) {
     /// get pattern ///
     const pat = pattern (type , name);
     
@@ -49,13 +49,13 @@ export const params = {
     /// default ///
     return (null);
   },
-  matchFirst : function (type , name , url) {
-    return (this.match (type , name , url).first ())
+  matchFirst : function (name , url) {
+    return (this.match (name , url).first ())
   },
-  matchLast : function (type , name , url) {
-    return (this.match (type , name , url).last ())
+  matchLast : function (name , url) {
+    return (this.match (name , url).last ())
   },
-};
+});
 
 /*******************
   URL PARAMS
