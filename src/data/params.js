@@ -9,6 +9,8 @@ import check from '../utils/is-type';
   utils
 //////////////////////////////////////*/
 
+const isNonEmptyString = (x) => (check.isString (x) && x !== '');
+
 Array.prototype.first = function () {
   return (this[0]);
 };
