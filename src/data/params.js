@@ -60,20 +60,12 @@ export const params = (type) => ({
 /*******************
   URL PARAMS
 *******************/
-export const urlParams = {
-  match      : (name , url) => (params.match ('/' , name , url)),
-  matchFirst : (name , url) => (params.matchFirst ('/' , name , url)),
-  matchLast  : (name , url) => (params.matchLast ('/' , name , url)),
-};
+export const urlParams = params ('/');
 
 /*******************
   QUERY PARAMS
 *******************/
-export const queryParams = {
-  match      : (name , url) => (params.match ('?' , name , url)),
-  matchFirst : (name , url) => (params.matchFirst ('?' , name , url)),
-  matchLast  : (name , url) => (params.matchLast ('?' , name , url)),
-};
+export const queryParams = params ('?');;
 
 /***************************************
   GET VALUES FROM STANDARD INFO
