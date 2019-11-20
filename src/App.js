@@ -11,6 +11,7 @@ import PrivateRoute from './components/PrivateRoute';
 import UserSignInForm from './components/User/UserSignInForm';
 import UserSignUpForm from './components/User/UserSignUpForm';
 import NavBar from './components/NavBar'
+import { axioLoginSubmit, axioSignUpSubmit } from './actions'
 
 /// styles ///
 import './styles/App.css';
@@ -36,11 +37,11 @@ function App () {
         />
         <Route
           exact path='/user/sign-in'
-          render={props => <UserSignInForm {...props} submit={() => ({'result' : 'nothing'})}/>}
+          render={props => <UserSignInForm {...props} submit={axioLoginSubmit}/>}
         />
         <Route
           exact path='/user/sign-up'
-          render={props => <UserSignUpForm {...props} submit={() => ({'result' : 'nothing'})}/>}
+          render={props => <UserSignUpForm {...props} submit={axioSignUpSubmit}/>}
         />
     </div>
   );

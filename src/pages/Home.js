@@ -1,11 +1,9 @@
 /// external modules ///
 import React from 'react';
-
 /***************************************
   COMPONENT
 ***************************************/
 const Home = (props) => {
-  console.log(localStorage)
   return (
     <section id='home' className='page'>
       <header>

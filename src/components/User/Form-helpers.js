@@ -95,8 +95,10 @@ export const handlePartialSubmit = (names) => (
     console.log ('--- submitting... ---');
     console.log (valuesToSubmit);
     //
-    const response = submit (valuesToSubmit);
+    submit (valuesToSubmit)
+    const response = JSON.parse(localStorage.getItem('user'));
     console.log ('--- server responded with... ---');
+    console.log(localStorage)
     console.log (response);
     //
     if (response) {
@@ -104,6 +106,7 @@ export const handlePartialSubmit = (names) => (
         console.log ('--- success! ---');
         console.log ('resetting form and redirecting...');
         resetForm ();
+        window.history.push('/user/account');
       } else {
         console.log ('--- failure! ---');
         console.log ('setting error messages...');
