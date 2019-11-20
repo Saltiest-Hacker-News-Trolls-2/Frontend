@@ -4,7 +4,7 @@ import axios from 'axios';
 const axiosWithAuth = () => {
     return axios.create({
         headers: {
-            authorization: sessionStorage.getItem('toke')
+            authorization: sessionStorage.getItem('token')
         }
     });
 };
