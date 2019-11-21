@@ -109,12 +109,8 @@ export const remote = {
   request : (
     {
       method ,
-      doBefore = () => {
-        console.log ("--- making remote request... ---");
-      } ,
-      doAfter = () => {
-        console.log ("--- done. ---");
-      }
+      doBefore = () => { console.log ("--- making remote request... ---"); } ,
+      doAfter = () => { console.log ("--- done. ---"); } ,
     }
   ) => (
     { handleResponse , handleError , handleData , initData }
