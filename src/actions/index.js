@@ -5,7 +5,9 @@ import { hashHistory } from 'react-router-dom'
 // ACTION TYPES
 export const SET_USER = 'SET_USER'
 export const LOG_OUT = 'LOG_OUT'
-export const LOG_IN = 'LOG_IN'
+export const DELETE_FAV = 'DELETE_FAV'
+export const ADD_FAV = 'ADD_FAV'
+export const GET_COMMENTS = 'GET_COMMENTS'
 
 
 // ACTION FUNCTIONS
@@ -13,6 +15,7 @@ export const LOG_IN = 'LOG_IN'
 // LOGOUT USER
 export const logout = () => dispatch => {
     localStorage.clear()
+    window.location.reload();
     dispatch({type:LOG_OUT})
 }
 // GETTING USER DATA FROM LOCAL STORAGE
@@ -28,7 +31,7 @@ export const setUser = () => dispatch => {
 // SET USER'S FAVORITES FOR SERVER
 
 export const axioAddFav = (comment) => {
-    axios
+    axiosWithAuth()
         .post(`https://only-salty-hackers.herokuapp.com/api/users/:${getUser.id}/favorites`, comment)
         .then(res => {
             localStorage.setItem(getUser().favorites, res.data)
@@ -38,11 +41,12 @@ export const axioAddFav = (comment) => {
 
 // DELETE A FAVORITE FROM THE LIST
 
-export const axioDeleteFavorite = (comment) => {
-    axios
+export const axioDeleteFavorite = (comment) => dispatch => {
+    axiosWithAuth()
         .delete(`https://only-salty-hackers.herokuapp.com/api/users/:${getUser.id}/favorites`, comment)
         .then(res => {
-            localStorage.setItem(getUser().favorites, getUser().favorites.filter(fav => fav !== res))
+            console.log('Fav deleted', res)
+            dispatch({type: DELETE_FAV, payload: comment})
         })
         .catch(er => console.log(er.response.data.errors))
 }
@@ -75,14 +79,3 @@ export const axioSignUpSubmit = (credentials) => {
 
 // GET LIST OF SALTY COMMENT
 
-export const axioCommentList = () => {
-    let commentList;
-    axios
-        .get('https://hackernewsapilambda.herokuapp.com/saltyuser/?format=json')
-        .then(res => {
-            console.log(res);
-            commentList = res;
-        })
-        .catch(er => console.log(er))
-    return commentList;
-}

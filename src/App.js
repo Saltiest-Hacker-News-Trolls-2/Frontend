@@ -6,7 +6,6 @@ import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import Home from './pages/Home';
 import About from './pages/About';
 import UserAccount from './pages/UserAccount';
-import UserSignOut from './pages/UserSignOut';
 import PrivateRoute from './components/PrivateRoute';
 import UserSignInForm from './components/User/UserSignInForm';
 import UserSignUpForm from './components/User/UserSignUpForm';
@@ -23,26 +22,11 @@ function App () {
   return (
     <div className='App'>
       <NavBar />
-        <Route
-          exact path='/'
-          component={Home}
-        />
-        <Route
-          exact path='/about'
-          component={About}
-        />
-        <PrivateRoute
-            exact path='/user/account'
-            component={UserAccount}
-        />
-        <Route
-          exact path='/user/sign-in'
-          render={props => <UserSignInForm {...props} submit={axioLoginSubmit}/>}
-        />
-        <Route
-          exact path='/user/sign-up'
-          render={props => <UserSignUpForm {...props} submit={axioSignUpSubmit}/>}
-        />
+      <Route exact path='/' component={Home} />
+      <Route exact path='/about' component={About} />
+      <PrivateRoute exact path='/user/account' component={UserAccount}/>
+      <Route exact path='/user/sign-in' render={props => <UserSignInForm {...props} submit={axioLoginSubmit}/>} />
+      <Route exact path='/user/sign-up' render={props => <UserSignUpForm {...props} submit={axioSignUpSubmit}/>} />
     </div>
   );
 }

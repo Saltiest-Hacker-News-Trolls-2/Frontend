@@ -106,7 +106,6 @@ export const handlePartialSubmit = (names) => (
         console.log ('--- success! ---');
         console.log ('resetting form and redirecting...');
         resetForm ();
-        window.history.push('/user/account');
       } else {
         console.log ('--- failure! ---');
         console.log ('setting error messages...');
