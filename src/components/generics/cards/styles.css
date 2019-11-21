@@ -10,10 +10,13 @@
   background: White;
   box-shadow: 0 0 8px rgba(0 , 0 , 0 , 50%);
 
-  border-radius: 16px;
-  padding: 16px;
+  border-radius: var(--size-05-px);
 
   overflow: hidden;
+}
+
+.card > * {
+  padding: var(--size-05-px);
 }
 
 /***************************************
