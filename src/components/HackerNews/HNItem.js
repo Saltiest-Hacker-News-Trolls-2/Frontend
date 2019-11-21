@@ -8,9 +8,9 @@ import './styles.css';
   COMPONENT
 ***************************************/
 const HNItem = ({
-  /* data :: object
-  -- data as-is (from HackerNews API) */
-  data,
+  /* itemData :: object
+  -- itemData as-is (from HackerNews API) */
+  itemData,
   /* isFav :: boolean
   -- current fav status (from Web/backend API) */
   isFav,
