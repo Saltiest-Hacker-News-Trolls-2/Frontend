@@ -22,29 +22,31 @@ export const getUser = () => (dispatch) => {
 
 // SETTING USER DATA TO LOCAL STORAGE
 export const setUser = () => (dispatch) => {
-  dispatch({ type: SET_USER, payload: JSON.parse(localStorage.setItem('user')) });
+  dispatch({ type: SET_USER, payload: JSON.parse(localStorage.setItem('user')) });;
 };
 /***AXIOS CALLS***/
 // SET USER'S FAVORITES FOR SERVER
 
 export const axioAddFavorite = (comment) => {
   let message = {};
-  
+
   axios
     .post(`https://only-salty-hackers.herokuapp.com/api/users/:${getUser.id}/favorites`, comment)
     .then((res) => {
       console.log ('--- success! ---');
       console.log (res);
+
       message = res.data;
 
-      localStorage.setItem(getUser().favorites, res.data)
+      localStorage.setItem(getUser().favorites, res.data);
     })
     .catch((err) => {
       console.log ('--- failure! ---');
       console.log (err);
+
       message = errr.response.data;
     });
-  
+
   return (message);
 };
 
@@ -52,22 +54,24 @@ export const axioAddFavorite = (comment) => {
 
 export const axioDeleteFavorite = (comment) => {
   let message = {};
-  
+
   axios
     .delete(`https://only-salty-hackers.herokuapp.com/api/users/:${getUser.id}/favorites`, comment)
     .then((res) => {
       console.log ('--- success! ---');
       console.log (res);
+
       message = res.data;
 
-      localStorage.setItem(getUser().favorites, getUser().favorites.filter((fav) => fav !== res))
+      localStorage.setItem(getUser().favorites, getUser().favorites.filter((fav) => fav !== res));
     })
     .catch((err) => {
       console.log ('--- failure! ---');
       console.log (err);
+
       message = errr.response.data;
     });
-    
+
   return (message);
 };
 
@@ -75,23 +79,25 @@ export const axioDeleteFavorite = (comment) => {
 
 export const axioSubmitSignIn = (credentials) => {
   let message = {};
-  
+
   axios
     .post(`https://only-salty-hackers.herokuapp.com/api/login`, credentials)
     .then((res) => {
       console.log ('--- success! ---');
       console.log (res);
+
       message = res.data;
 
-      localStorage.setItem('user', JSON.stringify(res.data))
-      localStorage.setItem('isLoggedIn', true)
+      localStorage.setItem('user', JSON.stringify(res.data));
+      localStorage.setItem('isLoggedIn', true);
     })
     .catch((err) => {
       console.log ('--- failure! ---');
       console.log (err);
+
       message = errr.response.data;
     });
-    
+
   return (message);
 };
 
@@ -99,23 +105,25 @@ export const axioSubmitSignIn = (credentials) => {
 
 export const axioSubmitSignUp = (credentials) => {
   let message = {};
-  
+
   axios
     .post(`https://only-salty-hackers.herokuapp.com/api/register`, credentials)
     .then((res) => {
       console.log ('--- success! ---');
       console.log (res);
+
       message = res.data;
 
-      localStorage.setItem('user', JSON.stringify(res.data))
-      localStorage.setItem('isLoggedIn', true)
+      localStorage.setItem('user', JSON.stringify(res.data));
+      localStorage.setItem('isLoggedIn', true);
     })
     .catch((err) => {
       console.log ('--- failure! ---');
       console.log (err);
+
       message = errr.response.data;
     });
-    
+
   return (message);
 };
 
@@ -123,19 +131,21 @@ export const axioSubmitSignUp = (credentials) => {
 
 export const axioGetSaltyUsers = () => {
   let message = {};
-  
+
   axios
     .get('https://hackernewsapilambda.herokuapp.com/saltyuser/?format=json')
     .then((res) => {
       console.log ('--- success! ---');
       console.log (res);
+
       message = res.data;
     })
     .catch((err) => {
       console.log ('--- failure! ---');
       console.log (err);
+
       message = errr.response.data;
     });
-  
+
   return (message);
 };
