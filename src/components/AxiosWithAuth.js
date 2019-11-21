@@ -1,10 +1,12 @@
 import React from 'react';
 import axios from 'axios';
 
-const axiosWithAuth = () => {
+export const axiosWithAuth = () => {
     return axios.create({
         headers: {
             authorization: sessionStorage.getItem('token')
         }
     });
 };
+
+export default axiosWithAuth;
