@@ -5,7 +5,6 @@ import * as Yup from 'yup';
 
 /// internal modules ///
 import * as fi from './Form-helpers';
-import Flex from '../generics/Flex';
 import Card from '../generics/cards/Card';
 import CardHead from '../generics/cards/CardHead';
 import CardBody from '../generics/cards/CardBody';
@@ -15,15 +14,13 @@ import FormItem from '../generics/forms/FormItem';
 /***************************************
   COMPONENT
 ***************************************/
-const FlexFormBody = Flex (CardBody);
-
 const UserSignUpForm = (props) => {
   return (
     <Card col>
       <CardHead>
         <h2>Sign Up</h2>
       </CardHead>
-      <FlexFormBody col>
+      <CardBody>
         <Form className='user-sign-up'>
           <FormItem {...props} name='username'>
             <Field type='text' name='username' placeholder='Username'/>
@@ -51,7 +48,7 @@ const UserSignUpForm = (props) => {
             <button type='submit' name='submit'>Submit</button>
           </FormItem>
         </Form>
-      </FlexFormBody>
+      </CardBody>
       <CardFoot></CardFoot>
     </Card>
   );
