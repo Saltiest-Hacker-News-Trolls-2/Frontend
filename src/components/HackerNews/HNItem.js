@@ -5,6 +5,7 @@ import React from 'react';
 import Card from '../generics/cards/Card';
 import CardHead from '../generics/cards/CardHead';
 import CardBody from '../generics/cards/CardBody';
+import CardFoot from '../generics/cards/CardFoot'
 // import CardFoot from '../generics/cards/CardFoot';
 import HNItemLink from './HNItemLink';
 import HNUserLink from './HNUserLink';
@@ -37,6 +38,7 @@ const HNItem = ({
   /* rest of props */
   ...rest
 }) => {
+  console.log(itemData)
   return (
     <Card
     className='HN-item t-to-b'
