@@ -17,10 +17,12 @@ const CardsDeck = ({ row , col , wrap , children , ...rest }) => {
   return (
     <Container
       className="cards-deck"
-      row={row} col={col}
-      wrap={wrap}
-      lines={'stretch'}
-      items={{ across : 'stretch' , along : 'start' }}
+      flex={{
+        row : row , col : col ,
+        wrap : wrap,
+        lines : 'stretch',
+        items : { across : 'stretch' , along : 'start' },
+      }}
     >
       {children.map ((card) => (
         <li>{card}</li>

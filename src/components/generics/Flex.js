@@ -8,22 +8,22 @@ const Flex = (X) => styled (X) `
   display: flex;
 
   /* flex-direction */
-  ${(props) => ((props.row || props.lr) && css `
+  ${({ flex = {} }) => ((flex.row || flex.lr) && css `
     flex-direction: row;
   `)}
-  ${(props) => ((props.col || props.tb) && css `
+  ${({ flex = {} }) => ((flex.col || flex.tb) && css `
     flex-direction: column;
   `)}
-  ${(props) => (props.rl && css `
+  ${({ flex = {} }) => (flex.rl && css `
     flex-direction: row-reverse;
   `)}
-  ${(props) => (props.bt && css `
+  ${({ flex = {} }) => (flex.bt && css `
     flex-direction: column-reverse;
   `)};
 
   /* flex-wrap */
-  ${(props) => {
-    if (props.wrap) {
+  ${({ flex = {} }) => {
+    if (flex.wrap) {
       return (css `flex-wrap: wrap;`);
     } else {
       return (css `flex-wrap: nowrap;`);
@@ -31,8 +31,8 @@ const Flex = (X) => styled (X) `
   }};
 
   /* align lines across box : align-content */
-  ${(props) => {
-    switch (props.lines) {
+  ${({ flex = {} }) => {
+    switch (flex.lines) {
       case 'flex-start' :
       case 'start' :
         return (css `align-content: flex-start;`);
@@ -61,9 +61,9 @@ const Flex = (X) => styled (X) `
   }}
 
   /* align items along lines : justify-content */
-  ${(props) => {
-    if (props.items) {
-      switch (props.items.along) {
+  ${({ flex = {} }) => {
+    if (flex.items) {
+      switch (flex.items.along) {
         case 'flex-start' :
         case 'start' :
           return (css `justify-content: flex-start;`);
@@ -93,9 +93,9 @@ const Flex = (X) => styled (X) `
   }}
 
   /* align items across lines : align-items */
-  ${(props) => {
-    if (props.items) {
-      switch (props.items.across) {
+  ${({ flex = {} }) => {
+    // if (flex.items) {
+      switch (flex.items && flex.items.across) {
         case 'flex-start' :
         case 'start' :
           return (css `align-items: flex-start;`);
@@ -110,9 +110,9 @@ const Flex = (X) => styled (X) `
         default :
           return (css ``);
       }
-    } else {
-      return (css ``);
-    }
+    // } else {
+      // return (css ``);
+    // }
   }}
 `
 

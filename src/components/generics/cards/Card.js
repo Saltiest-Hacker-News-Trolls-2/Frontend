@@ -17,10 +17,12 @@ const Card = ({ row , col , children , ...rest }) => {
   return (
     <Container
       className='card'
-      row={row} col={col}
-      wrap={false}
-      lines={'stretch'}
-      items={{ across : 'stretch' , along : 'start' }}
+      flex={{
+        row : row , col : col ,
+        wrap : false,
+        lines : 'stretch',
+        items : { across : 'stretch' , along : 'start' },
+      }}
     >
       {children}
     </Container>
