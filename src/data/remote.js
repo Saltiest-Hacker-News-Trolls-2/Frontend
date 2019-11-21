@@ -47,6 +47,47 @@ const handleErrorResponse = (handleError , handleData , initData) => (error) => 
   );
 }
 
+/*--------------------------------------
+  handleAxiosError
+----------------------------------------
+  based on: <https://github.com/axios/axios#handling-errors>
+--------------------------------------*/
+export const handleAxiosError = (error) => {
+  let message = {};
+
+  if (error.response) {
+    // The request was made and the server responded with a status code
+    // that falls out of the range of 2xx
+    console.log ('The server did respond, but with an error:');
+    console.log ('- data:' , error.response.data);
+    console.log ('- status:' , error.response.status);
+    console.log ('- headers:' , error.response.headers);
+
+    message = error.response.data;
+  }
+  else if (error.request) {
+    // The request was made but no response was received
+    // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+    // http.ClientRequest in node.js
+    console.log ('The server did not respond:');
+    console.log ('- request:' , error.request);
+
+    message.errors = [ 'The server did not respond.' ];
+  }
+  else {
+    // Something happened in setting up the request that triggered an Error
+    console.log ('An runtime error occured:');
+    console.log ('- Error:', error.message);
+
+    message.errors =  {
+      'oops' : error.message,
+    };
+  }
+  console.log ('- config:' , error.config);
+
+  return (message);
+}
+
 /***************************************
   REMOTE
 ***************************************/
