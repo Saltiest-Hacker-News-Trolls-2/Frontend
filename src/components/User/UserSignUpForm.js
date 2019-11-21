@@ -19,7 +19,7 @@ import './styles.css';
 ***************************************/
 const UserSignUpForm = (props) => {
   return (
-    <Card col>
+    <Card col className='user-sign-up'>
       <CardHead>
         <h2>Sign Up</h2>
       </CardHead>
