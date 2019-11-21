@@ -1,6 +1,9 @@
 /// external modules ///
 import React from 'react';
 
+/// styles ///
+import './styles.css';
+
 /***************************************
   COMPONENT
 ***************************************/
