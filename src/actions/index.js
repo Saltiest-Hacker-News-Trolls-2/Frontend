@@ -44,7 +44,7 @@ export const axioAddFavorite = (comment) => {
       console.log ('--- failure! ---');
       console.log (err);
 
-      message = errr.response.data;
+      message = err.response.data;
     });
 
   return (message);
@@ -69,7 +69,7 @@ export const axioDeleteFavorite = (comment) => {
       console.log ('--- failure! ---');
       console.log (err);
 
-      message = errr.response.data;
+      message = err.response.data;
     });
 
   return (message);
@@ -95,7 +95,7 @@ export const axioSubmitSignIn = (credentials) => {
       console.log ('--- failure! ---');
       console.log (err);
 
-      message = errr.response.data;
+      message = err.response.data;
     });
 
   return (message);
@@ -121,7 +121,7 @@ export const axioSubmitSignUp = (credentials) => {
       console.log ('--- failure! ---');
       console.log (err);
 
-      message = errr.response.data;
+      message = err.response.data;
     });
 
   return (message);
@@ -144,7 +144,7 @@ export const axioGetSaltyUsers = () => {
       console.log ('--- failure! ---');
       console.log (err);
 
-      message = errr.response.data;
+      message = err.response.data;
     });
 
   return (message);
