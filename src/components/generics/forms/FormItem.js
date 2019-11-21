@@ -9,7 +9,7 @@ import FormError from './FormError';
 ***************************************/
 const FormItem = ({ children , ...rest }) => {
   return (
-    <div className={`form-item ${rest.name}`}>
+    <div className={`form-item ${rest.name} ${rest.className}`}>
       {children}
       {FormError (rest)}
     </div>

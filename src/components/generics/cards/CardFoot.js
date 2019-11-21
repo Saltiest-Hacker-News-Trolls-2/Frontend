@@ -9,7 +9,9 @@ import './styles.css';
 ***************************************/
 const CardFoot = ({ children , ...rest }) => {
   return (
-    <footer className="card-foot">
+    <footer
+      className={`card-foot ${rest.className}`}
+    >
       {children}
     </footer>
   );

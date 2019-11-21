@@ -9,7 +9,9 @@ import './styles.css';
 ***************************************/
 const CardBody = ({ children , ...rest }) => {
   return (
-    <main className='card-body'>
+    <main
+      className={`card-body ${rest.className}`}
+    >
       {children}
     </main>
   );
