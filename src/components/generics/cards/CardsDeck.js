@@ -1,5 +1,9 @@
 /// external modules ///
 import React from 'react';
+import styled from 'styled-components';
+
+/// internal modules ///
+import Flex from '../Flex';
 
 /// styles ///
 import './styles.css';
@@ -7,13 +11,21 @@ import './styles.css';
 /***************************************
   COMPONENT
 ***************************************/
-const CardsDeck = ({ children , ...rest }) => {
+const Container = Flex (styled.ol ``);
+
+const CardsDeck = ({ row , col , wrap , children , ...rest }) => {
   return (
-    <ul className="cards-deck">
+    <Container
+      className="cards-deck"
+      row={row} col={col}
+      wrap={wrap}
+      lines={'stretch'}
+      items={{ across : 'stretch' , along : 'start' }}
+    >
       {children.map ((card) => (
         <li>{card}</li>
       ))}
-    </ul>
+    </Container>
   );
 };
 
