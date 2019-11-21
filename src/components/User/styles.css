@@ -5,7 +5,7 @@
 @import url('../../styles/app-sizes.css');
 @import url('../../styles/app-colors.css');
 
-form , form > .form-item {
+form , .form-item {
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
@@ -13,7 +13,29 @@ form , form > .form-item {
   align-items: stretch;
 }
 
-.form-errors , .form-item-errors {
+.form-item {
+  margin-top: var(--size-04-px);
+  margin-bottom: var(--size-04-px);
+}
+.form-item:first-child {
+  margin-top: 0;
+}
+.form-item:last-child {
+  margin-bottom: 0;
+}
+
+.form-item > * {
+  margin-top: var(--size-03-px);
+  margin-bottom: var(--size-03-px);
+}
+.form-item > *:first-child {
+  margin-top: 0;
+}
+.form-item > *:last-child {
+  margin-bottom: 0;
+}
+
+.form-item-errors {
   color: var(--look-500);
   font-weight: bold;
 }
