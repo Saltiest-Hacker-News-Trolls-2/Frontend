@@ -10,7 +10,7 @@ const HNUserItem = ({ itemID , children , ...rest }) => {
     className={`item-HN-url ${rest.className || ''}`.trim ()}
     href={`https://news.ycombinator.com/item?id=${itemID}`}
     >
-      {children}
+      {children || itemID}
     </a>
   );
 };
