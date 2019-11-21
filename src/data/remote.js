@@ -44,7 +44,7 @@ export const handleAxiosError = (axiosError) => {
     console.log ('The server did not respond:');
     console.log ('- request:' , axiosError.request);
 
-    message['error'] = [
+    message['errors'] = [
       'The server did not respond.',
     ];
   }
@@ -53,7 +53,7 @@ export const handleAxiosError = (axiosError) => {
     console.log ('An runtime error occured:');
     console.log ('- Error:', axiosError.message);
 
-    message['error'] = {
+    message['errors'] = {
       'oops' : axiosError.message,
     };
   }
@@ -87,7 +87,7 @@ export const handleErrorResponse = (handleError , handleData , initData) => (axi
   /// handle error ///
   ifFunction (
     handleError ,
-    [{ 'error' : re , 'from' : axiosError }] ,
+    [{ 'errors' : re , 'from' : axiosError }] ,
     '...handling error...' ,
   );
   /// handle data ///
