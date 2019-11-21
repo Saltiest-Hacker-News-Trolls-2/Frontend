@@ -9,24 +9,26 @@ import { handleAxiosError } from '../data/remote';
 // ACTION TYPES
 export const SET_USER = 'SET_USER';
 export const LOG_OUT = 'LOG_OUT';
-export const LOG_IN = 'LOG_IN';
-
+export const DELETE_FAV = 'DELETE_FAV';
+export const ADD_FAV = 'ADD_FAV';
+export const GET_COMMENTS = 'GET_COMMENTS';
 
 // ACTION FUNCTIONS
 /***USER FUNCTIONS***/
 // LOGOUT USER
 export const logout = () => (dispatch) => {
   localStorage.clear();
-  dispatch({ type: LOG_OUT });
+  window.location.reload();
+  dispatch({ type : LOG_OUT });
 };
 // GETTING USER DATA FROM LOCAL STORAGE
 export const getUser = () => (dispatch) => {
-  dispatch({ type: SET_USER, payload: JSON.parse(localStorage.getItem('user')) });
+  dispatch({ type : SET_USER , payload : JSON.parse(localStorage.getItem('user')) });
 };
 
 // SETTING USER DATA TO LOCAL STORAGE
 export const setUser = () => (dispatch) => {
-  dispatch({ type: SET_USER, payload: JSON.parse(localStorage.setItem('user')) });;
+  dispatch({ type : SET_USER , payload : JSON.parse(localStorage.setItem('user')) });;
 };
 /***AXIOS CALLS***/
 // SET USER'S FAVORITES FOR SERVER
@@ -42,6 +44,7 @@ export const axioAddFavorite = (comment) => {
 
       message = res.data;
 
+      console.log ('Adding favorite...');
       localStorage.setItem(getUser().favorites, res.data);
     })
     .catch((err) => {
@@ -56,7 +59,7 @@ export const axioAddFavorite = (comment) => {
 
 // DELETE A FAVORITE FROM THE LIST
 
-export const axioDeleteFavorite = (comment) => {
+export const axioDeleteFavorite = (comment) => (dispatch) => {
   let message = {};
 
   axiosWithAuth ()
@@ -67,7 +70,9 @@ export const axioDeleteFavorite = (comment) => {
 
       message = res.data;
 
-      localStorage.setItem(getUser().favorites, getUser().favorites.filter((fav) => fav !== res));
+      console.log ('Deleting favorite...');
+      dispatch({ type : DELETE_FAV , payload : comment });
+      // localStorage.setItem(getUser().favorites, getUser().favorites.filter((fav) => fav !== res));
     })
     .catch((err) => {
       console.log ('--- failure! ---');
@@ -92,6 +97,7 @@ export const axioSubmitSignIn = (credentials) => {
 
       message = res.data;
 
+      console.log ('Signing in...');
       localStorage.setItem('user', JSON.stringify(res.data));
       localStorage.setItem('isLoggedIn', true);
     })
@@ -118,6 +124,7 @@ export const axioSubmitSignUp = (credentials) => {
 
       message = res.data;
 
+      console.log ('Signing up...');
       localStorage.setItem('user', JSON.stringify(res.data));
       localStorage.setItem('isLoggedIn', true);
     })

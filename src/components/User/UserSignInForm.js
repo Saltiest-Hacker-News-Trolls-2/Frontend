@@ -1,5 +1,6 @@
 /// external modules ///
 import React from 'react';
+import axios from 'axios'
 import { withFormik , Form , Field } from 'formik';
 import * as Yup from 'yup';
 
@@ -18,6 +19,10 @@ import './styles.css';
   COMPONENT
 ***************************************/
 const UserSignInForm = (props) => {
+  if(localStorage.getItem('user')){
+    props.history.push('/user/account')
+    window.location.reload();
+  }
   return (
     <Card className='user-sign-in t-to-b' col>
       <CardHead>
