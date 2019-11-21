@@ -73,16 +73,16 @@ export const axioSubmitSignUp = (credentials) => {
         .catch(er => console.log(er.response.data.errors))
 }
 
-// GET LIST OF SALTY COMMENT
+// GET LIST OF SALTY USERS
 
-export const axioCommentList = () => {
-    let commentList;
+export const axioGetSaltyUsers = () => {
+    let users;
     axios
         .get('https://hackernewsapilambda.herokuapp.com/saltyuser/?format=json')
         .then(res => {
             console.log(res);
-            commentList = res;
+            users = res;
         })
         .catch(er => console.log(er))
-    return commentList;
+    return users;
 }
