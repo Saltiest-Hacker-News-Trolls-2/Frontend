@@ -63,7 +63,9 @@ export const axioSubmitSignIn = (credentials) => {
   axios
     .post(`https://only-salty-hackers.herokuapp.com/api/login`, credentials)
     .then((res) => {
-      console.log(res.data)
+      console.log (res);
+      message = res.data;
+
       localStorage.setItem('user', JSON.stringify(res.data))
       localStorage.setItem('isLoggedIn', true)
     })
@@ -80,7 +82,9 @@ export const axioSubmitSignUp = (credentials) => {
   axios
     .post(`https://only-salty-hackers.herokuapp.com/api/register`, credentials)
     .then((res) => {
-      console.log(res.data)
+      console.log (res);
+      message = res.data;
+
       localStorage.setItem('user', JSON.stringify(res.data))
       localStorage.setItem('isLoggedIn', true)
     })
