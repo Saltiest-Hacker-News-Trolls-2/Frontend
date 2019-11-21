@@ -20,7 +20,7 @@ export const items = [
     "title" : "My YC app: Dropbox - Throw away your USB drive",
     "type" : "story",
     "url" : "http://www.getdropbox.com/u/2/screencast.html"
-  } , {
+  },{
     "by" : "norvig",
     "id" : 2921983,
     "kids" : [ 2922097, 2922429, 2924562, 2922709, 2922573, 2922140, 2922141 ],
@@ -28,7 +28,7 @@ export const items = [
     "text" : "Aw shucks, guys ... you make me blush with your compliments.<p>Tell you what, Ill make a deal: I'll keep writing if you keep reading. K?",
     "time" : 1314211127,
     "type" : "comment"
-  } , {
+  },{
     "by" : "tel",
     "descendants" : 16,
     "id" : 121003,
@@ -39,7 +39,7 @@ export const items = [
     "title" : "Ask HN: The Arc Effect",
     "type" : "story",
     "url" : ""
-  } , {
+  },{
     "by" : "justin",
     "id" : 192327,
     "score" : 6,
@@ -48,7 +48,7 @@ export const items = [
     "title" : "Justin.tv is looking for a Lead Flash Engineer!",
     "type" : "job",
     "url" : ""
-  } , {
+  },{
     "by" : "pg",
     "descendants" : 54,
     "id" : 126809,
@@ -59,7 +59,7 @@ export const items = [
     "time" : 1204403652,
     "title" : "Poll: What would happen if News.YC had explicit support for polls?",
     "type" : "poll"
-  } , {
+  },{
     "by" : "pg",
     "id" : 160705,
     "poll" : 160704,
