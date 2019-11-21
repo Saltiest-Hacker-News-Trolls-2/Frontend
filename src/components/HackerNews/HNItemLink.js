@@ -4,7 +4,7 @@ import React from 'react';
 /***************************************
   COMPONENT
 ***************************************/
-const HNUserItem = ({ itemID , children , ...rest }) => {
+const HNItemLink = ({ itemID , children , ...rest }) => {
   return (
     <a
     className={`item-HN-url ${rest.className || ''}`.trim ()}
@@ -16,4 +16,4 @@ const HNUserItem = ({ itemID , children , ...rest }) => {
 };
 
 /**************************************/
-export default HNUserItem;
+export default HNItemLink;
