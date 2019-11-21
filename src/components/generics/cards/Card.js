@@ -16,13 +16,13 @@ const Container = Flex (styled.div ``);
 const Card = ({ row , col , children , ...rest }) => {
   return (
     <Container
-      className={`card ${rest.className || ''}`.trim ()}
-      flex={{
-        row : row , col : col ,
-        wrap : false,
-        lines : 'stretch',
-        items : { across : 'stretch' , along : 'start' },
-      }}
+    className={`card ${rest.className || ''}`.trim ()}
+    flex={{
+      row : row , col : col ,
+      wrap : false,
+      lines : 'stretch',
+      items : { across : 'stretch' , along : 'start' },
+    }}
     >
       {children}
     </Container>

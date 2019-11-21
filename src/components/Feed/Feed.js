@@ -23,7 +23,7 @@ const Feed = ({
 }) => {
   return (
     <CardDeck
-      className={`feed ${rest.className || ''}`.trim ()}
+    className={`feed ${rest.className || ''}`.trim ()}
     >
       {items.map ((props) => (
         <component key={props.id} {...props}/>

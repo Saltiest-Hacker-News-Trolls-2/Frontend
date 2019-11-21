@@ -10,7 +10,7 @@ import './styles.css';
 const CardBody = ({ children , ...rest }) => {
   return (
     <main
-      className={`card-body ${rest.className || ''}`.trim ()}
+    className={`card-body ${rest.className || ''}`.trim ()}
     >
       {children}
     </main>

@@ -16,13 +16,13 @@ const Container = Flex (styled.ol ``);
 const CardsDeck = ({ row , col , wrap , children , ...rest }) => {
   return (
     <Container
-      className={`cards-deck ${rest.className || ''}`.trim ()}
-      flex={{
-        row : row , col : col ,
-        wrap : wrap,
-        lines : 'stretch',
-        items : { across : 'stretch' , along : 'start' },
-      }}
+    className={`cards-deck ${rest.className || ''}`.trim ()}
+    flex={{
+      row : row , col : col ,
+      wrap : wrap,
+      lines : 'stretch',
+      items : { across : 'stretch' , along : 'start' },
+    }}
     >
       {children.map ((card) => (
         <li>{card}</li>
