@@ -97,12 +97,12 @@ export const axioGetSaltyUsers = () => {
   axios
     .get('https://hackernewsapilambda.herokuapp.com/saltyuser/?format=json')
     .then((res) => {
-      console.log(res);
-      message.data.users = res;
+      console.log (res);
+      message = res.data;
     })
     .catch((err) => {
-      console.log(err);
-      message.errors = err;
+      console.log (err);
+      message = errr.response.data;
     });
   
   return (message);
