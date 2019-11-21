@@ -2,6 +2,9 @@
   REACT-APP : APP
 *******************************************************************************/
 
+@import url('./app-sizes.css');
+@import url('./app-colors.css');
+
 html , body , .root , .App {
   height: 100%;
   width: 100%;
@@ -28,4 +31,36 @@ a {
   text-decoration: none;
   padding: 6px !important;
   color: #204963;
+}
+
+/***************************************
+  USER CONTROLS
+***************************************/
+input , button {
+  border-radius: var(--inf-px);
+  border: var(--size-02-px) solid var(--gray-300);
+  padding: var(--size-04-px) var(--size-05-px);
+
+  transition: box-shadow 0.2s;
+}
+
+button.primary {
+  color: var(--white);
+  border-color: var(--primary-500);
+  background-color: var(--primary-500);
+}
+
+button.secondary {
+  color: var(--primary-500);
+  border-color: var(--primary-500);
+  background-color: var(--white);
+}
+
+input:hover , button:hover {
+  box-shadow: 0 0 0 var(--size-03-px) var(--primary-100);
+}
+
+input:focus , button:focus {
+  outline: none;
+  box-shadow: 0 0 0 var(--size-03-px) var(--primary-200);
 }

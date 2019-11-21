@@ -2,7 +2,66 @@
   GENERICS
 *******************************************************************************/
 
-.card {
+/***************************************
+  FLEX
+***************************************/
+
+/* .flex {
+  display: flex;
+}
+
+/* justify-content */
+/* .lines-start {
+  justify-content: flex-start;
+}
+.lines-center {
+  justify-content: center;
+}
+.lines-end {
+  justify-content: flex-end;
+} */
+
+/* align-items */
+/* .items-start {
+  align-items: flex-start;
+}
+.items-center {
+  align-items: center;
+}
+.items-end {
+  align-items: flex-end;
+}
+.items-stretch {
+  align-items: stretch;
+} */
+
+/* flex-direction */
+/* .l-to-r {
+  flex-direction: row;
+}
+.r-to-l {
+  flex-direction: row-reverse;
+}
+.t-to-b {
+  flex-direction: column;
+}
+.b-to-t {
+  flex-direction: column-reverse;
+} */
+
+/* flex-wrap */
+/* .wrap {
+  flex-wrap: wrap;
+}
+.no-wrap {
+  flex-wrap: nowrap;
+} */
+
+/***************************************
+  CARDS
+***************************************/
+
+/* .card {
   background: White;
   box-shadow: 0 0 8px rgba(0 , 0 , 0 , 50%);
 
@@ -10,11 +69,15 @@
   padding: 16px;
 
   overflow: hidden;
-}
+} */
 
-.card-deck {
+/***************************************
+  CARD DECKS
+***************************************/
+
+/* .card-deck {
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
   justify-content: flex-start;
-}
+} */
