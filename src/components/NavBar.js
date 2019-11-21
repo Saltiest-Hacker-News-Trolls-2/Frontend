@@ -17,7 +17,7 @@ function NavBar(props) {
                 <NavLink to='/user/account'>
                     Account
                 </NavLink>
-                <a href='#' className='logout' onClick={() => {
+                <a href='/user/sign-out' className='logout' onClick={() => {
                     props.logout()
                 }}>
                     Log Out
