@@ -62,7 +62,7 @@ export const handleAxiosError = (error) => {
   return (message);
 }
 
-const handleGoodResponse = (handleResponse , handleData , initData) => (response) => {
+export const handleGoodResponse = (handleResponse , handleData , initData) => (response) => {
   console.log ("--- success? ---");
   /// handle response ///
   ifFunction (
@@ -78,7 +78,7 @@ const handleGoodResponse = (handleResponse , handleData , initData) => (response
   );
 }
 
-const handleErrorResponse = (handleError , handleData , initData) => (error) => {
+export const handleErrorResponse = (handleError , handleData , initData) => (error) => {
   console.log ("--- failure? ---");
   /// handle error ///
   ifFunction (
