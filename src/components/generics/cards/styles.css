@@ -11,7 +11,7 @@
 
 .card {
   background: White;
-  box-shadow: 0 0 var(--size-04-px) rgba(var(--gray-500) , 50%);
+  box-shadow: 0 0 var(--size-04-px) rgba(var(--black) , 50%);
 
   border-radius: var(--size-05-px);
 
