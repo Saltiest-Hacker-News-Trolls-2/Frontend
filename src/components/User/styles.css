@@ -2,6 +2,9 @@
   FORM STYLES
 *******************************************************************************/
 
+@import url('../../styles/app-sizes.css');
+@import url('../../styles/app-colors.css');
+
 form , form > .form-item {
   display: flex;
   flex-direction: column;
