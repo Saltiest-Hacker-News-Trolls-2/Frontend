@@ -39,7 +39,7 @@ a {
 input , button {
   border-radius: var(--inf-px);
   border: var(--size-02-px) solid var(--gray-300);
-  padding: var(--size-04-px);
+  padding: var(--size-04-px) var(--size-05-px);
 
   transition: box-shadow 0.2s;
 }
