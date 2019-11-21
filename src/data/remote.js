@@ -19,34 +19,6 @@ const ifFunction = (fun , args , message) => {
   }
 }
 
-const handleGoodResponse = (handleResponse , handleData , initData) => (response) => {
-  console.log ("--- success? ---");
-  /// handle response ///
-  ifFunction (
-    handleResponse , [response] ,
-    '...handling response...' ,
-  );
-  /// handle data ///
-  ifFunction (
-    handleData , [{ ...initData , ...(response.data) }] ,
-    '...handling data...' ,
-  );
-}
-
-const handleErrorResponse = (handleError , handleData , initData) => (error) => {
-  console.log ("--- failure? ---");
-  /// handle error ///
-  ifFunction (
-    handleError , [error] ,
-    '...handling error...' ,
-  );
-  /// handle data ///
-  ifFunction (
-    handleData , [{ ...initData , 'error' : error }] ,
-    '...handling data...' ,
-  );
-}
-
 /*--------------------------------------
   handleAxiosError
 ----------------------------------------
@@ -88,6 +60,38 @@ export const handleAxiosError = (error) => {
   console.log ('- config:' , error.config);
 
   return (message);
+}
+
+const handleGoodResponse = (handleResponse , handleData , initData) => (response) => {
+  console.log ("--- success? ---");
+  /// handle response ///
+  ifFunction (
+    handleResponse ,
+    [response] ,
+    '...handling response...' ,
+  );
+  /// handle data ///
+  ifFunction (
+    handleData ,
+    [{ ...initData , ...(response.data) }] ,
+    '...handling data...' ,
+  );
+}
+
+const handleErrorResponse = (handleError , handleData , initData) => (error) => {
+  console.log ("--- failure? ---");
+  /// handle error ///
+  ifFunction (
+    (error) => (handleError (handleAxiosError (error))) ,
+    [error] ,
+    '...handling error...' ,
+  );
+  /// handle data ///
+  ifFunction (
+    handleData ,
+    [{ ...initData , 'error' : error }] ,
+    '...handling data...' ,
+  );
 }
 
 /***************************************
