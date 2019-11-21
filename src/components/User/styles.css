@@ -13,6 +13,11 @@ form , form > .form-item {
   align-items: stretch;
 }
 
+.form-errors , .form-item-errors {
+  color: var(--look-500);
+  font-weight: bold;
+}
+
 input {
   border-radius: var(--inf-px);
   border: var(--size-02-px) solid var(--gray-300);
