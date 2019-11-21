@@ -49,7 +49,7 @@ export const axioDeleteFavorite = (comment) => {
 
 // SUBMIT ACCOUNT INFO TO SERVER
 
-export const axioLoginSubmit = (credentials) => {
+export const axioSubmitLogin = (credentials) => {
     axios
         .post(`https://only-salty-hackers.herokuapp.com/api/login`, credentials)
         .then(res => {
@@ -62,7 +62,7 @@ export const axioLoginSubmit = (credentials) => {
 
 // SUBMIT ACCOUNT INFO TO SERVER FOR CREATING A NEW ACCOUNT
 
-export const axioSignUpSubmit = (credentials) => {
+export const axioSubmitSignUp = (credentials) => {
     axios
         .post(`https://only-salty-hackers.herokuapp.com/api/register`, credentials)
         .then(res => {
