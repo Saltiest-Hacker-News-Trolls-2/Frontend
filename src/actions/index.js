@@ -27,7 +27,7 @@ export const setUser = () => dispatch => {
 /***AXIOS CALLS***/
 // SET USER'S FAVORITES FOR SERVER
 
-export const axioAddFav = (comment) => {
+export const axioAddFavorite = (comment) => {
     axios
         .post(`https://only-salty-hackers.herokuapp.com/api/users/:${getUser.id}/favorites`, comment)
         .then(res => {
