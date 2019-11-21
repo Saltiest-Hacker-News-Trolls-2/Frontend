@@ -2,7 +2,7 @@
   EXAMPLE DATA
 *******************************************************************************/
 
-export const base_url = "https://hacker-news.firebaseio.com/v0/";
+export const base_url = "https://hacker-news.firebaseio.com";
 
 /***************************************
   ITEMS

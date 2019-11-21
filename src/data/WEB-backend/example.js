@@ -2,7 +2,7 @@
   EXAMPLE DATA
 *******************************************************************************/
 
-export const base_url = "https://only-salty-hackers.herokuapp.com/";
+export const base_url = "https://only-salty-hackers.herokuapp.com";
 
 /***************************************
   USER
