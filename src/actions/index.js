@@ -33,6 +33,7 @@ export const axioAddFavorite = (comment) => {
   axios
     .post(`https://only-salty-hackers.herokuapp.com/api/users/:${getUser.id}/favorites`, comment)
     .then((res) => {
+      console.log ('--- success! ---');
       console.log (res);
       message = res.data;
 
@@ -51,6 +52,7 @@ export const axioDeleteFavorite = (comment) => {
   axios
     .delete(`https://only-salty-hackers.herokuapp.com/api/users/:${getUser.id}/favorites`, comment)
     .then((res) => {
+      console.log ('--- success! ---');
       console.log (res);
       message = res.data;
 
@@ -69,6 +71,7 @@ export const axioSubmitSignIn = (credentials) => {
   axios
     .post(`https://only-salty-hackers.herokuapp.com/api/login`, credentials)
     .then((res) => {
+      console.log ('--- success! ---');
       console.log (res);
       message = res.data;
 
@@ -88,6 +91,7 @@ export const axioSubmitSignUp = (credentials) => {
   axios
     .post(`https://only-salty-hackers.herokuapp.com/api/register`, credentials)
     .then((res) => {
+      console.log ('--- success! ---');
       console.log (res);
       message = res.data;
 
@@ -107,6 +111,7 @@ export const axioGetSaltyUsers = () => {
   axios
     .get('https://hackernewsapilambda.herokuapp.com/saltyuser/?format=json')
     .then((res) => {
+      console.log ('--- success! ---');
       console.log (res);
       message = res.data;
     })
