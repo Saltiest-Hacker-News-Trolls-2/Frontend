@@ -118,8 +118,7 @@ export class Remote {
     ...args
   ) => {
     doBefore ();
-    axios
-      [method] (...args)
+    axios[method] (...args)
       .then (handleGoodResponse (handleResponse , handleData , initData))
       .catch (handleErrorResponse (handleError , handleData , initData))
       .finally (doAfter);
