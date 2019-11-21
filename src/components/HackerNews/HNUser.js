@@ -36,7 +36,27 @@ const HNUser = ({
   ...rest
 }) => {
   return (
-    <div></div>
+    <Card className='HN-user t-to-b'
+      col
+      onClick={view}
+    >
+      <CardHead>
+        <span className='user-salty-score'>{score}</span>
+        <h3><span className='user-id'>{userData.id}</span></h3>
+        <span className='user-karma-score'>({userData.karma})</span>
+        {/* <button className='user-fav'
+          onClick={toggleFav}
+        >
+          Fav? {isFav}
+        </button> */}
+      </CardHead>
+      <CardBody>
+        <div className='user-about'>{userData.about}</div>
+      </CardBody>
+      <CardFoot>
+        <a className='user-HN-url' href={`https://news.ycombinator.com/user?id=${userData.id}`}>View at HackerNews</a>
+      </CardFoot>
+    </Card>
   );
 };
 
