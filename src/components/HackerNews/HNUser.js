@@ -8,9 +8,9 @@ import './styles.css';
   COMPONENT
 ***************************************/
 const HNUser = ({
-  /* data :: object
-  -- data as-is (from HackerNews API) */
-  data,
+  /* userData :: object
+  -- userData as-is (from HackerNews API) */
+  userData,
   /* [optional] isFav :: boolean
   -- current fav status (from Web/backend API) */
   isFav = null,
