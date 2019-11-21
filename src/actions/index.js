@@ -28,7 +28,7 @@ export const setUser = () => (dispatch) => {
 // SET USER'S FAVORITES FOR SERVER
 
 export const axioAddFavorite = (comment) => {
-  const message = {};
+  let message = {};
   
   axios
     .post(`https://only-salty-hackers.herokuapp.com/api/users/:${getUser.id}/favorites`, comment)
@@ -43,7 +43,7 @@ export const axioAddFavorite = (comment) => {
 // DELETE A FAVORITE FROM THE LIST
 
 export const axioDeleteFavorite = (comment) => {
-  const message = {};
+  let message = {};
   
   axios
     .delete(`https://only-salty-hackers.herokuapp.com/api/users/:${getUser.id}/favorites`, comment)
@@ -58,7 +58,7 @@ export const axioDeleteFavorite = (comment) => {
 // SUBMIT ACCOUNT INFO TO SERVER
 
 export const axioSubmitSignIn = (credentials) => {
-  const message = {};
+  let message = {};
   
   axios
     .post(`https://only-salty-hackers.herokuapp.com/api/login`, credentials)
@@ -75,7 +75,7 @@ export const axioSubmitSignIn = (credentials) => {
 // SUBMIT ACCOUNT INFO TO SERVER FOR CREATING A NEW ACCOUNT
 
 export const axioSubmitSignUp = (credentials) => {
-  const message = {};
+  let message = {};
   
   axios
     .post(`https://only-salty-hackers.herokuapp.com/api/register`, credentials)
@@ -92,15 +92,18 @@ export const axioSubmitSignUp = (credentials) => {
 // GET LIST OF SALTY USERS
 
 export const axioGetSaltyUsers = () => {
-  const message = {};
+  let message = {};
   
   axios
     .get('https://hackernewsapilambda.herokuapp.com/saltyuser/?format=json')
     .then((res) => {
       console.log(res);
-      message.users = res;
+      message.data.users = res;
     })
-    .catch((err) => console.log(err));
+    .catch((err) => {
+      console.log(err);
+      message.errors = err;
+    });
   
   return (message);
 };
