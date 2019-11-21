@@ -69,7 +69,7 @@ export const handleGoodResponse = (handleResponse , handleData , initData) => (a
   /// handle response ///
   ifFunction (
     handleResponse ,
-    [{ 'data' : re , 'from' : axiosResponse }] ,
+    [{ 'data' : re , 'errors' : null , 'from' : axiosResponse }] ,
     '...handling response...' ,
   );
   /// handle data ///
@@ -87,7 +87,7 @@ export const handleErrorResponse = (handleError , handleData , initData) => (axi
   /// handle error ///
   ifFunction (
     handleError ,
-    [{ 'errors' : re , 'from' : axiosError }] ,
+    [{ 'data' : null , 'errors' : re , 'from' : axiosError }] ,
     '...handling error...' ,
   );
   /// handle data ///
