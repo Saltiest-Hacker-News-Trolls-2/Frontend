@@ -37,9 +37,10 @@ const HNUser = ({
   ...rest
 }) => {
   return (
-    <Card className='HN-user t-to-b'
-      col
-      onClick={view}
+    <Card
+    className='HN-user t-to-b'
+    col
+    onClick={view}
     >
       <CardHead>
         <span className='user-salty-score'>{score}</span>

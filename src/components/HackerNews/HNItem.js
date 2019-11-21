@@ -38,9 +38,10 @@ const HNItem = ({
   ...rest
 }) => {
   return (
-    <Card className='HN-item t-to-b'
-      col
-      onClick={view}
+    <Card
+    className='HN-item t-to-b'
+    col
+    onClick={view}
     >
       <CardHead>
         {/* <span className='item-salty-score'>{score}</span> */}
@@ -56,7 +57,9 @@ const HNItem = ({
       </CardBody>
       <CardFoot>
         <HNItemLink itemID={itemData.id}>View at HackerNews</HNItemLink>
-        {itemData.url && (<a className='item-origin-url' href={itemData.url}>View Original</a>)}
+        {itemData.url && (
+          <a className='item-origin-url' href={itemData.url}>View Original</a>
+        )}
       </CardFoot>
     </Card>
   );
