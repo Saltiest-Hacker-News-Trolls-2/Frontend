@@ -19,7 +19,7 @@ const ifFunction = (message , fun , args) => {
   }
 }
 
-const handleGoodResponse = (handleResponse , handleData , initData) => (reponse) => {
+const handleGoodResponse = (handleResponse , handleData , initData) => (response) => {
   console.log ("--- success? ---");
   /// handle response ///
   ifFunction (
