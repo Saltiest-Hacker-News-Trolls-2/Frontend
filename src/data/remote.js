@@ -11,7 +11,7 @@ import check from '../utils/is-type';
 /*//////////////////////////////////////
   utils
 //////////////////////////////////////*/
-const ifFunction = (message , fun , args) => {
+const ifFunction = (fun , args , message) => {
   if (check.isFunction (fun)) {
     console.log (message);
     console.log (...args);
@@ -23,13 +23,13 @@ const handleGoodResponse = (handleResponse , handleData , initData) => (response
   console.log ("--- success? ---");
   /// handle response ///
   ifFunction (
+    handleResponse , [response] ,
     '...handling response...' ,
-    handleResponse , [response]
   );
   /// handle data ///
   ifFunction (
+    handleData , [{ ...initData , ...(response.data) }] ,
     '...handling data...' ,
-    handleData , [{ ...initData , ...(response.data) }]
   );
 }
 
@@ -37,13 +37,13 @@ const handleErrorResponse = (handleError , handleData , initData) => (error) => 
   console.log ("--- failure? ---");
   /// handle error ///
   ifFunction (
+    handleError , [error] ,
     '...handling error...' ,
-    handleError , [error]
   );
   /// handle data ///
   ifFunction (
+    handleData , [{ ...initData , 'error' : error }] ,
     '...handling data...' ,
-    handleData , [{ ...initData , 'error' : error }]
   );
 }
 
