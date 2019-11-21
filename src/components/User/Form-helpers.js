@@ -96,8 +96,8 @@ export const handlePartialSubmit = (names) => (
     console.log ('--- submitting... ---');
     console.log (valuesToSubmit);
     //
-    submit (valuesToSubmit);
-    const response = JSON.parse(localStorage.getItem('user'));
+    const response = submit (valuesToSubmit);
+    // const response = JSON.parse(localStorage.getItem('user'));
     console.log ('--- server responded with... ---');
     console.log (localStorage);
     console.log (response);
