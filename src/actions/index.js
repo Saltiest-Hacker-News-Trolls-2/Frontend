@@ -3,6 +3,9 @@ import axiosWithAuth from '../components/AxiosWithAuth';
 import axios from 'axios';
 import { hashHistory } from 'react-router-dom';
 
+/// internal modules ///
+import { handleAxiosError } from '../data/remote';
+
 // ACTION TYPES
 export const SET_USER = 'SET_USER';
 export const LOG_OUT = 'LOG_OUT';
@@ -45,7 +48,7 @@ export const axioAddFavorite = (comment) => {
       console.log ('--- failure! ---');
       console.log (err);
 
-      message = err.response.data;
+      message = handleAxiosError (err);
     });
 
   return (message);
@@ -70,7 +73,7 @@ export const axioDeleteFavorite = (comment) => {
       console.log ('--- failure! ---');
       console.log (err);
 
-      message = err.response.data;
+      message = handleAxiosError (err);
     });
 
   return (message);
@@ -96,7 +99,7 @@ export const axioSubmitSignIn = (credentials) => {
       console.log ('--- failure! ---');
       console.log (err);
 
-      message = err.response.data;
+      message = handleAxiosError (err);
     });
 
   return (message);
@@ -122,7 +125,7 @@ export const axioSubmitSignUp = (credentials) => {
       console.log ('--- failure! ---');
       console.log (err);
 
-      message = err.response.data;
+      message = handleAxiosError (err);
     });
 
   return (message);
@@ -145,7 +148,7 @@ export const axioGetSaltyUsers = () => {
       console.log ('--- failure! ---');
       console.log (err);
 
-      message = err.response.data;
+      message = handleAxiosError (err);
     });
 
   return (message);
