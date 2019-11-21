@@ -63,7 +63,8 @@ export const axioDeleteFavorite = (comment) => {
     })
     .catch((err) => {
       console.log ('--- failure! ---');
-      console.log(err.response.data.errors);
+      console.log (err);
+      message = errr.response.data;
     });
     
   return (message);
@@ -86,7 +87,8 @@ export const axioSubmitSignIn = (credentials) => {
     })
     .catch((err) => {
       console.log ('--- failure! ---');
-      console.log(err.response.data.errors);
+      console.log (err);
+      message = errr.response.data;
     });
     
   return (message);
@@ -109,7 +111,8 @@ export const axioSubmitSignUp = (credentials) => {
     })
     .catch((err) => {
       console.log ('--- failure! ---');
-      console.log(err.response.data.errors);
+      console.log (err);
+      message = errr.response.data;
     });
     
   return (message);
