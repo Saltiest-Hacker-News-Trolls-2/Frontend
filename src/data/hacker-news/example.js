@@ -9,7 +9,7 @@ export const base_url = "https://hacker-news.firebaseio.com";
 ----------------------------------------
   from: <https://github.com/HackerNews/API#items>
 ***************************************/
-export const items = [
+export const item = [
   {
     "by" : "dhouston",
     "descendants" : 71,
@@ -76,7 +76,7 @@ export const items = [
   from: <https://github.com/HackerNews/API#users>
 ***************************************/
 
-export const users = Array (7).fill (
+export const user = Array (7).fill (
   {
     "about" : "This is a test",
     "created" : 1173923446,
