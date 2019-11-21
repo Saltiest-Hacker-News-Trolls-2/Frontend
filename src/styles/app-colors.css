@@ -23,15 +23,15 @@
   --white : White;
 
   /*/ theme /*/
-  --theme-100 : var(--tw-orange-100);
-  --theme-200 : var(--tw-orange-200);
-  --theme-300 : var(--tw-orange-300);
-  --theme-400 : var(--tw-orange-400);
-  --theme-500 : var(--tw-orange-500);
-  --theme-600 : var(--tw-orange-600);
-  --theme-700 : var(--tw-orange-700);
-  --theme-800 : var(--tw-orange-800);
-  --theme-900 : var(--tw-orange-900);
+  --primary-100 : var(--tw-orange-100);
+  --primary-200 : var(--tw-orange-200);
+  --primary-300 : var(--tw-orange-300);
+  --primary-400 : var(--tw-orange-400);
+  --primary-500 : var(--tw-orange-500);
+  --primary-600 : var(--tw-orange-600);
+  --primary-700 : var(--tw-orange-700);
+  --primary-800 : var(--tw-orange-800);
+  --primary-900 : var(--tw-orange-900);
 
   /*/ safe colors /*/
   --safe-100 : var(--tw-teal-100);
