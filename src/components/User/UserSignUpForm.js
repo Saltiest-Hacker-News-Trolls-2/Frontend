@@ -19,12 +19,12 @@ import './styles.css';
 ***************************************/
 const UserSignUpForm = (props) => {
   return (
-    <Card col className='user-sign-up'>
+    <Card col className='user-sign-up t-to-b'>
       <CardHead>
         <h2>Sign Up</h2>
       </CardHead>
       <CardBody>
-        <Form className='user-sign-up'>
+        <Form className='user-sign-up t-to-b'>
           <FormItem {...props} name='username'>
             <Field type='text' name='username' placeholder='Username'/>
           </FormItem>
