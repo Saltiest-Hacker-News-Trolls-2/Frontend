@@ -39,7 +39,10 @@ export const axioAddFavorite = (comment) => {
 
       localStorage.setItem(getUser().favorites, res.data)
     })
-    .catch((err) => console.log(err.response.data.errors));
+    .catch((err) => {
+      console.log ('--- failure! ---');
+      console.log(err.response.data.errors)
+    });
   
   return (message);
 };
@@ -58,7 +61,10 @@ export const axioDeleteFavorite = (comment) => {
 
       localStorage.setItem(getUser().favorites, getUser().favorites.filter((fav) => fav !== res))
     })
-    .catch((err) => console.log(err.response.data.errors));
+    .catch((err) => {
+      console.log ('--- failure! ---');
+      console.log(err.response.data.errors);
+    });
     
   return (message);
 };
@@ -78,7 +84,10 @@ export const axioSubmitSignIn = (credentials) => {
       localStorage.setItem('user', JSON.stringify(res.data))
       localStorage.setItem('isLoggedIn', true)
     })
-    .catch((err) => console.log(err.response.data.errors));
+    .catch((err) => {
+      console.log ('--- failure! ---');
+      console.log(err.response.data.errors);
+    });
     
   return (message);
 };
@@ -98,7 +107,10 @@ export const axioSubmitSignUp = (credentials) => {
       localStorage.setItem('user', JSON.stringify(res.data))
       localStorage.setItem('isLoggedIn', true)
     })
-    .catch((err) => console.log(err.response.data.errors));
+    .catch((err) => {
+      console.log ('--- failure! ---');
+      console.log(err.response.data.errors);
+    });
     
   return (message);
 };
@@ -116,6 +128,7 @@ export const axioGetSaltyUsers = () => {
       message = res.data;
     })
     .catch((err) => {
+      console.log ('--- failure! ---');
       console.log (err);
       message = errr.response.data;
     });
