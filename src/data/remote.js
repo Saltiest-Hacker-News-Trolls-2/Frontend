@@ -24,40 +24,40 @@ const ifFunction = (fun , args , message) => {
 ----------------------------------------
   based on: <https://github.com/axios/axios#handling-errors>
 --------------------------------------*/
-export const handleAxiosError = (error) => {
+export const handleAxiosError = (axiosError) => {
   let message = {};
 
-  if (error.response) {
+  if (axiosError.response) {
     // The request was made and the server responded with a status code
     // that falls out of the range of 2xx
     console.log ('The server did respond, but with an error:');
-    console.log ('- data:' , error.response.data);
-    console.log ('- status:' , error.response.status);
-    console.log ('- headers:' , error.response.headers);
+    console.log ('- data:' , axiosError.response.data);
+    console.log ('- status:' , axiosError.response.status);
+    console.log ('- headers:' , axiosError.response.headers);
 
-    message = error.response.data;
+    message = axiosError.response.data;
   }
-  else if (error.request) {
+  else if (axiosError.request) {
     // The request was made but no response was received
-    // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+    // `axiosError.request` is an instance of XMLHttpRequest in the browser and an instance of
     // http.ClientRequest in node.js
     console.log ('The server did not respond:');
-    console.log ('- request:' , error.request);
+    console.log ('- request:' , axiosError.request);
 
-    message.error = [
+    message['error'] = [
       'The server did not respond.',
     ];
   }
   else {
     // Something happened in setting up the request that triggered an Error
     console.log ('An runtime error occured:');
-    console.log ('- Error:', error.message);
+    console.log ('- Error:', axiosError.message);
 
-    message.error = {
-      'oops' : error.message,
+    message['error'] = {
+      'oops' : axiosError.message,
     };
   }
-  console.log ('- config:' , error.config);
+  console.log ('- config:' , axiosError.config);
 
   return (message);
 }
@@ -80,14 +80,14 @@ export const handleGoodResponse = (handleResponse , handleData , initData) => (r
   );
 }
 
-export const handleErrorResponse = (handleError , handleData , initData) => (error) => {
+export const handleErrorResponse = (handleError , handleData , initData) => (axiosError) => {
   console.log ("--- failure? ---");
-  /// parse out error ///
-  const re = handleAxiosError (error);
+  /// parse out axiosError ///
+  const re = handleAxiosError (axiosError);
   /// handle error ///
   ifFunction (
     handleError ,
-    [{ 'error' : re , 'from' : error }] ,
+    [{ 'error' : re , 'from' : axiosError }] ,
     '...handling error...' ,
   );
   /// handle data ///
