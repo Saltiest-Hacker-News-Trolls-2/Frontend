@@ -33,7 +33,7 @@ export const axioAddFavorite = (comment) => {
         .then(res => {
             localStorage.setItem(getUser().favorites, res.data)
         })
-        .catch(er => console.log(er.response.data.errors))
+        .catch(err => console.log(err.response.data.errors))
 }
 
 // DELETE A FAVORITE FROM THE LIST
@@ -44,7 +44,7 @@ export const axioDeleteFavorite = (comment) => {
         .then(res => {
             localStorage.setItem(getUser().favorites, getUser().favorites.filter(fav => fav !== res))
         })
-        .catch(er => console.log(er.response.data.errors))
+        .catch(err => console.log(err.response.data.errors))
 }
 
 // SUBMIT ACCOUNT INFO TO SERVER
@@ -57,7 +57,7 @@ export const axioSubmitLogin = (credentials) => {
             localStorage.setItem('user', JSON.stringify(res.data))
             localStorage.setItem('isLoggedIn', true)
         })
-        .catch(er => console.log(er.response.data.errors))
+        .catch(err => console.log(err.response.data.errors))
 }
 
 // SUBMIT ACCOUNT INFO TO SERVER FOR CREATING A NEW ACCOUNT
@@ -70,7 +70,7 @@ export const axioSubmitSignUp = (credentials) => {
             localStorage.setItem('user', JSON.stringify(res.data))
             localStorage.setItem('isLoggedIn', true)
         })
-        .catch(er => console.log(er.response.data.errors))
+        .catch(err => console.log(err.response.data.errors))
 }
 
 // GET LIST OF SALTY USERS
@@ -83,6 +83,6 @@ export const axioGetSaltyUsers = () => {
             console.log(res);
             users = res;
         })
-        .catch(er => console.log(er))
+        .catch(err => console.log(err))
     return users;
 }
