@@ -49,7 +49,7 @@ const HNItem = ({
         <h3><span className='item-title'>{itemData.title}</span></h3>
         <span className='item-karma-score'>({itemData.score})</span>
         <button className='item-fav' onClick={toggleFav}>Fav? {isFav}</button>
-        <span className='item-by-user'>by <HNUserLink userID={itemData.by}>{itemData.by}</HNUserLink></span>
+        <span className='item-by-user'>by <HNUserLink userID={itemData.by}/></span>
         <span className='item-at-time'>at {itemData.time}</span>
       </CardHead>
       <CardBody>
