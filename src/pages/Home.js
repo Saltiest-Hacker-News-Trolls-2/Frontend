@@ -1,6 +1,11 @@
 /// external modules ///
-import React, { useState } from 'react';
+import React from 'react';
 import axios from 'axios'
+
+/// helpers ///
+const corsURL = 'https://cors-anywhere.herokuapp.com/';
+const dataURL = 'https://hackernewsapilambda.herokuapp.com/saltyuser/?format=json';
+
 /***************************************
   COMPONENT
 ***************************************/
@@ -11,7 +16,7 @@ class Home extends React.Component {
 
   componentDidMount = () => {
     axios
-        .get('https://cors-anywhere.herokuapp.com/' + 'https://hackernewsapilambda.herokuapp.com/saltyuser/?format=json', )
+        .get(corsURL + dataURL)
         .then(res => {
             let temp = [{}]
             for(let i = 0; i < 50; i++){
