@@ -96,10 +96,10 @@ export const handlePartialSubmit = (names) => (
     console.log ('--- submitting... ---');
     console.log (valuesToSubmit);
     //
-    submit (valuesToSubmit)
+    submit (valuesToSubmit);
     const response = JSON.parse(localStorage.getItem('user'));
     console.log ('--- server responded with... ---');
-    console.log(localStorage)
+    console.log (localStorage);
     console.log (response);
     //
     if (response) {
@@ -107,11 +107,17 @@ export const handlePartialSubmit = (names) => (
         console.log ('--- success! ---');
         console.log ('resetting form and redirecting...');
         resetForm ();
-        window.history.push('/user/account');
+        if (check.isFunction (handleSuccess)) {
+          handleSuccess (response);
+          // window.history.push('/user/account');
+        };
       } else {
         console.log ('--- failure! ---');
         console.log ('setting error messages...');
         setErrors (response.errors);
+        if (check.isFunction (handleFailure)) {
+          handleFailure (response);
+        };
       }
     } else {
       setErrors ({
