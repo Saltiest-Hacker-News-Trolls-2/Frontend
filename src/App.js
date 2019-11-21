@@ -1,6 +1,6 @@
 /// external modules ///
 import React from 'react';
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import { Route } from "react-router-dom";
 
 /// internal modules ///
 import Home from './pages/Home';
