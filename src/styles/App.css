@@ -33,7 +33,9 @@ a {
   color: #204963;
 }
 
-/*/ controls /*/
+/***************************************
+  USER CONTROLS
+***************************************/
 input , button {
   border-radius: var(--inf-px);
   border: var(--size-02-px) solid var(--gray-300);
