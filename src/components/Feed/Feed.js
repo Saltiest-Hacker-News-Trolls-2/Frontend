@@ -15,9 +15,9 @@ const Feed = ({
   /* component :: React.Component
   -- the component to use for feed items */
   component = Card,
-  /* data :: Array
-  -- array of data for feed items */
-  data = [],
+  /* items :: Array
+  -- array of props feed items */
+  items = [],
   /* rest of props */
   ...rest
 }) => {
@@ -25,7 +25,9 @@ const Feed = ({
     <CardDeck
       className={`feed ${rest.className}`}
     >
-      {children}
+      {items.map ((props) => (
+        <component key={props.id} {...props}/>
+      ))}
     </CardDeck>
   );
 };
