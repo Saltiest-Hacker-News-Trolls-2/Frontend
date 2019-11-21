@@ -62,14 +62,14 @@ export const handleAxiosError = (axiosError) => {
   return (message);
 }
 
-export const handleGoodResponse = (handleResponse , handleData , initData) => (response) => {
+export const handleGoodResponse = (handleResponse , handleData , initData) => (axiosResponse) => {
   console.log ("--- success? ---");
   /// parse data ///
-  const re = response.data;
+  const re = axiosResponse.data;
   /// handle response ///
   ifFunction (
     handleResponse ,
-    [{ 'data' : re , 'from' : response }] ,
+    [{ 'data' : re , 'from' : axiosResponse }] ,
     '...handling response...' ,
   );
   /// handle data ///
