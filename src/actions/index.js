@@ -95,9 +95,9 @@ export const axioGetComments = () => {
 
 // GET DATA FROM HACKER NEWS API
 
-export const axioGetHN = (item) => {
+export const axioGetHN = (user) => {
     axios
-        .get('https://cors-anywhere.herokuapp.com/' + `https://hacker-news.firebaseio.com/v0/item/${item}.json?print=pretty`)
+        .get('https://cors-anywhere.herokuapp.com/' + `https://hacker-news.firebaseio.com/v0/item/${user}.json?print=pretty`)
         .then(res => {
             localStorage.setItem('HNUser', res.data)
         })
