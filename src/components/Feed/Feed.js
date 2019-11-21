@@ -1,15 +1,22 @@
 /// external modules ///
 import React from 'react';
 
+/// internal modules ///
+import CardDeck from './path/CardDeck';
+
 /// styles ///
 import './styles.css';
 
 /***************************************
   COMPONENT
 ***************************************/
-const Feed = () => {
+const Feed = ({ children , ...rest }) => {
   return (
-    <div></div>
+    <CardDeck
+      className={`feed ${rest.className}`}
+    >
+      {}
+    </CardDeck>
   );
 };
 
