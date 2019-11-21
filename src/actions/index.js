@@ -33,6 +33,9 @@ export const axioAddFavorite = (comment) => {
   axios
     .post(`https://only-salty-hackers.herokuapp.com/api/users/:${getUser.id}/favorites`, comment)
     .then((res) => {
+      console.log (res);
+      message = res.data;
+
       localStorage.setItem(getUser().favorites, res.data)
     })
     .catch((err) => console.log(err.response.data.errors));
@@ -48,6 +51,9 @@ export const axioDeleteFavorite = (comment) => {
   axios
     .delete(`https://only-salty-hackers.herokuapp.com/api/users/:${getUser.id}/favorites`, comment)
     .then((res) => {
+      console.log (res);
+      message = res.data;
+
       localStorage.setItem(getUser().favorites, getUser().favorites.filter((fav) => fav !== res))
     })
     .catch((err) => console.log(err.response.data.errors));
