@@ -104,6 +104,30 @@ export const handleErrorResponse = (handleError , handleData , initData) => (err
 
 export const remote = {
   /*******************
+    GENERIC REQUEST
+  *******************/
+  request : (
+    method ,
+    doBefore = () => {
+      console.log ("--- making remote request... ---");
+    } ,
+    doAfter = () => {
+      console.log ("--- done. ---");
+    }
+  ) => (
+    { handleResponse , handleError , handleData , initData }
+  ) => (
+    ...args
+  ) => {
+    doBefore ();
+    axios
+      [method] (...args)
+      .then (handleGoodResponse (handleResponse , handleData , initData))
+      .catch (handleErrorResponse (handleError , handleData , initData))
+      .finally (doAfter);
+  },
+
+  /*******************
     GET
   *******************/
   get : ({
