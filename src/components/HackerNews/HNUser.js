@@ -6,6 +6,7 @@ import Card from '../generics/cards/Card';
 import CardHead from '../generics/cards/CardHead';
 import CardBody from '../generics/cards/CardBody';
 // import CardFoot from '../generics/cards/CardFoot';
+import HNUserLink from './HNUserLink';
 
 /// styles ///
 import './styles.css';
@@ -54,7 +55,7 @@ const HNUser = ({
         <div className='user-about'>{userData.about}</div>
       </CardBody>
       <CardFoot>
-        <a className='user-HN-url' href={`https://news.ycombinator.com/user?id=${userData.id}`}>View at HackerNews</a>
+        <HNUserLink userID={userData.id}>View at HackerNews</HNUserLink>
       </CardFoot>
     </Card>
   );
