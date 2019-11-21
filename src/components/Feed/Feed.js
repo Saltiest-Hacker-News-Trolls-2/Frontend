@@ -15,6 +15,9 @@ const Feed = ({
   /* component :: React.Component
   -- the component to use for feed items */
   component = Card,
+  /* data :: Array
+  -- array of data for feed items */
+  data = [],
   /* rest of props */
   ...rest
 }) => {
