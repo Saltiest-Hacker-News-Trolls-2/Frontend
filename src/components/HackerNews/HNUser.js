@@ -1,6 +1,12 @@
 /// external modules ///
 import React from 'react';
 
+/// internal modules ///
+import Card from '../generics/cards/Card';
+import CardHead from '../generics/cards/CardHead';
+import CardBody from '../generics/cards/CardBody';
+// import CardFoot from '../generics/cards/CardFoot';
+
 /// styles ///
 import './styles.css';
 
