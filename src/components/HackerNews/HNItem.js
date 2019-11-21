@@ -7,7 +7,7 @@ import './styles.css';
 /***************************************
   COMPONENT
 ***************************************/
-const HNComment = ({
+const HNItem = ({
   /* data :: object
   -- data as-is (from HackerNews API) */
   data,
@@ -35,4 +35,4 @@ const HNComment = ({
 };
 
 /**************************************/
-export default HNComment;
+export default HNItem;
