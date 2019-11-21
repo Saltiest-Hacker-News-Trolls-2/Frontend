@@ -41,7 +41,8 @@ export const axioAddFavorite = (comment) => {
     })
     .catch((err) => {
       console.log ('--- failure! ---');
-      console.log(err.response.data.errors)
+      console.log (err);
+      message = errr.response.data;
     });
   
   return (message);
