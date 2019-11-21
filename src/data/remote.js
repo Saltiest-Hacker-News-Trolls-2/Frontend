@@ -107,12 +107,14 @@ export const remote = {
     GENERIC REQUEST
   *******************/
   request : (
-    method ,
-    doBefore = () => {
-      console.log ("--- making remote request... ---");
-    } ,
-    doAfter = () => {
-      console.log ("--- done. ---");
+    {
+      method ,
+      doBefore = () => {
+        console.log ("--- making remote request... ---");
+      } ,
+      doAfter = () => {
+        console.log ("--- done. ---");
+      }
     }
   ) => (
     { handleResponse , handleError , handleData , initData }
@@ -130,7 +132,7 @@ export const remote = {
   /*******************
     GET
   *******************/
-  get : ({
+  get : this.request ('get' , ) ({
     handleResponse , handleError , handleData , initData
   }) => (query , config) => {
     console.log ("--- getting remote data... ---");
