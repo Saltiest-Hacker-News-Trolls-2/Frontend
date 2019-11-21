@@ -102,28 +102,33 @@ export const handlePartialSubmit = (names) => (
     console.log (localStorage);
     console.log (response);
     //
-    if (response) {
-      if (response.errors === undefined) {
-        console.log ('--- success! ---');
-        console.log ('resetting form and redirecting...');
-        resetForm ();
-        if (check.isFunction (handleSuccess)) {
-          handleSuccess (response);
-          // window.history.push('/user/account');
-        };
-      } else {
-        console.log ('--- failure! ---');
-        console.log ('setting error messages...');
-        setErrors (response.errors);
-        if (check.isFunction (handleFailure)) {
-          handleFailure (response);
-        };
-      }
+    /// handle good response ///
+    if (response && response.errors === undefined) {
+      console.log ('--- success! ---');
+      console.log ('resetting form and redirecting...');
+
+      resetForm ();
+
+      if (check.isFunction (handleSuccess)) {
+        handleSuccess (response);
+        // window.history.push('/user/account');
+      };
+    /// handle bad response ///
     } else {
-      setErrors ({
-        'submit' : 'The server did not respond.',
-      });
-      throw (new Error ('Submission did not return a response from the server.'));
+      console.log ('--- failure! ---');
+      console.log ('setting error messages...');
+
+      if (response && response.errors !== undefined) {
+        setErrors (response.errors);
+      } else {
+        setErrors ({
+          'submit' : 'The server did not respond.',
+        });
+      }
+
+      if (check.isFunction (handleFailure)) {
+        handleFailure (response);
+      };
     }
   }
   catch (error) {
