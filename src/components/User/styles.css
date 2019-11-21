@@ -5,6 +5,10 @@
 @import url('../../styles/app-sizes.css');
 @import url('../../styles/app-colors.css');
 
+.card.user-sign-up , .card.user-sign-in {
+  width: var(--size-10-px);
+}
+
 form , .form-item {
   display: flex;
   flex-direction: column;
