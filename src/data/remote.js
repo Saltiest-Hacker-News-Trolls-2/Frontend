@@ -64,32 +64,36 @@ export const handleAxiosError = (error) => {
 
 export const handleGoodResponse = (handleResponse , handleData , initData) => (response) => {
   console.log ("--- success? ---");
+  /// parse data ///
+  const re = response.data;
   /// handle response ///
   ifFunction (
     handleResponse ,
-    [response] ,
+    [{ 'data' : re , 'from' : response }] ,
     '...handling response...' ,
   );
   /// handle data ///
   ifFunction (
     handleData ,
-    [{ ...initData , ...(response.data) }] ,
+    [{ ...initData , ...re }] ,
     '...handling data...' ,
   );
 }
 
 export const handleErrorResponse = (handleError , handleData , initData) => (error) => {
   console.log ("--- failure? ---");
+  /// parse out error ///
+  const re = handleAxiosError (error);
   /// handle error ///
   ifFunction (
-    (error) => (handleError (handleAxiosError (error))) ,
-    [error] ,
+    handleError ,
+    [{ 'error' : re , 'from' : error }] ,
     '...handling error...' ,
   );
   /// handle data ///
   ifFunction (
     handleData ,
-    [{ ...initData , 'error' : error }] ,
+    [{ ...initData , ...re }] ,
     '...handling data...' ,
   );
 }
