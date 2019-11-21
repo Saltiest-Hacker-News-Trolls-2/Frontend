@@ -6,6 +6,7 @@
 import * as Yup from 'yup';
 
 /// internal modules ///
+import check from '../../utils/is-type';
 import { filterObjectByKey } from '../../utils/Object-helpers';
 
 /***************************************
