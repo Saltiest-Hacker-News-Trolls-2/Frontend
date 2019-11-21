@@ -39,23 +39,3 @@ form , .form-item {
   color: var(--look-500);
   font-weight: bold;
 }
-
-input {
-  border-radius: var(--inf-px);
-  border: var(--size-02-px) solid var(--gray-300);
-  padding: var(--size-04-px);
-}
-
-button {
-  border-radius: var(--inf-px);
-  border: var(--size-02-px) solid var(--primary-500);
-  padding: var(--size-04-px);
-
-  color: var(--primary-500);
-  background-color: var(--white);
-}
-
-button[type='submit'] {
-  color: var(--white);
-  background-color: var(--primary-500);
-}
