@@ -102,11 +102,11 @@ export const handleErrorResponse = (handleError , handleData , initData) => (err
   REMOTE
 ***************************************/
 
-export const remote = {
+export class Remote {
   /*******************
     GENERIC REQUEST
   *******************/
-  request : (
+  request = (
     {
       method ,
       doBefore = () => { console.log ("--- making remote request... ---"); } ,
@@ -123,93 +123,37 @@ export const remote = {
       .then (handleGoodResponse (handleResponse , handleData , initData))
       .catch (handleErrorResponse (handleError , handleData , initData))
       .finally (doAfter);
-  },
+  };
 
   /*******************
     GET
   *******************/
-  get : this.request ('get' , ) ({
-    handleResponse , handleError , handleData , initData
-  }) => (query , config) => {
-    console.log ("--- getting remote data... ---");
-    axios
-      .get (
-        query , config
-      )
-      .then (
-        handleGoodResponse (handleResponse , handleData , initData)
-      )
-      .catch (
-        handleErrorResponse (handleError , handleData , initData)
-      )
-      .finally (() => {
-        console.log ("--- done. ---");
-      })
-  },
+  get = Remote.request ({
+    method : 'get' ,
+    doBefore : () => { console.log ("--- getting remote data... ---"); }
+  });
 
   /*******************
     POST
   *******************/
-  post : ({
-    handleResponse , handleError , handleData , initData
-  }) => (query , data , config) => {
-    console.log ("--- posting remote data... ---");
-    axios
-      .post (
-        query , data , config
-      )
-      .then (
-        handleGoodResponse (handleResponse , handleData , initData)
-      )
-      .catch (
-        handleErrorResponse (handleError , handleData , initData)
-      )
-      .finally (() => {
-        console.log ("--- done. ---");
-      })
-  },
+  post = Remote.request ({
+    method : 'post' ,
+    doBefore : () => { console.log ("--- posting remote data... ---"); }
+  });
 
   /*******************
     PUT
   *******************/
-  put : ({
-    handleResponse , handleError , handleData , initData
-  }) => (query , data , config) => {
-    console.log ("--- putting remote data... ---");
-    axios
-      .put (
-        query , data , config
-      )
-      .then (
-        handleGoodResponse (handleResponse , handleData , initData)
-      )
-      .catch (
-        handleErrorResponse (handleError , handleData , initData)
-      )
-      .finally (() => {
-        console.log ("--- done. ---");
-      })
-  },
+  put = Remote.request ({
+    method : 'put' ,
+    doBefore : () => { console.log ("--- putting remote data... ---"); }
+  });
 
   /*******************
     DELETE
   *******************/
-  delete : ({
-    handleResponse , handleError , handleData , initData
-  }) => (query , config) => {
-    console.log ("--- deleting remote data... ---");
-    axios
-      .delete (
-        query , config
-      )
-      .then (
-        handleGoodResponse (handleResponse , handleData , initData)
-      )
-      .catch (
-        handleErrorResponse (handleError , handleData , initData)
-      )
-      .finally (() => {
-        console.log ("--- done. ---");
-      })
-  },
+  delete = Remote.request ({
+    method : 'delete' ,
+    doBefore : () => { console.log ("--- deleting remote data... ---"); }
+  });
 };
