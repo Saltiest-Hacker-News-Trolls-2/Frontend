@@ -12,3 +12,9 @@ form , form > .form-item {
   justify-content: flex-start;
   align-items: stretch;
 }
+
+input {
+  border-radius: var(--size-03-px);
+  border: var(--size-01-px) solid var(--gray-500);
+  padding: var(--size-03-px);
+}
