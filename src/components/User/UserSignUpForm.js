@@ -16,7 +16,7 @@ import FormItem from '../generics/forms/FormItem';
 ***************************************/
 const UserSignUpForm = (props) => {
   return (
-    <Card>
+    <Card col>
       <CardHead>
         <h2>Sign Up</h2>
       </CardHead>
