@@ -35,7 +35,7 @@ const UserSignInForm = (props) => {
             <Field type='password' name='password' placeholder='Password'/>
           </FormItem>
           <FormItem {...props} name='submit'>
-            <button type='submit' name='submit'>Submit</button>
+            <button type='submit' name='submit' className='primary'>Submit</button>
           </FormItem>
         </Form>
       </CardBody>

@@ -48,7 +48,7 @@ const UserSignUpForm = (props) => {
             <label htmlFor='agree_to_terms'>I accept the <a href='#'>Terms of Service</a>.</label>
           </FormItem> */}
           <FormItem {...props} name='submit'>
-            <button type='submit' name='submit'>Submit</button>
+            <button type='submit' name='submit' className='primary'>Submit</button>
           </FormItem>
         </Form>
       </CardBody>
