@@ -10,7 +10,7 @@ import './styles.css';
 const CardFoot = ({ children , ...rest }) => {
   return (
     <footer
-      className={`card-foot ${rest.className}`}
+      className={`card-foot ${rest.className || ''}`.trim ()}
     >
       {children}
     </footer>

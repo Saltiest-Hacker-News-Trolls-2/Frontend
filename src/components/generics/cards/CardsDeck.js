@@ -16,7 +16,7 @@ const Container = Flex (styled.ol ``);
 const CardsDeck = ({ row , col , wrap , children , ...rest }) => {
   return (
     <Container
-      className={`cards-deck ${rest.className}`}
+      className={`cards-deck ${rest.className || ''}`.trim ()}
       flex={{
         row : row , col : col ,
         wrap : wrap,

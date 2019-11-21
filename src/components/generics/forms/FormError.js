@@ -7,7 +7,7 @@ import React from 'react';
 const FormError = ({ name , touched , errors , ...rest }) => {
   return (
     <div
-      className={`form-item-errors ${name} ${rest.className}`}
+      className={`form-item-errors ${name} ${rest.className || ''}`.trim ()}
     >
       {touched[name] && errors[name] && (<p>{errors[name]}</p>)}
     </div>

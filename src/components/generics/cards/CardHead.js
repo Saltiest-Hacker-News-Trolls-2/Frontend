@@ -10,7 +10,7 @@ import './styles.css';
 const CardHead = ({ children , ...rest }) => {
   return (
     <header
-      className={`card-head ${rest.className}`}
+      className={`card-head ${rest.className || ''}`.trim ()}
     >
       {children}
     </header>
