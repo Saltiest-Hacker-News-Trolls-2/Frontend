@@ -4,8 +4,9 @@
 
 export const base_url = "https://hackernewsapilambda.herokuapp.com/saltyuser/?format=json";
 
-export const userScores = [
-  {
+export const user_scores = {
+  "rest_url" : "",
+  "success" : [{
     "id" : 1,
     "score" : 123,
   },{
@@ -26,5 +27,5 @@ export const userScores = [
   },{
     "id" : 7,
     "score" : 789,
-  }
-];
+  }],
+};
