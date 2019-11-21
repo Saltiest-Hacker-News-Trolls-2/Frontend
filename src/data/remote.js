@@ -72,14 +72,16 @@ export const handleAxiosError = (error) => {
     console.log ('The server did not respond:');
     console.log ('- request:' , error.request);
 
-    message.errors = [ 'The server did not respond.' ];
+    message.errors = [
+      'The server did not respond.',
+    ];
   }
   else {
     // Something happened in setting up the request that triggered an Error
     console.log ('An runtime error occured:');
     console.log ('- Error:', error.message);
 
-    message.errors =  {
+    message.errors = {
       'oops' : error.message,
     };
   }
