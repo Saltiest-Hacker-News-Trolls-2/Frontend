@@ -13,7 +13,7 @@ export const LOG_IN = 'LOG_IN'
 // LOGOUT USER
 export const logout = () => (dispatch) => {
     localStorage.clear()
-    dispatch({type:LOG_OUT})
+    dispatch({type: LOG_OUT})
 }
 // GETTING USER DATA FROM LOCAL STORAGE
 export const getUser = () => (dispatch) => {
