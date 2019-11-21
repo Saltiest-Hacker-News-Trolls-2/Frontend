@@ -44,16 +44,16 @@
   --safe-800 : var(--tw-teal-800);
   --safe-900 : var(--tw-teal-900);
 
-  /*/ warning colors /*/
-  --warn-100 : var(--tw-yellow-100);
-  --warn-200 : var(--tw-yellow-200);
-  --warn-300 : var(--tw-yellow-300);
-  --warn-400 : var(--tw-yellow-400);
-  --warn-500 : var(--tw-yellow-500);
-  --warn-600 : var(--tw-yellow-600);
-  --warn-700 : var(--tw-yellow-700);
-  --warn-800 : var(--tw-yellow-800);
-  --warn-900 : var(--tw-yellow-900);
+  /*/ notice colors /*/
+  --look-100 : var(--tw-purple-100);
+  --look-200 : var(--tw-purple-200);
+  --look-300 : var(--tw-purple-300);
+  --look-400 : var(--tw-purple-400);
+  --look-500 : var(--tw-purple-500);
+  --look-600 : var(--tw-purple-600);
+  --look-700 : var(--tw-purple-700);
+  --look-800 : var(--tw-purple-800);
+  --look-900 : var(--tw-purple-900);
 
   /*/ danger colors /*/
   --danger-100 : var(--tw-red-100);
