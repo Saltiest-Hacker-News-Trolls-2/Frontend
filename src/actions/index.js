@@ -93,13 +93,24 @@ export const axioGetComments = () => {
         .catch(er => console.log(er))
 }
 
-// GET DATA FROM HACKER NEWS API
+// GET USER DATA FROM HACKER NEWS API
 
-export const axioGetHN = (user) => {
+export const axioGetHNUser = (user) => {
     axios
         .get('https://cors-anywhere.herokuapp.com/' + `https://hacker-news.firebaseio.com/v0/item/${user}.json?print=pretty`)
         .then(res => {
             localStorage.setItem('HNUser', res.data)
+        })
+        .catch(er => console.log(er))
+}
+
+// GET COMMENT DATA FROM HACKER NEWS API
+
+export const axioGetHNComment = (id) => {
+    axios
+        .get('https://cors-anywhere.herokuapp.com/' + `https://hacker-news.firebaseio.com/v0/item/${id}.json?print=pretty`)
+        .then(res => {
+            localStorage.setItem('HNUserComment', res.data)
         })
         .catch(er => console.log(er))
 }
