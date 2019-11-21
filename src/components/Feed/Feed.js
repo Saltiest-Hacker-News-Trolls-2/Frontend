@@ -15,7 +15,7 @@ const Feed = ({ children , ...rest }) => {
     <CardDeck
       className={`feed ${rest.className}`}
     >
-      {}
+      {children}
     </CardDeck>
   );
 };
