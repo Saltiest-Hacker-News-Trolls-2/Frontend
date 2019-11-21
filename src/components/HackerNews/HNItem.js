@@ -6,6 +6,8 @@ import Card from '../generics/cards/Card';
 import CardHead from '../generics/cards/CardHead';
 import CardBody from '../generics/cards/CardBody';
 // import CardFoot from '../generics/cards/CardFoot';
+import HNItemLink from './HNItemLink';
+import HNUserLink from './HNUserLink';
 
 /// styles ///
 import './styles.css';
@@ -46,14 +48,14 @@ const HNItem = ({
         <h3><span className='item-title'>{itemData.title}</span></h3>
         <span className='item-karma-score'>({itemData.score})</span>
         <button className='item-fav' onClick={toggleFav}>Fav? {isFav}</button>
-        <span className='item-by-user'>by {itemData.by}</span>
+        <span className='item-by-user'>by <HNUserLink userID={itemData.by}>{itemData.by}</HNUserLink></span>
         <span className='item-at-time'>at {itemData.time}</span>
       </CardHead>
       <CardBody>
         <div className='item-text'>{itemData.text}</div>
       </CardBody>
       <CardFoot>
-        <a className='item-HN-url' href={`https://news.ycombinator.com/item?id=${itemData.id}`}>View at HackerNews</a>
+        <HNItemLink itemID={itemData.id}>View at HackerNews</HNItemLink>
         {itemData.url && (<a className='item-origin-url' href={itemData.url}>View Original</a>)}
       </CardFoot>
     </Card>
