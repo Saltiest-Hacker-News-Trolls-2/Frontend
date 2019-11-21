@@ -11,6 +11,9 @@ import CardBody from '../generics/cards/CardBody';
 import CardFoot from '../generics/cards/CardFoot';
 import FormItem from '../generics/forms/FormItem';
 
+/// styles ///
+import './styles.css';
+
 /***************************************
   COMPONENT
 ***************************************/
