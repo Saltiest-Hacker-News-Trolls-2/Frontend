@@ -6,7 +6,7 @@ import axios from 'axios';
 import { handleAxiosError } from '../data/remote';
 
 /// app data ///
-import { routes } from '../data/app-routes';
+import { routes , fullURL } from '../data/app-routes';
 
 // ACTION TYPES
 export const SET_USER = 'SET_USER';
@@ -40,7 +40,7 @@ export const axioAddFavorite = (comment) => {
   let message = {};
 
   axiosWithAuth ()
-    .post(routes.here.BE.base + `/api/users/:${getUser().id}/favorites`, comment)
+    .post(fullURL (routes.here.BE , 'favorites' , getUser ().id), comment)
     .then((res) => {
       console.log ('--- success! ---');
       console.log (res);
@@ -68,7 +68,7 @@ export const axioDeleteFavorite = (comment) => (dispatch) => {
   console.log(getUser().token);
   console.log(comment)
   axiosWithAuth ()
-    .delete(routes.here.BE.base + `/api/users/:${getUser().id}/favorites`, comment)
+    .delete(fullURL (routes.here.BE , 'favorites' , getUser ().id), comment)
     .then((res) => {
       console.log ('--- success! ---');
       console.log (res);
@@ -95,7 +95,7 @@ export const axioSubmitSignIn = (credentials) => {
   let message = {};
 
   axios
-    .post(routes.here.BE.base + '/api/login', credentials)
+    .post(fullURL (routes.here.BE , 'user_sign_in'), credentials)
     .then((res) => {
       console.log ('--- success! ---');
       console.log (res);
@@ -122,7 +122,7 @@ export const axioSubmitSignUp = (credentials) => {
   let message = {};
 
   axios
-    .post(routes.here.BE.base + '/api/register', credentials)
+    .post(fullURL (routes.here.BE , 'user_sign_up'), credentials)
     .then((res) => {
       console.log ('--- success! ---');
       console.log (res);
