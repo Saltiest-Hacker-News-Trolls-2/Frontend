@@ -62,7 +62,7 @@ class Home extends React.Component {
                   </div>
                 )
               } else {
-                console.log('not logged')
+                console.log('not logged in')
                 return(
                   <div className='commenter-card'>
                     <h3>'{comment.comment}'<br/>Written By: {comment.hacker}</h3>
