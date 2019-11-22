@@ -6,6 +6,10 @@ import { connect } from 'react-redux'
 /// internal modules ///
 import { logout } from '../actions'
 
+/// app data ///
+import { routes } from './data/app-routes';
+import { isSignedIn } from './data/app-states';
+
 /// styles ///
 import '../styles/navbar.css';
 
