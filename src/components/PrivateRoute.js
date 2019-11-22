@@ -2,9 +2,13 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router';
 
-const isAuth = () => {
-    return localStorage.getItem('isLoggedIn') ? true : false;
-}
+/// app data ///
+import { routes } from './data/app-routes';
+import { isSignedIn } from './data/app-states';
+
+///
+const isAuth = isSignedIn;
+
 export default function PrivateRoute({ children, ...rest }) {
     return(
         <Route
@@ -15,7 +19,7 @@ export default function PrivateRoute({ children, ...rest }) {
                 ) : (
                     <Redirect
                         to={{
-                            pathname: '/user/sign-in',
+                            pathname: routes.here.FE.path.user_sign_in,
                             state: { from: location }
                         }}
                     />
