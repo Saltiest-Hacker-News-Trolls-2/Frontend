@@ -22,7 +22,6 @@ const UserAccount = (props) => {
               return(
                 <div className='commenter-card'>
                   <h3>'{comment.comment}'<br/>Written By: {comment.hacker}</h3>
-                  <h4>Rank: {comment.hacker_salt_ranking}</h4>
                   <button onClick={axioDeleteFavorite(comment.id)}>unFavorite</button>
                 </div>
               )
