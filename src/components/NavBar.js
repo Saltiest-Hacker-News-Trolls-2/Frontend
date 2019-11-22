@@ -1,9 +1,12 @@
+/// external modules ///
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
 
+/// internal modules ///
 import { logout } from '../actions'
 
+/// styles ///
 import '../styles/navbar.css';
 
 
