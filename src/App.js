@@ -1,6 +1,6 @@
 /// external modules ///
 import React from 'react';
-import { Route , Redirect } from "react-router-dom";
+import { Route } from "react-router-dom";
 
 /// internal modules ///
 import Home from './pages/Home';
@@ -13,7 +13,7 @@ import { axioSubmitSignIn, axioSubmitSignUp } from './actions';
 
 /// app data ///
 import { routes } from './data/app-routes';
-import { isSignedIn } from './data/app-states';
+// import { isSignedIn } from './data/app-states';
 
 /// styles ///
 import './styles/App.css';
@@ -33,16 +33,25 @@ function App () {
       exact path={routes.here.FE.path.user_account}
       component={UserAccount}
       />
-      {/* <Route
+      <Route
       exact path={routes.here.FE.path.user_sign_in}
       render={(props) => (
         <UserSignInForm {...props}
         submit={axioSubmitSignIn}
-        // handleSuccess={() => {props.history.push(routes.here.FE.path.user_account);}}
+        handleSuccess={() => {props.history.push(routes.here.FE.path.user_account);}}
         />
       )}
-      />*/}
-      <Route exact path={routes.here.FE.path.user_sign_in}>{
+      />
+      <Route
+      exact path={routes.here.FE.path.user_sign_up}
+      render={(props) => (
+        <UserSignUpForm {...props}
+        submit={axioSubmitSignUp}
+        handleSuccess={() => {props.history.push(routes.here.FE.path.user_account);}}
+        />
+      )}
+      />
+      {/* <Route exact path={routes.here.FE.path.user_sign_in}>{
         isSignedIn () ? (
           <Redirect to={routes.here.FE.path.user_account}/>
         ) : (
@@ -51,17 +60,8 @@ function App () {
             handleSuccess={(history) => {history.push(routes.here.FE.path.user_account);}}
           />
         )
-      }</Route>
-      {/* <Route
-      exact path={routes.here.FE.path.user_sign_up}
-      render={(props) => (
-        <UserSignUpForm {...props}
-        submit={axioSubmitSignUp}
-        // handleSuccess={() => {props.history.push(routes.here.FE.path.user_account);}}
-        />
-      )}
-      /> */}
-      <Route exact path={routes.here.FE.path.user_sign_up}>{
+      }</Route> */}
+      {/* <Route exact path={routes.here.FE.path.user_sign_up}>{
         isSignedIn () ? (
           <Redirect to={routes.here.FE.path.user_account}/>
         ) : (
@@ -70,7 +70,7 @@ function App () {
             handleSuccess={(history) => {history.push(routes.here.FE.path.user_account);}}
           />
         )
-      }</Route>
+      }</Route> */}
     </div>
   );
 }
