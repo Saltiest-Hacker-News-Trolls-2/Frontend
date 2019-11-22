@@ -41,8 +41,9 @@ class Home extends React.Component {
     this.mounted = false;
   }
   render(){
-    console.log('here');
-    console.log(this.state.comments);
+    // console.log ('here');
+    // console.log (this.state.comments);
+    // console.log (window.localStorage);
 
     if(isSignedIn ()){
       console.log('logged in');
