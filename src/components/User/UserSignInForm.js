@@ -18,8 +18,8 @@ import './styles.css';
   COMPONENT
 ***************************************/
 const UserSignInForm = (props) => {
-  if(localStorage.getItem('user')){
-    props.history.push('/user/account')
+  if(localStorage.getItem('isLoggedIn') === true){
+    props.history.push('/')
     window.location.reload();
   }
   return (

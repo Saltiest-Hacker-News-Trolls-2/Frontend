@@ -1,5 +1,6 @@
 /// external modules ///
 import React from 'react';
+import { axioDeleteFavorite } from '../actions';
 
 /***************************************
   COMPONENT
@@ -15,7 +16,14 @@ const UserAccount = (props) => {
             <h2>Your Account</h2>
           </header>
           <main>
-            {user.favorites.map(comment => (<p>{comment}</p>))}
+            {user.favorites.map(comment => {
+              console.log(comment)
+            return(
+              <div>
+                <p>{comment}</p>
+                <button onClick={axioDeleteFavorite(comment)}>unFavorite</button>
+              </div>
+            )})}
           </main>
           <footer></footer>
         </section>

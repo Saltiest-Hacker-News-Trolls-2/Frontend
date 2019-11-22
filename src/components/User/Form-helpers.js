@@ -82,7 +82,7 @@ export const partialSchemaShape = (names) => (filterObjectByKey (schemaShape , n
 ***************************************/
 export const handlePartialSubmit = (names) => (
   values ,
-  { props : { submit , handleSuccess , handleFailure } , setErrors , setSubmitting , resetForm }
+  { props : { submit } , setErrors , setSubmitting , resetForm }
 ) => {
   /// select values to submit ///
   let valuesToSubmit;
@@ -106,12 +106,7 @@ export const handlePartialSubmit = (names) => (
     if (response && response.errors === undefined) {
       console.log ('--- success! ---');
       console.log ('resetting form and redirecting...');
-
       resetForm ();
-
-      if (check.isFunction (handleSuccess)) {
-        handleSuccess (response);
-      };
     /// handle bad response ///
     } else {
       console.log ('--- failure! ---');
@@ -124,10 +119,6 @@ export const handlePartialSubmit = (names) => (
           'submit' : 'The server did not respond.',
         });
       }
-
-      if (check.isFunction (handleFailure)) {
-        handleFailure (response);
-      };
     }
   }
   catch (error) {

@@ -67,7 +67,9 @@ export const axioAddFavorite = (comment) => {
 
 export const axioDeleteFavorite = (comment) => (dispatch) => {
   let message = {};
-
+  console.log('function called')
+  console.log(getUser().token);
+  console.log(comment)
   axiosWithAuth ()
     .delete(webBaseURL + `/api/users/:${getUser().id}/favorites`, comment)
     .then((res) => {
