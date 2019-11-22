@@ -34,6 +34,7 @@ function App () {
         render={(props) => (
           <UserSignInForm {...props}
           submit={axioSubmitSignIn}
+          // handleSuccess={() => {props.history.push('/user/account');}}
           />
         )}
         />
@@ -42,6 +43,7 @@ function App () {
         render={(props) => (
           <UserSignUpForm {...props}
           submit={axioSubmitSignUp}
+          // handleSuccess={() => {props.history.push('/user/account');}}
           />
         )}
         />
