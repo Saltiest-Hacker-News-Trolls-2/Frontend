@@ -55,7 +55,7 @@ class Home extends React.Component {
               if(localStorage.isLoggedIn === 'true'){
                 console.log('logged in');
                 return(
-                  <div className='commenter-card'>
+                  <div className='commenter-card' key={comment.hacker} >
                     <h3>'{comment.comment}'<br/>Written By: {comment.hacker}</h3>
                     <h4>Rank: {comment.hacker_salt_ranking}</h4>
                     <button onClick={() => axioAddFavorite(comment)}>Favorite</button>
@@ -64,7 +64,7 @@ class Home extends React.Component {
               } else {
                 console.log('not logged in')
                 return(
-                  <div className='commenter-card'>
+                  <div className='commenter-card' key={comment.hacker} >
                     <h3>'{comment.comment}'<br/>Written By: {comment.hacker}</h3>
                     <h4>Rank: {comment.hacker_salt_ranking}</h4>
                   </div>
