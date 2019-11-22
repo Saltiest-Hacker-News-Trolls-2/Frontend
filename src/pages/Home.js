@@ -19,7 +19,7 @@ class Home extends React.Component {
   componentDidMount = () => {
     this.mounted = true;
     axios
-      .get(corsURL + dsURL)
+      .get(routes.CORS + routes.DS)
       .then(res => {
           let temp = [{}]
           let a = 0;
