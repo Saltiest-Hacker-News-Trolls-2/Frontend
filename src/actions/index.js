@@ -5,6 +5,12 @@ import axios from 'axios';
 /// internal modules ///
 import { handleAxiosError } from '../data/remote';
 
+/// urls ///
+const corsURL    = 'https://cors-anywhere.herokuapp.com/';
+const dsURL      = 'https://hackernewsapilambda.herokuapp.com/saltyuser/?format=json';
+const webBaseURL = 'https://only-salty-hackers.herokuapp.com';
+const hnBaseURL  = 'https://hacker-news.firebaseio.com';
+
 // ACTION TYPES
 export const SET_USER = 'SET_USER';
 export const LOG_OUT = 'LOG_OUT';
@@ -37,7 +43,7 @@ export const axioAddFavorite = (comment) => {
   let message = {};
 
   axiosWithAuth ()
-    .post(`https://only-salty-hackers.herokuapp.com/api/users/:${JSON.parse(localStorage.getItem('user')).id}/favorites`, comment)
+    .post(webBaseURL + `/api/users/:${JSON.parse(localStorage.getItem('user')).id}/favorites`, comment)
     .then((res) => {
       console.log ('--- success! ---');
       console.log (res);
@@ -63,7 +69,7 @@ export const axioDeleteFavorite = (comment) => (dispatch) => {
   let message = {};
 
   axiosWithAuth ()
-    .delete(`https://only-salty-hackers.herokuapp.com/api/users/:${getUser.id}/favorites`, comment)
+    .delete(webBaseURL + `/api/users/:${getUser.id}/favorites`, comment)
     .then((res) => {
       console.log ('--- success! ---');
       console.log (res);
@@ -90,7 +96,7 @@ export const axioSubmitSignIn = (credentials) => {
   let message = {};
 
   axiosWithAuth ()
-    .post(`https://only-salty-hackers.herokuapp.com/api/login`, credentials)
+    .post(webBaseURL + '/api/login', credentials)
     .then((res) => {
       console.log ('--- success! ---');
       console.log (res);
@@ -117,7 +123,7 @@ export const axioSubmitSignUp = (credentials) => {
   let message = {};
 
   axiosWithAuth ()
-    .post(`https://only-salty-hackers.herokuapp.com/api/register`, credentials)
+    .post(webBaseURL + '/api/register', credentials)
     .then((res) => {
       console.log ('--- success! ---');
       console.log (res);
@@ -144,7 +150,7 @@ export const axioGetSaltyUsers = () => {
   let message = {};
 
   axiosWithAuth ()
-    .get('https://cors-anywhere.herokuapp.com/' + 'https://hackernewsapilambda.herokuapp.com/saltyuser/?format=json')
+    .get(corsURL + dsURL)
     .then((res) => {
       console.log ('--- success! ---');
       console.log (res);
@@ -168,7 +174,7 @@ export const axioGetSaltyUsers = () => {
 
 export const axioGetHNUser = (user) => {
     axios
-        .get('https://cors-anywhere.herokuapp.com/' + `https://hacker-news.firebaseio.com/v0/item/${user}.json?print=pretty`)
+        .get(corsURL + hnBaseURL + `/v0/item/${user}.json?print=pretty`)
         .then(res => {
             localStorage.setItem('HNUser', res.data)
         })
@@ -179,7 +185,7 @@ export const axioGetHNUser = (user) => {
 
 export const axioGetHNComment = (id) => {
     axios
-        .get('https://cors-anywhere.herokuapp.com/' + `https://hacker-news.firebaseio.com/v0/item/${id}.json?print=pretty`)
+        .get(corsURL + hnBaseURL + `/v0/item/${id}.json?print=pretty`)
         .then(res => {
             localStorage.setItem('HNUserComment', res.data)
         })
