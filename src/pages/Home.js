@@ -57,24 +57,15 @@ class Home extends React.Component {
             <h2 id='homeh2'>Top 100 Saltiest Hackers</h2>
           </header>
           <main className='main-container'>
-            {this.state.comments.map(comment => {
-              if(isSignedIn ()){
-                return(
-                  <div className='commenter-card' key={comment.hacker} >
-                    <h3>'{comment.comment}'<br/>Written By: {comment.hacker}</h3>
-                    <h4>Rank: {comment.hacker_salt_ranking}</h4>
-                    <button onClick={() => axioAddFavorite(comment)}>Favorite</button>
-                  </div>
-                )
-              } else {
-                return(
-                  <div className='commenter-card' key={comment.hacker} >
-                    <h3>'{comment.comment}'<br/>Written By: {comment.hacker}</h3>
-                    <h4>Rank: {comment.hacker_salt_ranking}</h4>
-                  </div>
-                )
-              }
-            })}
+            {this.state.comments.map(comment => (
+              <div className='commenter-card' key={comment.hacker} >
+                <h3>'{comment.comment}'<br/>Written By: {comment.hacker}</h3>
+                <h4>Rank: {comment.hacker_salt_ranking}</h4>
+                {(isSignedIn ()) && (
+                  <button onClick={() => axioAddFavorite(comment)}>Favorite</button>
+                )}
+              </div>
+            ))}
           </main>
           <footer></footer>
         </section>
