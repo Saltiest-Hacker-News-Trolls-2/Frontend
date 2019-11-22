@@ -15,55 +15,102 @@ import '../styles/navbar.css';
 
 
 function NavBar (props) {
-  if (isSignedIn ()){
-    return (
-      <div className='nav-bar'>
-        <div className='logo-container'>
-          <h1 className="site-title">λ-Saltinator</h1>
-          <img className='logo-img' src={routes.WEB.logo} alt="salt shaker icon" />
-        </div>
-        <div className='nav-links'>
-          <NavLink className='nav-link' to={routes.WEB.fe.path.home}>
-            Home
-          </NavLink>
-          <a href={fullURL (routes.WEB.ui , 'home')}>
-            About
-          </a>
-          <NavLink to={routes.WEB.fe.path.user_account}>
+  return (
+    <div className='nav-bar'>
+      <div className='logo-container'>
+        <h1 className='site-title'>λ-Saltinator</h1>
+        <img
+        className='logo-img'
+        src={routes.WEB.logo}
+        alt='salt shaker icon'
+        />
+      </div>
+      <div className='nav-links'>
+        <NavLink
+        className='nav-link'
+        to={routes.WEB.fe.path.home}>
+          Home
+        </NavLink>
+        <a
+        href={fullURL (routes.WEB.ui , 'home')}>
+          About
+        </a>
+        { isSignedIn () ? (<>
+          <NavLink
+          to={routes.WEB.fe.path.user_account}>
             Account
           </NavLink>
-          <a href={routes.WEB.fe.path.home} className='logout' onClick={() => {
+          <a
+          className='logout'
+          href={routes.WEB.fe.path.home}
+          onClick={() => {
             props.logout()
           }}>
             Log Out
           </a>
-        </div>
-      </div>
-    )
-  } else {
-    return (
-      <div className='nav-bar'>
-        <div className='logo-container'>
-          <h1 className="site-title">λ-Saltinator</h1>
-          <img className='logo-img' src={routes.WEB.logo} alt="salt shaker icon" />
-        </div>
-        <div className='nav-links'>
-          <NavLink className='nav-link' to={routes.WEB.fe.path.home}>
-            Home
-          </NavLink>
-          <a href={fullURL (routes.WEB.ui , 'home')}>
-            About
-          </a>
-          <NavLink to={routes.WEB.fe.path.user_sign_in}>
+        </>) : (<>
+          <NavLink
+          to={routes.WEB.fe.path.user_sign_in}>
             Sign In
           </NavLink>
-          <NavLink to={routes.WEB.fe.path.user_sign_in}>
+          <NavLink
+          to={routes.WEB.fe.path.user_sign_up}>
             Sign Up
           </NavLink>
-        </div>
+        </>)
+        }
       </div>
-    )
-  }
+    </div>
+  );
+  // if (isSignedIn ()){
+  //   return (
+  //     <div className='nav-bar'>
+  //       <div className='logo-container'>
+  //         <h1 className='site-title'>λ-Saltinator</h1>
+  //         <img className='logo-img' src={routes.WEB.logo} alt='salt shaker icon' />
+  //       </div>
+  //       <div className='nav-links'>
+  //         <NavLink className='nav-link' to={routes.WEB.fe.path.home}>
+  //           Home
+  //         </NavLink>
+  //         <a href={fullURL (routes.WEB.ui , 'home')}>
+  //           About
+  //         </a>
+  //         <NavLink to={routes.WEB.fe.path.user_account}>
+  //           Account
+  //         </NavLink>
+  //         <a href={routes.WEB.fe.path.home} className='logout' onClick={() => {
+  //           props.logout()
+  //         }}>
+  //           Log Out
+  //         </a>
+  //       </div>
+  //     </div>
+  //   )
+  // } else {
+  //   return (
+  //     <div className='nav-bar'>
+  //       <div className='logo-container'>
+  //         <h1 className='site-title'>λ-Saltinator</h1>
+  //         <img className='logo-img' src={routes.WEB.logo} alt='salt shaker icon' />
+  //       </div>
+  //       <div className='nav-links'>
+  //         <NavLink className='nav-link' to={routes.WEB.fe.path.home}>
+  //           Home
+  //         </NavLink>
+  //         <a href={fullURL (routes.WEB.ui , 'home')}>
+  //           About
+  //         </a>
+  //         <NavLink to={routes.WEB.fe.path.user_sign_in}>
+  //           Sign In
+  //         </NavLink>
+  //         <NavLink to={routes.WEB.fe.path.user_sign_up}>
+  //           Sign Up
+  //         </NavLink>
+  //       </div>
+  //     </div>
+  //   )
+  // }
 }
 
 const mapStateToProps = state => {
