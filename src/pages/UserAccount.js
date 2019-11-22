@@ -1,6 +1,8 @@
 /// external modules ///
 import React from 'react';
-import { axioDeleteFavorite } from '../actions';
+import { axioDeleteFavorite, axioGetHNComment } from '../actions';
+
+import '../styles/account.css'
 
 /***************************************
   COMPONENT
@@ -11,22 +13,23 @@ const UserAccount = (props) => {
   if(user){
     if(user.favorites.length >= 1){
       return (
-        <section id='user-account' className='page'>
+        <div className='user-account'>
           <header>
             <h2>Your Account</h2>
           </header>
-          <main>
+          <main className='acc-main'>
             {user.favorites.map(comment => {
-              console.log(comment)
-            return(
-              <div>
-                <p>{comment}</p>
-                <button onClick={axioDeleteFavorite(comment)}>unFavorite</button>
-              </div>
-            )})}
+              return(
+                <div className='commenter-card'>
+                  <h3>'{comment.comment}'<br/>Written By: {comment.hacker}</h3>
+                  <h4>Rank: {comment.hacker_salt_ranking}</h4>
+                  <button onClick={axioDeleteFavorite(comment.id)}>unFavorite</button>
+                </div>
+              )
+              })}
           </main>
           <footer></footer>
-        </section>
+        </div>
       );
     } else {
       return(

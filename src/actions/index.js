@@ -43,7 +43,7 @@ export const axioAddFavorite = (item) => {
   let message = {};
 
   axiosWithAuth ()
-    .post(webBaseURL + `/api/users/:${getUser().id}/favorites`, {comment: item.id})
+    .post(webBaseURL + `/api/users/${getUser().id}/favorites`, {comment: item.id})
     .then((res) => {
       console.log ('--- success! ---');
       console.log (res);
@@ -51,7 +51,9 @@ export const axioAddFavorite = (item) => {
       message = res.data;
 
       console.log ('Adding favorite...');
-      localStorage.setItem(getUser().favorites, res.data);
+      let temp = getUser();
+      temp.favorites[temp.favorites.length] = item;
+      localStorage.setItem('user', JSON.stringify(temp));
     })
     .catch((err) => {
       console.log ('--- failure! ---');
@@ -69,7 +71,7 @@ export const axioDeleteFavorite = (item) => (dispatch) => {
   let message = {};
   console.log(item)
   axiosWithAuth ()
-    .delete(webBaseURL + `/api/users/:${getUser().id}/favorites`, {
+    .delete(webBaseURL + `/api/users/${getUser().id}/favorites`, {
       comment: item,
     })
     .then((res) => {
@@ -189,7 +191,8 @@ export const axioGetHNComment = (id) => {
     axios
         .get(corsURL + hnBaseURL + `/v0/item/${id}.json?print=pretty`)
         .then(res => {
-            localStorage.setItem('HNUserComment', res.data)
+          
         })
         .catch(er => console.log(er))
+
 }
