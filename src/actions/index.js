@@ -67,7 +67,9 @@ export const axioAddFavorite = (comment) => {
 
 export const axioDeleteFavorite = (comment) => (dispatch) => {
   let message = {};
-
+  console.log('function called')
+  console.log(getUser().token);
+  console.log(comment)
   axiosWithAuth ()
     .delete(webBaseURL + `/api/users/:${getUser().id}/favorites`, comment)
     .then((res) => {
@@ -95,7 +97,7 @@ export const axioDeleteFavorite = (comment) => (dispatch) => {
 export const axioSubmitSignIn = (credentials) => {
   let message = {};
 
-  axiosWithAuth ()
+  axios
     .post(webBaseURL + '/api/login', credentials)
     .then((res) => {
       console.log ('--- success! ---');
@@ -122,7 +124,7 @@ export const axioSubmitSignIn = (credentials) => {
 export const axioSubmitSignUp = (credentials) => {
   let message = {};
 
-  axiosWithAuth ()
+  axios
     .post(webBaseURL + '/api/register', credentials)
     .then((res) => {
       console.log ('--- success! ---');

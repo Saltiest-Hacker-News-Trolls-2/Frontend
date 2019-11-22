@@ -6,6 +6,7 @@
 @import url('../../styles/app-colors.css');
 
 .card.user-sign-up , .card.user-sign-in {
+  margin: 0 auto;
   width: var(--size-10-px);
 }
 
@@ -13,7 +14,7 @@ form , .form-item {
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: stretch;
 }
 
@@ -42,4 +43,9 @@ form , .form-item {
 .form-item-errors {
   color: var(--look-500);
   font-weight: bold;
+}
+
+h2{
+  color: black;
+  text-align: center;
 }

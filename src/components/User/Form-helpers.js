@@ -106,7 +106,7 @@ export const handlePartialSubmit = (names) => (
     if (response && response.errors === undefined) {
       console.log ('--- success! ---');
       console.log ('resetting form and redirecting...');
-
+      
       resetForm ();
 
       if (check.isFunction (handleSuccess)) {
