@@ -48,6 +48,7 @@ function App () {
         ) : (
           <UserSignInForm
             submit={axioSubmitSignIn}
+            handleSuccess={(history) => {history.push('/user/account');}}
           />
         )
       }</Route>
@@ -66,6 +67,7 @@ function App () {
         ) : (
           <UserSignUpForm
             submit={axioSubmitSignUp}
+            handleSuccess={(history) => {history.push('/user/account');}}
           />
         )
       }</Route>
