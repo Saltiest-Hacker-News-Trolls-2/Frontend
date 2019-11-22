@@ -1,5 +1,6 @@
 /// external modules ///
 import React from 'react';
+import { Redirect } from 'react-router-dom';
 import { withFormik , Form , Field } from 'formik';
 import * as Yup from 'yup';
 
@@ -22,10 +23,13 @@ import './styles.css';
   COMPONENT
 ***************************************/
 const UserSignInForm = (props) => {
-  // if (isSignedIn ()) {
-  //   props.history.push (routes.fe.ends.home);
-  //   window.location.reload ();
-  // }
+  // redirect if user is already signed in
+  if (isSignedIn ()) {
+    return (
+      <Redirect to={routes.here.FE.path.user_account}/>
+    );
+  }
+
   return (
     <Card className='user-sign-in t-to-b' col>
       <CardHead>
