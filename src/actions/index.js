@@ -39,11 +39,11 @@ export const setUser = () => (dispatch) => {
 /***AXIOS CALLS***/
 // SET USER'S FAVORITES FOR SERVER
 
-export const axioAddFavorite = (comment) => {
+export const axioAddFavorite = (item) => {
   let message = {};
 
   axiosWithAuth ()
-    .post(webBaseURL + `/api/users/:${getUser().id}/favorites`, comment)
+    .post(webBaseURL + `/api/users/:${getUser().id}/favorites`, {comment: item.id})
     .then((res) => {
       console.log ('--- success! ---');
       console.log (res);
@@ -65,13 +65,13 @@ export const axioAddFavorite = (comment) => {
 
 // DELETE A FAVORITE FROM THE LIST
 
-export const axioDeleteFavorite = (comment) => (dispatch) => {
+export const axioDeleteFavorite = (item) => (dispatch) => {
   let message = {};
-  console.log('function called')
-  console.log(getUser().token);
-  console.log(comment)
+  console.log(item)
   axiosWithAuth ()
-    .delete(webBaseURL + `/api/users/:${getUser().id}/favorites`, comment)
+    .delete(webBaseURL + `/api/users/:${getUser().id}/favorites`, {
+      comment: item,
+    })
     .then((res) => {
       console.log ('--- success! ---');
       console.log (res);
@@ -79,7 +79,7 @@ export const axioDeleteFavorite = (comment) => (dispatch) => {
       message = res.data;
 
       console.log ('Deleting favorite...');
-      dispatch({ type : DELETE_FAV , payload : comment });
+      dispatch({ type : DELETE_FAV , payload : item });
       // localStorage.setItem(getUser().favorites, getUser().favorites.filter((fav) => fav !== res));
     })
     .catch((err) => {
