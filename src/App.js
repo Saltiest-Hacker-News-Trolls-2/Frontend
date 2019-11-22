@@ -1,10 +1,8 @@
 /// external modules ///
 import React from 'react';
-import { Route } from "react-router-dom";
+import { Route , Redirect } from "react-router-dom";
 
 /// internal modules ///
-import { routes } from './data/app-routes';
-import { isSignedIn } from './data/app-states';
 import Home from './pages/Home';
 import UserAccount from './pages/UserAccount';
 import PrivateRoute from './components/PrivateRoute';
@@ -35,7 +33,7 @@ function App () {
         exact path='/user/account'
         component={UserAccount}
         />
-        <Route
+        {/* <Route
         exact path='/user/sign-in'
         render={(props) => (
           <UserSignInForm {...props}
@@ -43,8 +41,17 @@ function App () {
           // handleSuccess={() => {props.history.push('/user/account');}}
           />
         )}
-        />
-        <Route
+        />*/}
+        <Route exact path='/user/sign-in'>{
+          isSignedIn () ? (
+            <UserSignInForm
+              submit={axioSubmitSignIn}
+            />
+          ) : (
+            <Redirect to='/user/account'/>
+          )
+        }</Route>
+        {/* <Route
         exact path='/user/sign-up'
         render={(props) => (
           <UserSignUpForm {...props}
@@ -52,7 +59,16 @@ function App () {
           // handleSuccess={() => {props.history.push('/user/account');}}
           />
         )}
-        />
+        /> */}
+        <Route exact path='/user/sign-up'>{
+          isSignedIn () ? (
+            <UserSignUpForm
+              submit={axioSubmitSignUp}
+            />
+          ) : (
+            <Redirect to='/user/account'/>
+          )
+        }</Route>
     </div>
   );
 }
