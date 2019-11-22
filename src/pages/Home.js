@@ -2,9 +2,11 @@
 import React from 'react';
 import axios from 'axios'
 
-/// helpers ///
-const corsURL = 'https://cors-anywhere.herokuapp.com/';
-const dataURL = 'https://hackernewsapilambda.herokuapp.com/saltyuser/?format=json';
+/// urls ///
+const corsURL    = 'https://cors-anywhere.herokuapp.com/';
+const dsURL      = 'https://hackernewsapilambda.herokuapp.com/saltyuser/?format=json';
+// const webBaseURL = 'https://only-salty-hackers.herokuapp.com';
+// const hnBaseURL  = 'https://hacker-news.firebaseio.com';
 
 /***************************************
   COMPONENT
@@ -16,7 +18,7 @@ class Home extends React.Component {
 
   componentDidMount = () => {
     axios
-        .get(corsURL + dataURL)
+        .get(corsURL + dsURL)
         .then(res => {
             let temp = [{}]
             for(let i = 0; i < 50; i++){
