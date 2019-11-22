@@ -3,8 +3,8 @@ import React from 'react';
 import { Route, Redirect } from 'react-router';
 
 /// app data ///
-import { routes } from './data/app-routes';
-import { isSignedIn } from './data/app-states';
+import { routes } from '../data/app-routes';
+import { isSignedIn } from '../data/app-states';
 
 ///
 const isAuth = isSignedIn;
