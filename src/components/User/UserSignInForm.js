@@ -12,8 +12,8 @@ import CardBody from '../generics/cards/CardBody';
 import FormItem from '../generics/forms/FormItem';
 
 /// app data ///
-import { routes } from './data/app-routes';
-import { isSignedIn } from './data/app-states';
+import { routes } from '../../data/app-routes';
+import { isSignedIn } from '../../data/app-states';
 
 /// styles ///
 import './styles.css';

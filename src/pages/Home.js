@@ -5,8 +5,8 @@ import '../styles/home.css'
 import { axioAddFavorite } from '../actions';
 
 /// app data ///
-import { routes } from './data/app-routes';
-import { isSignedIn } from './data/app-states';
+import { routes } from '../data/app-routes';
+import { isSignedIn } from '../data/app-states';
 
 /***************************************
   COMPONENT

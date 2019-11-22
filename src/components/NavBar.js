@@ -7,8 +7,8 @@ import { connect } from 'react-redux'
 import { logout } from '../actions'
 
 /// app data ///
-import { routes , fullURL } from './data/app-routes';
-import { isSignedIn } from './data/app-states';
+import { routes , fullURL } from '../data/app-routes';
+import { isSignedIn } from '../data/app-states';
 
 /// styles ///
 import '../styles/navbar.css';
