@@ -1,5 +1,6 @@
+/// external imports ///
 import React from 'react';
-import  { Route, Redirect } from 'react-router';
+import { Route, Redirect } from 'react-router';
 
 const isAuth = () => {
     return localStorage.getItem('isLoggedIn') ? true : false;
