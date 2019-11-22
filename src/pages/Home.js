@@ -43,7 +43,13 @@ class Home extends React.Component {
   render(){
     console.log('here');
     console.log(this.state.comments);
-    console.log(isSignedIn ());
+
+    if(isSignedIn ()){
+      console.log('logged in');
+    } else {
+      console.log('not logged in'); 
+    }
+
     if(this.state.comments.length >= 1){
       return (
         <section id='home' className='page'>
@@ -53,7 +59,6 @@ class Home extends React.Component {
           <main className='main-container'>
             {this.state.comments.map(comment => {
               if(isSignedIn ()){
-                console.log('logged in');
                 return(
                   <div className='commenter-card' key={comment.hacker} >
                     <h3>'{comment.comment}'<br/>Written By: {comment.hacker}</h3>
@@ -62,7 +67,6 @@ class Home extends React.Component {
                   </div>
                 )
               } else {
-                console.log('not logged in')
                 return(
                   <div className='commenter-card' key={comment.hacker} >
                     <h3>'{comment.comment}'<br/>Written By: {comment.hacker}</h3>
