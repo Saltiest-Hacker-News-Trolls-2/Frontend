@@ -7,7 +7,7 @@ import { connect } from 'react-redux'
 import { logout } from '../actions'
 
 /// app data ///
-import { routes } from './data/app-routes';
+import { routes , fullURL } from './data/app-routes';
 import { isSignedIn } from './data/app-states';
 
 /// styles ///
@@ -20,19 +20,19 @@ function NavBar (props) {
             <div className='nav-bar'>
                 <div className='logo-container'>
                     <h1 className="site-title">λ-Saltinator</h1>
-                    <img className='logo-img' src="https://d33wubrfki0l68.cloudfront.net/df68882fa6d8db24b2afa5558fbe428ac2b52c05/8008e/assets/salt.svg" alt="salt shaker icon" />
+                    <img className='logo-img' src={routes.WEB.logo} alt="salt shaker icon" />
                 </div>
                 <div className='nav-links'>
-                    <NavLink className='nav-link' to='/'>
+                    <NavLink className='nav-link' to={routes.WEB.fe.path.home}>
                         Home
                     </NavLink>
-                    <a href='https://saltinator.netlify.com/'>
+                    <a href={fullURL (routes.WEB.ui , 'home')}>
                         About
                     </a>
-                    <NavLink to='/user/account'>
+                    <NavLink to={routes.WEB.fe.path.user_account}>
                         Account
                     </NavLink>
-                    <a href='/' className='logout' onClick={() => {
+                    <a href={routes.WEB.fe.path.home} className='logout' onClick={() => {
                         props.logout()
                     }}>
                         Log Out
@@ -45,19 +45,19 @@ function NavBar (props) {
             <div className='nav-bar'>
                 <div className='logo-container'>
                     <h1 className="site-title">λ-Saltinator</h1>
-                    <img className='logo-img' src="https://d33wubrfki0l68.cloudfront.net/df68882fa6d8db24b2afa5558fbe428ac2b52c05/8008e/assets/salt.svg" alt="salt shaker icon" />
+                    <img className='logo-img' src={routes.WEB.logo} alt="salt shaker icon" />
                 </div>
                 <div className='nav-links'>
-                    <NavLink className='nav-link' to='/'>
+                    <NavLink className='nav-link' to={routes.WEB.fe.path.home}>
                         Home
                     </NavLink>
-                    <a href='https://saltinator.netlify.com/'>
+                    <a href={fullURL (routes.WEB.ui , 'home')}>
                         About
                     </a>
-                    <NavLink to='/user/sign-in'>
+                    <NavLink to={routes.WEB.fe.path.user_sign_in}>
                         Sign In
                     </NavLink>
-                    <NavLink to='/user/sign-up'>
+                    <NavLink to={routes.WEB.fe.path.user_sign_in}>
                         Sign Up
                     </NavLink>
                 </div>
