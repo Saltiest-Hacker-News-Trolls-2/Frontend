@@ -22,11 +22,36 @@ function App () {
   return (
     <div className='App'>
       <NavBar />
-        <Route exact path='/' component={Home}/>
-        <Route exact path='/about' component={About}/>
-        <PrivateRoute exact path='/user/account' component={UserAccount}/>
-        <Route exact path='/user/sign-in' render={props => <UserSignInForm {...props} submit={axioSubmitSignIn}/>}/>
-        <Route exact path='/user/sign-up' render={props => <UserSignUpForm {...props} submit={axioSubmitSignUp}/>}/>
+        <Route
+        exact path='/'
+        component={Home}
+        />
+        <Route
+        exact path='/about'
+        component={About}
+        />
+        <PrivateRoute
+        exact path='/user/account'
+        component={UserAccount}
+        />
+        <Route
+        exact path='/user/sign-in'
+        render={(props) => (
+          <UserSignInForm {...props}
+          submit={axioSubmitSignIn}
+          handleSuccess={() => {props.history.push('/user/account');}}
+          />
+        )}
+        />
+        <Route
+        exact path='/user/sign-up'
+        render={(props) => (
+          <UserSignUpForm {...props}
+          submit={axioSubmitSignUp}
+          handleSuccess={() => {props.history.push('/user/account');}}
+          />
+        )}
+        />
     </div>
   );
 }

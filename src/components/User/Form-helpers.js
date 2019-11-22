@@ -111,7 +111,6 @@ export const handlePartialSubmit = (names) => (
 
       if (check.isFunction (handleSuccess)) {
         handleSuccess (response);
-        // window.history.push('/user/account');
       };
     /// handle bad response ///
     } else {
