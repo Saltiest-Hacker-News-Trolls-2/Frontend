@@ -5,6 +5,9 @@ import axios from 'axios';
 /// internal modules ///
 import { handleAxiosError } from '../data/remote';
 
+/// app data ///
+import { routes } from '../data/app-routes';
+
 /// urls ///
 const corsURL    = 'https://cors-anywhere.herokuapp.com/';
 const dsURL      = 'https://hackernewsapilambda.herokuapp.com/saltyuser/?format=json';
