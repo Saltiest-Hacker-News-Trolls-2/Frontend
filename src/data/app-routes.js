@@ -2,11 +2,9 @@
 import check from '../utils/is-type';
 
 export const routes = {
-  CORS : 'https://cors-anywhere.herokuapp.com/',
-  DS   : 'https://hackernewsapilambda.herokuapp.com/saltyuser/?format=json',
-  WEB  : {
+  here : {
     logo : 'https://d33wubrfki0l68.cloudfront.net/df68882fa6d8db24b2afa5558fbe428ac2b52c05/8008e/assets/salt.svg',
-    be : {
+    BE : {
       base : 'https://only-salty-hackers.herokuapp.com',
       path : {
         user_sign_up : '/api/register',
@@ -15,7 +13,7 @@ export const routes = {
         favorites    : (id) => (`/api/users/${id}/favorites`),
       }
     },
-    fe : {
+    FE : {
       base : 'https://frontend.saltiest-hacker-news-trolls-2.now.sh',
       path : {
         home  : '/',
@@ -25,20 +23,24 @@ export const routes = {
         user_account : '/user/account',
       }
     },
-    ui : {
+    UI : {
       base : 'https://saltinator.netlify.com',
       path : {
         home  : '/',
         about : '/about',
       }
-    }
+    },
+    DS : 'https://hackernewsapilambda.herokuapp.com/saltyuser/?format=json',
   },
-  HN   : {
-    base : 'https://hacker-news.firebaseio.com',
-    path : {
-      item : (id) => (`/v0/item/${id}`),
-      user : (id) => (`/v0/user/${id}`),
-    }
+  there : {
+    CORS : 'https://cors-anywhere.herokuapp.com/',
+    HN : {
+      base : 'https://hacker-news.firebaseio.com',
+      path : {
+        item : (id) => (`/v0/item/${id}`),
+        user : (id) => (`/v0/user/${id}`),
+      }
+    },
   },
 };
 
