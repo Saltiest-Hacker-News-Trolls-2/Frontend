@@ -25,50 +25,50 @@ function App () {
   return (
     <div className='App'>
       <NavBar />
-        <Route
-        exact path='/'
-        component={Home}
+      <Route
+      exact path='/'
+      component={Home}
+      />
+      <PrivateRoute
+      exact path='/user/account'
+      component={UserAccount}
+      />
+      {/* <Route
+      exact path='/user/sign-in'
+      render={(props) => (
+        <UserSignInForm {...props}
+        submit={axioSubmitSignIn}
+        // handleSuccess={() => {props.history.push('/user/account');}}
         />
-        <PrivateRoute
-        exact path='/user/account'
-        component={UserAccount}
+      )}
+      />*/}
+      <Route exact path='/user/sign-in'>{
+        isSignedIn () ? (
+          <Redirect to='/user/account'/>
+        ) : (
+          <UserSignInForm
+            submit={axioSubmitSignIn}
+          />
+        )
+      }</Route>
+      {/* <Route
+      exact path='/user/sign-up'
+      render={(props) => (
+        <UserSignUpForm {...props}
+        submit={axioSubmitSignUp}
+        // handleSuccess={() => {props.history.push('/user/account');}}
         />
-        {/* <Route
-        exact path='/user/sign-in'
-        render={(props) => (
-          <UserSignInForm {...props}
-          submit={axioSubmitSignIn}
-          // handleSuccess={() => {props.history.push('/user/account');}}
+      )}
+      /> */}
+      <Route exact path='/user/sign-up'>{
+        isSignedIn () ? (
+          <Redirect to='/user/account'/>
+        ) : (
+          <UserSignUpForm
+            submit={axioSubmitSignUp}
           />
-        )}
-        />*/}
-        <Route exact path='/user/sign-in'>{
-          isSignedIn () ? (
-            <UserSignInForm
-              submit={axioSubmitSignIn}
-            />
-          ) : (
-            <Redirect to='/user/account'/>
-          )
-        }</Route>
-        {/* <Route
-        exact path='/user/sign-up'
-        render={(props) => (
-          <UserSignUpForm {...props}
-          submit={axioSubmitSignUp}
-          // handleSuccess={() => {props.history.push('/user/account');}}
-          />
-        )}
-        /> */}
-        <Route exact path='/user/sign-up'>{
-          isSignedIn () ? (
-            <UserSignUpForm
-              submit={axioSubmitSignUp}
-            />
-          ) : (
-            <Redirect to='/user/account'/>
-          )
-        }</Route>
+        )
+      }</Route>
     </div>
   );
 }
