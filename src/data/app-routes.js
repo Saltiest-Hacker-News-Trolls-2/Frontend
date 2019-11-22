@@ -44,7 +44,12 @@ export const routes = {
 
 export const fullURL = (domain , point , ...args) => {
   let base = domain.base;
-  let path = domain.ends[point];
+  let path = '';
+
+  // add point if it's a String
+  if (check.isString (point)) {
+    path = domain.ends[point];
+  }
 
   // use args in endpoint
   if (check.isFunction (path)) {
