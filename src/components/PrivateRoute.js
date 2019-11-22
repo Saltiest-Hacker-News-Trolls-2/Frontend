@@ -10,21 +10,21 @@ import { isSignedIn } from './data/app-states';
 const isAuth = isSignedIn;
 
 export default function PrivateRoute({ children, ...rest }) {
-    return(
-        <Route
-            {...rest}
-            render={({ location }) => 
-                isAuth() ? (
-                    children
-                ) : (
-                    <Redirect
-                        to={{
-                            pathname: routes.here.FE.path.user_sign_in,
-                            state: { from: location }
-                        }}
-                    />
-                )
-            }
+  return (
+    <Route
+    {...rest}
+    render={({ location }) => (
+      isAuth() ? (
+        children
+      ) : (
+        <Redirect
+        to={{
+          pathname: routes.here.FE.path.user_sign_in,
+          state: { from: location }
+        }}
         />
-    )
+      )
+    )}
+    />
+  );
 }
