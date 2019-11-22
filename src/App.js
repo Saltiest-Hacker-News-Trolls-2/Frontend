@@ -13,6 +13,10 @@ import UserSignUpForm from './components/User/UserSignUpForm';
 import NavBar from './components/NavBar';
 import { axioSubmitSignIn, axioSubmitSignUp } from './actions';
 
+/// app data ///
+import { routes } from './data/app-routes';
+import { isSignedIn } from './data/app-states';
+
 /// styles ///
 import './styles/App.css';
 

@@ -4,7 +4,7 @@ import axios from 'axios'
 import '../styles/home.css'
 import { axioAddFavorite } from '../actions';
 
-/// internal modules ///
+/// app data ///
 import { routes } from './data/app-routes';
 import { isSignedIn } from './data/app-states';
 
