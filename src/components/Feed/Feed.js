@@ -16,7 +16,7 @@ const Feed = ({
   -- the component to use for feed items */
   component = Card,
   /* items :: Array
-  -- array of props feed items */
+  -- array of props for feed items */
   items = [],
   /* rest of props */
   ...rest

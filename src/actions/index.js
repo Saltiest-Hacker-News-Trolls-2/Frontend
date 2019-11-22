@@ -1,103 +1,180 @@
-import axiosWithAuth from '../components/AxiosWithAuth'
-import axios from 'axios'
-import { hashHistory } from 'react-router-dom'
+/// external modules ///
+import axiosWithAuth from '../components/AxiosWithAuth';
+import axios from 'axios';
+
+/// internal modules ///
+import { handleAxiosError } from '../data/remote';
+
+/// urls ///
+const corsURL    = 'https://cors-anywhere.herokuapp.com/';
+const dsURL      = 'https://hackernewsapilambda.herokuapp.com/saltyuser/?format=json';
+const webBaseURL = 'https://only-salty-hackers.herokuapp.com';
+const hnBaseURL  = 'https://hacker-news.firebaseio.com';
 
 // ACTION TYPES
-export const SET_USER = 'SET_USER'
-export const LOG_OUT = 'LOG_OUT'
-export const DELETE_FAV = 'DELETE_FAV'
-export const ADD_FAV = 'ADD_FAV'
-export const GET_COMMENTS = 'GET_COMMENTS'
-
+export const SET_USER = 'SET_USER';
+export const LOG_OUT = 'LOG_OUT';
+export const DELETE_FAV = 'DELETE_FAV';
+export const ADD_FAV = 'ADD_FAV';
+export const GET_COMMENTS = 'GET_COMMENTS';
 
 // ACTION FUNCTIONS
 /***USER FUNCTIONS***/
 // LOGOUT USER
-export const logout = () => dispatch => {
-    localStorage.clear()
-    window.location.reload();
-    dispatch({type:LOG_OUT})
-}
+export const logout = () => (dispatch) => {
+  localStorage.clear();
+  window.location.reload();
+  dispatch({ type : LOG_OUT });
+};
+
 // GETTING USER DATA FROM LOCAL STORAGE
 export const getUser = () => {
     return JSON.parse(localStorage.getItem('user'))
-}
+};
 
 // SETTING USER DATA TO LOCAL STORAGE
-export const setUser = () => dispatch => {
-    dispatch({type: SET_USER, payload: JSON.parse(localStorage.setItem('user'))})
-}
+export const setUser = () => (dispatch) => {
+  dispatch({ type : SET_USER , payload : JSON.parse(localStorage.setItem('user')) });;
+};
 /***AXIOS CALLS***/
 // SET USER'S FAVORITES FOR SERVER
 
-export const axioAddFav = (comment) => {
-    axiosWithAuth()
-        .post(`https://only-salty-hackers.herokuapp.com/api/users/:${JSON.parse(localStorage.getItem('user')).id}/favorites`, comment)
-        .then(res => {
-            console.log(res)
-            localStorage.setItem(getUser().favorites, res.data)
-        })
-        .catch(er => console.log(er.response.data.errors))
-}
+export const axioAddFavorite = (comment) => {
+  let message = {};
+
+  axiosWithAuth ()
+    .post(webBaseURL + `/api/users/:${getUser().id}/favorites`, comment)
+    .then((res) => {
+      console.log ('--- success! ---');
+      console.log (res);
+
+      message = res.data;
+
+      console.log ('Adding favorite...');
+      localStorage.setItem(getUser().favorites, res.data);
+    })
+    .catch((err) => {
+      console.log ('--- failure! ---');
+      console.log (err);
+
+      message = handleAxiosError (err);
+    });
+
+  return (message);
+};
 
 // DELETE A FAVORITE FROM THE LIST
 
-export const axioDeleteFavorite = (comment) => dispatch => {
-    axiosWithAuth()
-        .delete(`https://only-salty-hackers.herokuapp.com/api/users/:${getUser.id}/favorites`, comment)
-        .then(res => {
-            console.log('Fav deleted', res)
-            dispatch({type: DELETE_FAV, payload: comment})
-        })
-        .catch(er => console.log(er.response.data.errors))
-}
+export const axioDeleteFavorite = (comment) => (dispatch) => {
+  let message = {};
+
+  axiosWithAuth ()
+    .delete(webBaseURL + `/api/users/:${getUser().id}/favorites`, comment)
+    .then((res) => {
+      console.log ('--- success! ---');
+      console.log (res);
+
+      message = res.data;
+
+      console.log ('Deleting favorite...');
+      dispatch({ type : DELETE_FAV , payload : comment });
+      // localStorage.setItem(getUser().favorites, getUser().favorites.filter((fav) => fav !== res));
+    })
+    .catch((err) => {
+      console.log ('--- failure! ---');
+      console.log (err);
+
+      message = handleAxiosError (err);
+    });
+
+  return (message);
+};
 
 // SUBMIT ACCOUNT INFO TO SERVER
 
-export const axioLoginSubmit = (credentials) => {
-    axios
-        .post(`https://only-salty-hackers.herokuapp.com/api/login`, credentials)
-        .then(res => {
-            console.log(res.data)
-            localStorage.setItem('user', JSON.stringify(res.data))
-            localStorage.setItem('isLoggedIn', true)
-        })
-        .catch(er => console.log(er.response.data.errors))
-}
+export const axioSubmitSignIn = (credentials) => {
+  let message = {};
+
+  axiosWithAuth ()
+    .post(webBaseURL + '/api/login', credentials)
+    .then((res) => {
+      console.log ('--- success! ---');
+      console.log (res);
+
+      message = res.data;
+
+      console.log ('Signing in...');
+      localStorage.setItem('user', JSON.stringify(res.data));
+      localStorage.setItem('isLoggedIn', true);
+    })
+    .catch((err) => {
+      console.log ('--- failure! ---');
+      console.log (err);
+
+      message = handleAxiosError (err);
+    });
+
+  return (message);
+};
 
 // SUBMIT ACCOUNT INFO TO SERVER FOR CREATING A NEW ACCOUNT
 
-export const axioSignUpSubmit = (credentials) => {
-    axios
-        .post(`https://only-salty-hackers.herokuapp.com/api/register`, credentials)
-        .then(res => {
-            console.log(res.data)
-            localStorage.setItem('user', JSON.stringify(res.data))
-            localStorage.setItem('isLoggedIn', true)
-        })
-        .catch(er => console.log(er.response.data.errors))
-}
+export const axioSubmitSignUp = (credentials) => {
+  let message = {};
 
-// GET LIST OF SALTY COMMENT
+  axiosWithAuth ()
+    .post(webBaseURL + '/api/register', credentials)
+    .then((res) => {
+      console.log ('--- success! ---');
+      console.log (res);
 
-export const axioGetComments = () => {
-    axios
-        .get('https://cors-anywhere.herokuapp.com/' + 'https://hackernewsapilambda.herokuapp.com/saltyuser/?format=json')
-        .then(res => {
-            let temp = [{}]
-            for(let i = 0; i < 50; i++){
-              temp[i] = res.data[i]
-            }
-            this.setState({ comments: temp })
-        })
-        .catch(er => console.log(er))
-}
+      message = res.data;
+
+      console.log ('Signing up...');
+      localStorage.setItem('user', JSON.stringify(res.data));
+      localStorage.setItem('isLoggedIn', true);
+    })
+    .catch((err) => {
+      console.log ('--- failure! ---');
+      console.log (err);
+
+      message = handleAxiosError (err);
+    });
+
+  return (message);
+};
+
+// GET LIST OF SALTY USERS
+
+export const axioGetSaltyUsers = () => {
+  let message = {};
+
+  axiosWithAuth ()
+    .get(corsURL + dsURL)
+    .then((res) => {
+      console.log ('--- success! ---');
+      console.log (res);
+
+      message = res.data;
+      
+      console.log ('Saving salty users...');
+      this.setState({ 'saltyUsers' : res.slice (0 , 50) });
+    })
+    .catch((err) => {
+      console.log ('--- failure! ---');
+      console.log (err);
+
+      message = handleAxiosError (err);
+    });
+
+  return (message);
+};
 
 // GET USER DATA FROM HACKER NEWS API
 
 export const axioGetHNUser = (user) => {
     axios
-        .get('https://cors-anywhere.herokuapp.com/' + `https://hacker-news.firebaseio.com/v0/item/${user}.json?print=pretty`)
+        .get(corsURL + hnBaseURL + `/v0/item/${user}.json?print=pretty`)
         .then(res => {
             localStorage.setItem('HNUser', res.data)
         })
@@ -108,7 +185,7 @@ export const axioGetHNUser = (user) => {
 
 export const axioGetHNComment = (id) => {
     axios
-        .get('https://cors-anywhere.herokuapp.com/' + `https://hacker-news.firebaseio.com/v0/item/${id}.json?print=pretty`)
+        .get(corsURL + hnBaseURL + `/v0/item/${id}.json?print=pretty`)
         .then(res => {
             localStorage.setItem('HNUserComment', res.data)
         })

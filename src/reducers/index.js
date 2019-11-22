@@ -1,4 +1,10 @@
-import { SET_USER, LOG_OUT, DELETE_FAV, ADD_FAV, GET_COMMENTS} from '../actions'
+import {
+    SET_USER,
+    LOG_OUT,
+    DELETE_FAV,
+    ADD_FAV,
+    /* GET_COMMENTS */
+} from '../actions';
 
 const initialState = {
     user: '',

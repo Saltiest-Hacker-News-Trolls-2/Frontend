@@ -1,6 +1,6 @@
 /// external modules ///
 import React from 'react';
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import { Route } from "react-router-dom";
 
 /// internal modules ///
 import Home from './pages/Home';
@@ -10,7 +10,7 @@ import PrivateRoute from './components/PrivateRoute';
 import UserSignInForm from './components/User/UserSignInForm';
 import UserSignUpForm from './components/User/UserSignUpForm';
 import NavBar from './components/NavBar'
-import { axioLoginSubmit, axioSignUpSubmit } from './actions'
+import { axioSubmitSignIn, axioSubmitSignUp } from './actions'
 
 /// styles ///
 import './styles/App.css';
@@ -22,12 +22,39 @@ function App () {
   return (
     <div className='App'>
       <NavBar />
-      <Route exact path='/' component={Home} />
-      <Route exact path='/about' component={About} />
-      <PrivateRoute exact path='/user/account' component={UserAccount}/>
-      <Route exact path='/user/sign-in' render={props => <UserSignInForm {...props} submit={axioLoginSubmit}/>} />
-      <Route exact path='/user/sign-up' render={props => <UserSignUpForm {...props} submit={axioSignUpSubmit}/>} />
+        <Route
+        exact path='/'
+        component={Home}
+        />
+        <Route
+        exact path='/about'
+        component={About}
+        />
+        <PrivateRoute
+        exact path='/user/account'
+        component={UserAccount}
+        />
+        <Route
+        exact path='/user/sign-in'
+        render={(props) => (
+          <UserSignInForm {...props}
+          submit={axioSubmitSignIn}
+          handleSuccess={() => {props.history.push('/user/account');}}
+          />
+        )}
+        />
+        <Route
+        exact path='/user/sign-up'
+        render={(props) => (
+          <UserSignUpForm {...props}
+          submit={axioSubmitSignUp}
+          handleSuccess={() => {props.history.push('/user/account');}}
+          />
+        )}
+        />
     </div>
   );
 }
+
+/**************************************/
 export default App;

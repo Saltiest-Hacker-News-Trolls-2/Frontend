@@ -6,6 +6,7 @@
 import * as Yup from 'yup';
 
 /// internal modules ///
+import check from '../../utils/is-type';
 import { filterObjectByKey } from '../../utils/Object-helpers';
 
 /***************************************
@@ -81,7 +82,7 @@ export const partialSchemaShape = (names) => (filterObjectByKey (schemaShape , n
 ***************************************/
 export const handlePartialSubmit = (names) => (
   values ,
-  { props : { submit } , setErrors , setSubmitting , resetForm }
+  { props : { submit , handleSuccess , handleFailure } , setErrors , setSubmitting , resetForm }
 ) => {
   /// select values to submit ///
   let valuesToSubmit;
@@ -95,27 +96,38 @@ export const handlePartialSubmit = (names) => (
     console.log ('--- submitting... ---');
     console.log (valuesToSubmit);
     //
-    submit (valuesToSubmit)
-    const response = JSON.parse(localStorage.getItem('user'));
+    const response = submit (valuesToSubmit);
+    // const response = JSON.parse(localStorage.getItem('user'));
     console.log ('--- server responded with... ---');
-    console.log(localStorage)
+    console.log (localStorage);
     console.log (response);
     //
-    if (response) {
-      if (response.errors === undefined) {
-        console.log ('--- success! ---');
-        console.log ('resetting form and redirecting...');
-        resetForm ();
-      } else {
-        console.log ('--- failure! ---');
-        console.log ('setting error messages...');
-        setErrors (response.errors);
-      }
+    /// handle good response ///
+    if (response && response.errors === undefined) {
+      console.log ('--- success! ---');
+      console.log ('resetting form and redirecting...');
+
+      resetForm ();
+
+      if (check.isFunction (handleSuccess)) {
+        handleSuccess (response);
+      };
+    /// handle bad response ///
     } else {
-      setErrors ({
-        'submit' : 'The server did not respond.',
-      });
-      throw (new Error ('Submission did not return a response from the server.'));
+      console.log ('--- failure! ---');
+      console.log ('setting error messages...');
+
+      if (response && response.errors !== undefined) {
+        setErrors (response.errors);
+      } else {
+        setErrors ({
+          'submit' : 'The server did not respond.',
+        });
+      }
+
+      if (check.isFunction (handleFailure)) {
+        handleFailure (response);
+      };
     }
   }
   catch (error) {
