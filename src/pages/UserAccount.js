@@ -19,12 +19,18 @@ const UserAccount = (props) => {
           </header>
           <main className='acc-main'>
             {user.favorites.map(comment => {
-              return(
-                <div className='commenter-card'>
-                  <h3>'{comment.comment}'<br/>Written By: {comment.hacker}</h3>
-                  <button onClick={axioDeleteFavorite(comment.id)}>unFavorite</button>
-                </div>
-              )
+              if(comment.hacker){
+                return(
+                  <div className='commenter-card'>
+                    <h3>'{comment.comment}'<br/>Written By: {comment.hacker}</h3>
+                    <button onClick={axioDeleteFavorite(comment.id)}>unFavorite</button>
+                  </div>
+                )
+              }else{
+                return(
+                  <div></div>
+                )
+              }
               })}
           </main>
           <footer></footer>
