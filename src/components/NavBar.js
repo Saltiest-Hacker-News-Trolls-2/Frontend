@@ -28,21 +28,21 @@ function NavBar (props) {
       <div className='nav-links'>
         <NavLink
         className='nav-link'
-        to={routes.WEB.fe.path.home}>
+        to={routes.here.FE.path.home}>
           Home
         </NavLink>
         <a
-        href={fullURL (routes.WEB.ui , 'home')}>
+        href={fullURL (routes.here.UI , 'home')}>
           About
         </a>
         { isSignedIn () ? (<>
           <NavLink
-          to={routes.WEB.fe.path.user_account}>
+          to={routes.here.FE.path.user_account}>
             Account
           </NavLink>
           <a
           className='logout'
-          href={routes.WEB.fe.path.home}
+          href={routes.here.FE.path.home}
           onClick={() => {
             props.logout()
           }}>
@@ -50,11 +50,11 @@ function NavBar (props) {
           </a>
         </>) : (<>
           <NavLink
-          to={routes.WEB.fe.path.user_sign_in}>
+          to={routes.here.FE.path.user_sign_in}>
             Sign In
           </NavLink>
           <NavLink
-          to={routes.WEB.fe.path.user_sign_up}>
+          to={routes.here.FE.path.user_sign_up}>
             Sign Up
           </NavLink>
         </>)
@@ -70,16 +70,16 @@ function NavBar (props) {
   //         <img className='logo-img' src={routes.WEB.logo} alt='salt shaker icon' />
   //       </div>
   //       <div className='nav-links'>
-  //         <NavLink className='nav-link' to={routes.WEB.fe.path.home}>
+  //         <NavLink className='nav-link' to={routes.here.FE.path.home}>
   //           Home
   //         </NavLink>
-  //         <a href={fullURL (routes.WEB.ui , 'home')}>
+  //         <a href={fullURL (routes.here.UI , 'home')}>
   //           About
   //         </a>
-  //         <NavLink to={routes.WEB.fe.path.user_account}>
+  //         <NavLink to={routes.here.FE.path.user_account}>
   //           Account
   //         </NavLink>
-  //         <a href={routes.WEB.fe.path.home} className='logout' onClick={() => {
+  //         <a href={routes.here.FE.path.home} className='logout' onClick={() => {
   //           props.logout()
   //         }}>
   //           Log Out
@@ -95,16 +95,16 @@ function NavBar (props) {
   //         <img className='logo-img' src={routes.WEB.logo} alt='salt shaker icon' />
   //       </div>
   //       <div className='nav-links'>
-  //         <NavLink className='nav-link' to={routes.WEB.fe.path.home}>
+  //         <NavLink className='nav-link' to={routes.here.FE.path.home}>
   //           Home
   //         </NavLink>
-  //         <a href={fullURL (routes.WEB.ui , 'home')}>
+  //         <a href={fullURL (routes.here.UI , 'home')}>
   //           About
   //         </a>
-  //         <NavLink to={routes.WEB.fe.path.user_sign_in}>
+  //         <NavLink to={routes.here.FE.path.user_sign_in}>
   //           Sign In
   //         </NavLink>
-  //         <NavLink to={routes.WEB.fe.path.user_sign_up}>
+  //         <NavLink to={routes.here.FE.path.user_sign_up}>
   //           Sign Up
   //         </NavLink>
   //       </div>
