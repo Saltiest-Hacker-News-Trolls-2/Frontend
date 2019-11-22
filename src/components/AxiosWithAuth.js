@@ -1,10 +1,12 @@
 import axios from 'axios';
+import { getUser } from '../actions';
 
 export const axiosWithAuth = () => {
     return axios.create({
         headers: {
-            authorization: localStorage.getItem('token')
-        }
+            'Content-Type': 'application/json',
+            'Authorization': `${getUser().token}`,
+        },
     });
 };
 

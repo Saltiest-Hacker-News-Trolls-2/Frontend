@@ -4,7 +4,6 @@ import { Route } from "react-router-dom";
 
 /// internal modules ///
 import Home from './pages/Home';
-import About from './pages/About';
 import UserAccount from './pages/UserAccount';
 import PrivateRoute from './components/PrivateRoute';
 import UserSignInForm from './components/User/UserSignInForm';
@@ -26,10 +25,6 @@ function App () {
         exact path='/'
         component={Home}
         />
-        <Route
-        exact path='/about'
-        component={About}
-        />
         <PrivateRoute
         exact path='/user/account'
         component={UserAccount}
@@ -39,7 +34,6 @@ function App () {
         render={(props) => (
           <UserSignInForm {...props}
           submit={axioSubmitSignIn}
-          handleSuccess={() => {props.history.push('/user/account');}}
           />
         )}
         />
@@ -48,7 +42,6 @@ function App () {
         render={(props) => (
           <UserSignUpForm {...props}
           submit={axioSubmitSignUp}
-          handleSuccess={() => {props.history.push('/user/account');}}
           />
         )}
         />
