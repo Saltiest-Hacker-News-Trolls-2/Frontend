@@ -43,7 +43,7 @@ export const axioAddFavorite = (comment) => {
   let message = {};
 
   axiosWithAuth ()
-    .post(webBaseURL + `/api/users/:${JSON.parse(localStorage.getItem('user')).id}/favorites`, comment)
+    .post(webBaseURL + `/api/users/:${getUser().id}/favorites`, comment)
     .then((res) => {
       console.log ('--- success! ---');
       console.log (res);
@@ -69,7 +69,7 @@ export const axioDeleteFavorite = (comment) => (dispatch) => {
   let message = {};
 
   axiosWithAuth ()
-    .delete(webBaseURL + `/api/users/:${getUser.id}/favorites`, comment)
+    .delete(webBaseURL + `/api/users/:${getUser().id}/favorites`, comment)
     .then((res) => {
       console.log ('--- success! ---');
       console.log (res);
