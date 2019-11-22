@@ -14,9 +14,9 @@ import { isSignedIn } from './data/app-states';
 import '../styles/navbar.css';
 
 
-function NavBar(props) {
-    if(localStorage.isLoggedIn === 'true'){
-        return(
+function NavBar (props) {
+    if (isSignedIn ()){
+        return (
             <div className='nav-bar'>
                 <div className='logo-container'>
                     <h1 className="site-title">λ-Saltinator</h1>
@@ -41,7 +41,7 @@ function NavBar(props) {
             </div>
         )
     } else {
-        return(
+        return (
             <div className='nav-bar'>
                 <div className='logo-container'>
                     <h1 className="site-title">λ-Saltinator</h1>
@@ -68,8 +68,8 @@ function NavBar(props) {
 
 const mapStateToProps = state => {
     return {
-      user: state.user
+        user: state.user
     }
 }
-  
+
 export default connect(mapStateToProps, { logout })(NavBar);
