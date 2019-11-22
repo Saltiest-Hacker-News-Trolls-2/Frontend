@@ -22,9 +22,9 @@ import './styles.css';
   COMPONENT
 ***************************************/
 const UserSignInForm = (props) => {
-  if(localStorage.getItem('isLoggedIn') === true){
-    props.history.push('/')
-    window.location.reload();
+  if (isSignedIn ()) {
+    props.history.push (routes.fe.ends.home);
+    window.location.reload ();
   }
   return (
     <Card className='user-sign-in t-to-b' col>
