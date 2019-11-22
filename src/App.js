@@ -8,8 +8,8 @@ import UserAccount from './pages/UserAccount';
 import PrivateRoute from './components/PrivateRoute';
 import UserSignInForm from './components/User/UserSignInForm';
 import UserSignUpForm from './components/User/UserSignUpForm';
-import NavBar from './components/NavBar'
-import { axioSubmitSignIn, axioSubmitSignUp } from './actions'
+import NavBar from './components/NavBar';
+import { axioSubmitSignIn, axioSubmitSignUp } from './actions';
 
 /// styles ///
 import './styles/App.css';
