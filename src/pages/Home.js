@@ -4,12 +4,9 @@ import axios from 'axios'
 import '../styles/home.css'
 import { axioAddFavorite } from '../actions';
 
-/// urls ///
-const corsURL    = 'https://cors-anywhere.herokuapp.com/';
-const dsURL      = 'https://hackernewsapilambda.herokuapp.com/saltyuser/?format=json';
-// const webBaseURL = 'https://only-salty-hackers.herokuapp.com';
-// const hnBaseURL  = 'https://hacker-news.firebaseio.com';
-
+/// internal modules ///
+import { routes } from './data/app-routes';
+import { isSignedIn } from './data/app-states';
 
 /***************************************
   COMPONENT
