@@ -13,7 +13,7 @@ import { isSignedIn } from '../data/app-states';
 /// styles ///
 import '../styles/navbar.css';
 
-
+///
 function NavBar (props) {
   return (
     <div className='nav-bar'>
