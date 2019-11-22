@@ -22,10 +22,10 @@ import './styles.css';
   COMPONENT
 ***************************************/
 const UserSignInForm = (props) => {
-  if (isSignedIn ()) {
-    props.history.push (routes.fe.ends.home);
-    window.location.reload ();
-  }
+  // if (isSignedIn ()) {
+  //   props.history.push (routes.fe.ends.home);
+  //   window.location.reload ();
+  // }
   return (
     <Card className='user-sign-in t-to-b' col>
       <CardHead>
