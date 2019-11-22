@@ -26,48 +26,48 @@ function App () {
     <div className='App'>
       <NavBar />
       <Route
-      exact path='/'
+      exact path={routes.here.FE.path.home}
       component={Home}
       />
       <PrivateRoute
-      exact path='/user/account'
+      exact path={routes.here.FE.path.user_account}
       component={UserAccount}
       />
       {/* <Route
-      exact path='/user/sign-in'
+      exact path={routes.here.FE.path.user_sign_in}
       render={(props) => (
         <UserSignInForm {...props}
         submit={axioSubmitSignIn}
-        // handleSuccess={() => {props.history.push('/user/account');}}
+        // handleSuccess={() => {props.history.push(routes.here.FE.path.user_account);}}
         />
       )}
       />*/}
-      <Route exact path='/user/sign-in'>{
+      <Route exact path={routes.here.FE.path.user_sign_in}>{
         isSignedIn () ? (
-          <Redirect to='/user/account'/>
+          <Redirect to={routes.here.FE.path.user_account}/>
         ) : (
           <UserSignInForm
             submit={axioSubmitSignIn}
-            handleSuccess={(history) => {history.push('/user/account');}}
+            handleSuccess={(history) => {history.push(routes.here.FE.path.user_account);}}
           />
         )
       }</Route>
       {/* <Route
-      exact path='/user/sign-up'
+      exact path={routes.here.FE.path.user_sign_up}
       render={(props) => (
         <UserSignUpForm {...props}
         submit={axioSubmitSignUp}
-        // handleSuccess={() => {props.history.push('/user/account');}}
+        // handleSuccess={() => {props.history.push(routes.here.FE.path.user_account);}}
         />
       )}
       /> */}
-      <Route exact path='/user/sign-up'>{
+      <Route exact path={routes.here.FE.path.user_sign_up}>{
         isSignedIn () ? (
-          <Redirect to='/user/account'/>
+          <Redirect to={routes.here.FE.path.user_account}/>
         ) : (
           <UserSignUpForm
             submit={axioSubmitSignUp}
-            handleSuccess={(history) => {history.push('/user/account');}}
+            handleSuccess={(history) => {history.push(routes.here.FE.path.user_account);}}
           />
         )
       }</Route>

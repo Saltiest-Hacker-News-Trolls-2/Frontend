@@ -21,7 +21,7 @@ function NavBar (props) {
         <h1 className='site-title'>λ-Saltinator</h1>
         <img
         className='logo-img'
-        src={routes.WEB.logo}
+        src={routes.here.logo}
         alt='salt shaker icon'
         />
       </div>
@@ -67,7 +67,7 @@ function NavBar (props) {
   //     <div className='nav-bar'>
   //       <div className='logo-container'>
   //         <h1 className='site-title'>λ-Saltinator</h1>
-  //         <img className='logo-img' src={routes.WEB.logo} alt='salt shaker icon' />
+  //         <img className='logo-img' src={routes.here.logo} alt='salt shaker icon' />
   //       </div>
   //       <div className='nav-links'>
   //         <NavLink className='nav-link' to={routes.here.FE.path.home}>
@@ -92,7 +92,7 @@ function NavBar (props) {
   //     <div className='nav-bar'>
   //       <div className='logo-container'>
   //         <h1 className='site-title'>λ-Saltinator</h1>
-  //         <img className='logo-img' src={routes.WEB.logo} alt='salt shaker icon' />
+  //         <img className='logo-img' src={routes.here.logo} alt='salt shaker icon' />
   //       </div>
   //       <div className='nav-links'>
   //         <NavLink className='nav-link' to={routes.here.FE.path.home}>
