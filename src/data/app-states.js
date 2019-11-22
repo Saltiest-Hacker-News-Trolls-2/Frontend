@@ -1,4 +1,4 @@
-export const isLoggedIn = () => (localStorage.getItem ('isLoggedIn') === true);
+export const isLoggedIn = () => (window.localStorage.getItem ('isLoggedIn') === 'true');
 export const isSignedIn = isLoggedIn;
 
 export const isLoggedOut = () => (!isLoggedIn ());
