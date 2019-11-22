@@ -2,6 +2,7 @@ export const routes = {
   CORS : 'https://cors-anywhere.herokuapp.com/',
   DS   : 'https://hackernewsapilambda.herokuapp.com/saltyuser/?format=json',
   WEB  : {
+    logo : 'https://d33wubrfki0l68.cloudfront.net/df68882fa6d8db24b2afa5558fbe428ac2b52c05/8008e/assets/salt.svg',
     be : {
       base : 'https://only-salty-hackers.herokuapp.com',
       ends : {
