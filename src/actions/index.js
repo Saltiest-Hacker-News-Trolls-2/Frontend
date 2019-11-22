@@ -1,5 +1,6 @@
 /// external modules ///
 import axiosWithAuth from '../components/AxiosWithAuth';
+import axios from 'axios';
 
 /// internal modules ///
 import { handleAxiosError } from '../data/remote';
@@ -19,9 +20,10 @@ export const logout = () => (dispatch) => {
   window.location.reload();
   dispatch({ type : LOG_OUT });
 };
+
 // GETTING USER DATA FROM LOCAL STORAGE
-export const getUser = () => (dispatch) => {
-  dispatch({ type : SET_USER , payload : JSON.parse(localStorage.getItem('user')) });
+export const getUser = () => {
+    return JSON.parse(localStorage.getItem('user'))
 };
 
 // SETTING USER DATA TO LOCAL STORAGE
@@ -35,7 +37,7 @@ export const axioAddFavorite = (comment) => {
   let message = {};
 
   axiosWithAuth ()
-    .post(`https://only-salty-hackers.herokuapp.com/api/users/:${getUser.id}/favorites`, comment)
+    .post(`https://only-salty-hackers.herokuapp.com/api/users/:${JSON.parse(localStorage.getItem('user')).id}/favorites`, comment)
     .then((res) => {
       console.log ('--- success! ---');
       console.log (res);
@@ -142,12 +144,15 @@ export const axioGetSaltyUsers = () => {
   let message = {};
 
   axiosWithAuth ()
-    .get('https://hackernewsapilambda.herokuapp.com/saltyuser/?format=json')
+    .get('https://cors-anywhere.herokuapp.com/' + 'https://hackernewsapilambda.herokuapp.com/saltyuser/?format=json')
     .then((res) => {
       console.log ('--- success! ---');
       console.log (res);
 
       message = res.data;
+      
+      console.log ('Saving salty users...');
+      this.setState({ 'saltyUsers' : res.slice (0 , 50) });
     })
     .catch((err) => {
       console.log ('--- failure! ---');
@@ -158,3 +163,25 @@ export const axioGetSaltyUsers = () => {
 
   return (message);
 };
+
+// GET USER DATA FROM HACKER NEWS API
+
+export const axioGetHNUser = (user) => {
+    axios
+        .get('https://cors-anywhere.herokuapp.com/' + `https://hacker-news.firebaseio.com/v0/item/${user}.json?print=pretty`)
+        .then(res => {
+            localStorage.setItem('HNUser', res.data)
+        })
+        .catch(er => console.log(er))
+}
+
+// GET COMMENT DATA FROM HACKER NEWS API
+
+export const axioGetHNComment = (id) => {
+    axios
+        .get('https://cors-anywhere.herokuapp.com/' + `https://hacker-news.firebaseio.com/v0/item/${id}.json?print=pretty`)
+        .then(res => {
+            localStorage.setItem('HNUserComment', res.data)
+        })
+        .catch(er => console.log(er))
+}
