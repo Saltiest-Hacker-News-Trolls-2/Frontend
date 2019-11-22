@@ -50,7 +50,7 @@ export const fullURL = (domain , point , ...args) => {
     return (domain);
   }
   // compose url if domain looks right
-  else if (check.isObject (domain) && check.isString (domain.base)) {
+  else if (domain && check.isString (domain.base)) {
     let base = domain.base;
     let path = '';
 
