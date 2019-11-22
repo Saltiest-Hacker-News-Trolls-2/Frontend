@@ -44,9 +44,7 @@ class Home extends React.Component {
     this.mounted = false;
   }
   render(){
-    console.log('here')
-    console.log(this.state.comments)
-    console.log(localStorage.getItem('isLoggedIn'))
+    console.log(localStorage)
     if(this.state.comments.length >= 1){
       return (
         <section id='home' className='page'>
@@ -56,7 +54,6 @@ class Home extends React.Component {
           <main className='main-container'>
             {this.state.comments.map(comment => {
               if(localStorage.isLoggedIn === 'true'){
-                console.log('logged in');
                 return(
                   <div className='commenter-card'>
                     <h3>'{comment.comment}'<br/>Written By: {comment.hacker}</h3>
@@ -65,7 +62,6 @@ class Home extends React.Component {
                   </div>
                 )
               } else {
-                console.log('not logged')
                 return(
                   <div className='commenter-card'>
                     <h3>'{comment.comment}'<br/>Written By: {comment.hacker}</h3>

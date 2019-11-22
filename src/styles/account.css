@@ -1,0 +1,11 @@
+.user-account{
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.acc-main{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
