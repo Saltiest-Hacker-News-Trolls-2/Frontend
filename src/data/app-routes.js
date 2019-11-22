@@ -8,7 +8,7 @@ export const routes = {
     logo : 'https://d33wubrfki0l68.cloudfront.net/df68882fa6d8db24b2afa5558fbe428ac2b52c05/8008e/assets/salt.svg',
     be : {
       base : 'https://only-salty-hackers.herokuapp.com',
-      ends : {
+      path : {
         user_sign_up : '/api/register',
         user_sign_in : '/api/login',
         users        : (id) => (`/api/users/${id}`),
@@ -17,7 +17,7 @@ export const routes = {
     },
     fe : {
       base : 'https://frontend.saltiest-hacker-news-trolls-2.now.sh',
-      ends : {
+      path : {
         home  : '/',
         about : '/about',
         user_sign_up : '/user/sign-up',
@@ -27,7 +27,7 @@ export const routes = {
     },
     ui : {
       base : 'https://saltinator.netlify.com',
-      ends : {
+      path : {
         home  : '/',
         about : '/about',
       }
@@ -35,7 +35,7 @@ export const routes = {
   },
   HN   : {
     base : 'https://hacker-news.firebaseio.com',
-    ends : {
+    path : {
       item : (id) => (`/v0/item/${id}`),
       user : (id) => (`/v0/user/${id}`),
     }
@@ -48,7 +48,7 @@ export const fullURL = (domain , point , ...args) => {
 
   // add point if it's a String
   if (check.isString (point)) {
-    path = domain.ends[point];
+    path = domain.path[point];
   }
 
   // use args in endpoint
