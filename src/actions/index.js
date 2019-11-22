@@ -8,12 +8,6 @@ import { handleAxiosError } from '../data/remote';
 /// app data ///
 import { routes } from '../data/app-routes';
 
-/// urls ///
-const corsURL    = 'https://cors-anywhere.herokuapp.com/';
-const dsURL      = 'https://hackernewsapilambda.herokuapp.com/saltyuser/?format=json';
-const webBaseURL = 'https://only-salty-hackers.herokuapp.com';
-const hnBaseURL  = 'https://hacker-news.firebaseio.com';
-
 // ACTION TYPES
 export const SET_USER = 'SET_USER';
 export const LOG_OUT = 'LOG_OUT';
@@ -46,7 +40,7 @@ export const axioAddFavorite = (comment) => {
   let message = {};
 
   axiosWithAuth ()
-    .post(webBaseURL + `/api/users/:${getUser().id}/favorites`, comment)
+    .post(routes.here.BE.base + `/api/users/:${getUser().id}/favorites`, comment)
     .then((res) => {
       console.log ('--- success! ---');
       console.log (res);
@@ -74,7 +68,7 @@ export const axioDeleteFavorite = (comment) => (dispatch) => {
   console.log(getUser().token);
   console.log(comment)
   axiosWithAuth ()
-    .delete(webBaseURL + `/api/users/:${getUser().id}/favorites`, comment)
+    .delete(routes.here.BE.base + `/api/users/:${getUser().id}/favorites`, comment)
     .then((res) => {
       console.log ('--- success! ---');
       console.log (res);
@@ -101,7 +95,7 @@ export const axioSubmitSignIn = (credentials) => {
   let message = {};
 
   axios
-    .post(webBaseURL + '/api/login', credentials)
+    .post(routes.here.BE.base + '/api/login', credentials)
     .then((res) => {
       console.log ('--- success! ---');
       console.log (res);
@@ -128,7 +122,7 @@ export const axioSubmitSignUp = (credentials) => {
   let message = {};
 
   axios
-    .post(webBaseURL + '/api/register', credentials)
+    .post(routes.here.BE.base + '/api/register', credentials)
     .then((res) => {
       console.log ('--- success! ---');
       console.log (res);
@@ -155,7 +149,7 @@ export const axioGetSaltyUsers = () => {
   let message = {};
 
   axiosWithAuth ()
-    .get(corsURL + dsURL)
+    .get(routes.there.CORS + routes.here.DS)
     .then((res) => {
       console.log ('--- success! ---');
       console.log (res);
@@ -179,7 +173,7 @@ export const axioGetSaltyUsers = () => {
 
 export const axioGetHNUser = (user) => {
     axios
-        .get(corsURL + hnBaseURL + `/v0/item/${user}.json?print=pretty`)
+        .get(routes.there.CORS + routes.there.HN.base + `/v0/item/${user}.json?print=pretty`)
         .then(res => {
             localStorage.setItem('HNUser', res.data)
         })
@@ -190,7 +184,7 @@ export const axioGetHNUser = (user) => {
 
 export const axioGetHNComment = (id) => {
     axios
-        .get(corsURL + hnBaseURL + `/v0/item/${id}.json?print=pretty`)
+        .get(routes.there.CORS + routes.there.HN.base + `/v0/item/${id}.json?print=pretty`)
         .then(res => {
             localStorage.setItem('HNUserComment', res.data)
         })
